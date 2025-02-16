@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <title>{{ $title ?? 'App IMB' }}</title>
+        <title>{{ $title ?? 'App PBG' }}</title>
         <link href="{{asset('images/favicon.ico')}}" rel="icon">
         <link href="{{asset('assets/img/apple-touch-icon.png')}}" rel="apple-touch-icon">
       

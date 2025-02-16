@@ -4,7 +4,7 @@
         <ol class="breadcrumb mb-4">
             <li class="breadcrumb-item active">Dashboard
                 @if ($role ==1 || $role ==2)
-                    Penerbitan IMB
+                    Penerbitan PBG
                 @endif
             </li>
         </ol>

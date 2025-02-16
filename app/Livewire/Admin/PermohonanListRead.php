@@ -12,6 +12,7 @@ use Livewire\WithPagination;
 class PermohonanListRead extends Component
 {
     use WithPagination,LivewireAlert;
+    public $app_title = "Permohonan PBG";
     protected $paginationTheme = 'bootstrap';
 
     
