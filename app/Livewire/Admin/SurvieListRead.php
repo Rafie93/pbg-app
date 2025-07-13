@@ -30,7 +30,7 @@ class SurvieListRead extends Component
     }
     public function render()
     {
-        $survie = Survie::orderBy('foto_survie','asc')
+        $survie = Survie::latest()
             ->orderBy('created_at','desc')
             ->when($this->label == "Pemeriksaan",function($q){
                 $q->where('petugas_id',$this->petugas_id);

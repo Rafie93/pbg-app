@@ -23,30 +23,60 @@
 @endpush
 <div>
     <div class="container-fluid px-4">
-        <h1 class="mt-4">Survie</h1>
+        <h1 class="mt-4">Survei</h1>
         <ol class="breadcrumb mb-4">
-            <li class="breadcrumb-item"><a href="{{route('survie.list')}}">Survie</a></li>
-            <li class="breadcrumb-item active">Tambah {{$label}} Survie</li>
+            <li class="breadcrumb-item"><a href="{{route('survie.list')}}">Survei</a></li>
+            <li class="breadcrumb-item active">Tambah {{$label}} Survei</li>
         </ol>
       
         <div class="card mb-4">
            
             <div class="card-body">
               <form method="POST" enctype="multipart/form-data">
-                   
+                <div class="form-group row">
+                    <label  class="col-sm-2 col-form-label">Jenis *</label>
+                    <div class="col-sm-10">
+                      @if ($label=="Penugasan")
+                          <select id="jenis" wire:change="changeValue"
+                               class="form-control" wire:model="jenis">
+                              <option value="">Pilih Jenis</option>
+                              <option value="PBG">PBG</option>
+                              <option value="Reklame">Reklame</option>
+                              
+                          </select>
+                    @else
+                        <input type="text" class="form-control" value="{{$jenis}}" disabled>
+                        <input type="hidden" wire:model="jenis" value="{{$jenis}}">
+                      @endif
+                      @error('jenis')
+                          <span class="text-danger"><i>{{$message}}</i></span>   
+                      @enderror
+                    </div>
+                  </div>
                 <div class="form-group row">
                   <label  class="col-sm-2 col-form-label">Nomor Registrasi *</label>
                   <div class="col-sm-10">
                     @if ($label=="Penugasan")
-                    <div wire:ignore>
+                  
+                        @if ($jenis=="PBG")
                         <select id="permohonanimb_id"
-                             class="form-control select2" wire:model="permohonanimb_id">
+                        class="form-control " wire:model="permohonanimb_id" wire:change="getPermohonan">
                             <option value="">Pilih Nomor Registrasi</option>
-                            @foreach ($option_permohonan as $row)
-                                <option value="{{$row->id}}">{{$row->nomor.' | '.$row->pemohon->nama}}</option>
-                            @endforeach
+                               @foreach ($option_permohonan as $row)
+                                   <option value="{{$row->id}}">{{$row->nomor.' | '.$row->pemohon->nama}}</option>
+                               @endforeach
+                          </select>
+                        @elseif($jenis=="Reklame")
+                        <select id="permohonanimb_id"
+                        class="form-control " wire:model="permohonanimb_id" wire:change="getPermohonan">
+                            <option value="">Pilih Nomor Registrasi</option>
+                           
+                               @foreach ($option_permohonan_reklame as $row)
+                                   <option value="{{$row->id}}">{{$row->nomor.' | '.$row->pemohon->nama}}</option>
+                               @endforeach
                         </select>
-                    </div>
+                        @endif
+                       
                     @else
                         <input type="text" class="form-control" value="{{$permohonans->nomor}}" disabled>
                         <input type="hidden" wire:model="permohonanimb_id" value="{{$permohonans->id}}">
@@ -68,15 +98,28 @@
                                 <td>No HP</td>
                                 <td>: {{$permohonans ? $permohonans->pemohon->no_hp : ''}}</td>
                             </tr>
-                            <tr>
-                                <td>Bangunan</td>
-                                <td>: {{$permohonans ? $permohonans->fungsibangunan->nama.', '.
-                                $permohonans->jenisbangunan->nama : '' }} </td>
-                            </tr>
-                            <tr>
-                                <td>Luas Bangunan</td>
-                                <td>: {{$permohonans ? $permohonans->luas_bangunan : '' }} m2</td>
-                            </tr>
+                            @if ($jenis=="PBG")
+                                <tr>
+                                    <td>Bangunan</td>
+                                    <td>: {{$permohonans ? $permohonans->fungsibangunan->nama.', '.
+                                    $permohonans->jenisbangunan->nama : '' }} </td>
+                                </tr>
+                                <tr>
+                                    <td>Luas Bangunan</td>
+                                    <td>: {{$permohonans ? $permohonans->luas_bangunan : '' }} m2</td>
+                                </tr>
+                            @else
+                                <tr>
+                                    <td>Jenis Reklame</td>
+                                    <td>: {{$permohonans ? $permohonans->jenis_reklame.', '.
+                                    $permohonans->ukuran : '' }} </td>
+                                </tr>
+                                <tr>
+                                    <td>Teks</td>
+                                    <td>: {{$permohonans ? $permohonans->teks_reklame : '' }} </td>
+                                </tr>
+                            @endif
+                            
                             <tr>
                                 <td>Alamat</td>
                                 <td>: {{$permohonans ? $permohonans->alamat.', '. $permohonans->village().', '.$permohonans->district() : '' }}</td>
@@ -124,7 +167,7 @@
                     {{-- CEK LIST MANGKRAK, KOSONG, MIRING --}}
                     <div class="form-group
                     row">
-                        <label  class="col-sm-2 col-form-label">Kondisi Bangunan *</label>
+                        <label  class="col-sm-2 col-form-label">Kondisi  *</label>
                         <div class="col-sm-10">
                             <div class="form-check
                             form-check-inline">

@@ -2,17 +2,17 @@
     <div class="container-fluid px-4">
         <h1 class="mt-4">Survie</h1>
         <ol class="breadcrumb mb-4">
-            <li class="breadcrumb-item active">{{$label}} Survie</li>
+            <li class="breadcrumb-item active">{{$label}} Survei</li>
         </ol>
       
         <div class="card mb-4">
             <div class="card-header">
                 <i class="fas fa-table me-1"></i>
-                Data Survie
+                Data Survei
             </div>
             <div class="card-body">
                 @if ($label =="Penugasan")
-                    <a href="{{route('survie.create')}}" class="btn btn-primary">+ Tambah {{$label}} Survie</a>
+                    <a href="{{route('survie.create')}}" class="btn btn-primary">+ Tambah {{$label}} Survei</a>
                     <br/>
                 @endif
             
@@ -42,8 +42,9 @@
                                     {{$row->alamat}}
                                 </td>
                                 <td>
-                                    {{$row->fungsibangunan->nama}},
-                                    {{$row->jenisbangunan->nama}}
+                                    {{$row->jenis=="Reklame" ? $row->jenis_bangunan : $row->jenisbangunan->nama}},
+
+                                    {{$row->jenis=="Reklame" ? $row->permohonanreklame->ukuran.' m' : $row->fungsibangunan->nama }}
                                     
                                 </td>
                                 <td align="center">

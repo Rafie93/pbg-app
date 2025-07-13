@@ -8,11 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class PenerbitanImb extends Model
 {
     use HasFactory;
-    protected $table = 'penerbitan_imb';
+    protected $table = 'penerbitan';
     protected $fillable = [
-        'nomor_imb',
-        'permohonanimb_id',
+        'nomor',
+        'jenis',
+        'permohonan_id',
         'tanggal_penerbitan',
+        'tanggal_kadaluarsa',
         'penanda_tangan',
         'jabatan_penanda_tangan',
         'nip_penanda_tangan'
@@ -20,6 +22,10 @@ class PenerbitanImb extends Model
 
     public function permohonan()
     {
-        return $this->belongsTo(Permohonanimb::class, 'permohonanimb_id');
+        return $this->belongsTo(Permohonanimb::class, 'permohonan_id');
+    }
+    public function permohonanreklame()
+    {
+        return $this->belongsTo(Reklame::class, 'permohonan_id');
     }
 }

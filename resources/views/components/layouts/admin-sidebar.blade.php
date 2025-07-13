@@ -16,11 +16,15 @@
             </a>
             <a class="nav-link {{request()->segment(1)== 'survie' ? 'active' : ''}} " href="{{route('survie.list')}}">
                 <div class="sb-nav-link-icon"><i class="fas fa-book"></i></div>
-                Survie
+                Survei
             </a>
             <a class="nav-link {{request()->segment(1)== 'penerbitan-imb' ? 'active' : ''}} " href="{{route('penerbitan.list')}}">
                 <div class="sb-nav-link-icon"><i class="fas fa-book"></i></div>
-                Peneribitan PBG
+                Penerbitan
+            </a>
+            <a class="nav-link {{request()->segment(1)== 'sebaran' ? 'active' : ''}} " href="{{route('peta')}}">
+                <div class="sb-nav-link-icon"><i class="fas fa-book"></i></div>
+               Sebaran Lokasi
             </a>
         
             <div class="sb-sidenav-menu-heading">LAPORAN</div>
@@ -35,17 +39,23 @@
             <div class="collapse {{request()->segment(1)== 'laporan' ? 'show' : ''}}" id="collapsePagesLaporan" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
                 <nav class="sb-sidenav-menu-nested nav">
                     <a class="nav-link {{request()->segment(2)== 'laporan-pengajuan' ? 'active' : ''}}" 
-                        href="{{route('laporan.pengajuan')}}">Laporan Pengajuan</a>
+                        href="{{route('laporan.pengajuan')}}">Laporan Pengajuan PBG</a>
+                    <a class="nav-link {{request()->segment(2)== 'laporan-pengajuan' ? 'active' : ''}}" 
+                            href="{{route('laporan.pengajuan')}}">Laporan Pengajuan Reklame</a>
                     <a class="nav-link {{request()->segment(2)== 'laporan-retribusi' ? 'active' : ''}}" 
                         href="{{route('laporan.retribusi')}}">Laporan Retribusi</a>
                     <a class="nav-link {{request()->segment(2)== 'laporan-survie' ? 'active' : ''}}" 
-                        href="{{route('laporan.survie')}}">Laporan Survie Bangunan</a>
+                        href="{{route('laporan.survie')}}">Laporan Survie</a>
                     <a class="nav-link {{request()->segment(2)== 'laporan-penerbitan-imb' ? 'active' : ''}}" 
                         href="{{route('laporan.penerbitan')}}">Laporan Penerbitan</a>
                     <a class="nav-link {{request()->segment(2)== 'rekap-survie' ? 'active' : ''}}" 
-                        href="{{route('rekap.survie')}}">Rekapitulasi Survie Bangunan</a>
+                        href="{{route('rekap.survie')}}">Laporan Perizinan</a>
+                    <a class="nav-link {{request()->segment(2)== 'rekap-survie' ? 'active' : ''}}" 
+                            href="{{route('rekap.survie')}}">Rekapitulasi Survie Bangunan</a>
                     <a class="nav-link {{request()->segment(2)== 'rekap-pembayaran' ? 'active' : ''}}" 
                         href="{{route('rekap.pembayaran')}}">Rekapitulasi Pembayaran</a>
+                        <a class="nav-link {{request()->segment(2)== 'rekap-survie' ? 'active' : ''}}" 
+                            href="{{route('rekap.survie')}}">Rekapitulasi Perizinan Reklame</a>    
                 </nav>
             
             </div>
@@ -64,6 +74,8 @@
                     <a class="nav-link {{request()->segment(2)== 'jenis-bangunan' ? 'active' : ''}}" href="{{route('master.jenis-bangunan')}}">Jenis Bangunan</a>
                     <a class="nav-link {{request()->segment(2)== 'fungsi' ? 'active' : ''}}" href="{{route('master.fungsi')}}">Fungsi Bangunan</a>
                     <a class="nav-link {{request()->segment(2)== 'petugas' ? 'active' : ''}}" href="{{route('master.petugas')}}">Petugas</a>
+                    <a class="nav-link {{request()->segment(2)== 'tarif' ? 'active' : ''}}" href="{{route('master.tarif')}}">Tarif Retribusi PBG</a>
+                    <a class="nav-link {{request()->segment(2)== 'tarif-reklame' ? 'active' : ''}}" href="{{route('master.tarif-reklame')}}">Tarif Reklame</a>
 
                 </nav>
             

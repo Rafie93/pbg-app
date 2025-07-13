@@ -6,40 +6,30 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 
-class Permohonanimb extends Model
+class Reklame extends Model
 {
     use HasFactory;
-    protected $table = 'permohonan';
+    protected $table = 'reklame';
     protected $fillable = [
         "nomor",
-        "tanggal_permohonan",
         "pemohon_id",
-        "jenis_permohonan",
-        "pemilik_bangunan",
+        "tanggal_permohonan",
+        "jenis_reklame",
+        "teks_reklame",
+        "jumlah_reklame",
+        "ukuran",
         "kecamatan_id",
         "kelurahan_id",
+        "durasi_pemanfaatan",
+        "foto_bangunan",
+        "keterangan",
         "alamat",
         "latitude",
         "longitude",
-        "nama_bangunan",
-        "fungsi_bangunan_id",
-        "luas_bangunan",
-        "jumlah_lantai",
-        "tinggi_bangunan",
-        "jenis_bangunan_id",
-        "kondisi_bangunan",
-        "durasi_pemanfaatan",
-        "status_permohonan",
-        "foto_bangunan",
-        "keterangan"
+        "status_permohonan"
     ];
+    public $timestamps = false;
 
-    public function fungsiBangunan(){
-        return $this->belongsTo(FungsiBangunan::class, "fungsi_bangunan_id");
-    }
-    public function jenisBangunan(){
-        return $this->belongsTo(JenisBangunan::class, "jenis_bangunan_id");
-    }
 
     public function pemohon(){
         return $this->belongsTo(Pemohon::class);

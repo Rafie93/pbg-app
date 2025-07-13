@@ -4,6 +4,7 @@ namespace App\Livewire\Admin;
 
 use App\Models\PenerbitanImb;
 use App\Models\Permohonanimb;
+use App\Models\Reklame;
 use Illuminate\Support\Facades\DB;
 use Livewire\Attributes\Layout;
 use Livewire\Component;
@@ -31,6 +32,9 @@ class DashboardControl extends Component
     public function render()
     {
         $permohonanimb = Permohonanimb::latest()
+                                        ->where('status_permohonan','Diajukan')
+                                        ->paginate(10);
+         $permohonanreklame = Reklame::orderBy('id','desc')
                                         ->where('status_permohonan','Diajukan')
                                         ->paginate(10);
         $this->total_imb_bjm_barat = PenerbitanImb::whereHas('permohonan',function($query){
@@ -62,7 +66,7 @@ class DashboardControl extends Component
         $this->total_proses_bjm_utara = Permohonanimb::where('kecamatan_id',6371040)->where('status_permohonan','Diproses')->count();
         $this->total_proses_bjm_tengah = Permohonanimb::where('kecamatan_id',6371031)->where('status_permohonan','Diproses')->count();
                                             
-        return view('livewire.admin.dashboard-control',compact('permohonanimb'));
+        return view('livewire.admin.dashboard-control',compact('permohonanimb','permohonanreklame'));
     }
 
     public function searchData(){

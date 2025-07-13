@@ -5,8 +5,12 @@
       <nav id="navmenu" class="navmenu">
         <ul>
           <li><a href="/" class="{{request()->segment(1)== null ? 'active' : ''}}">Beranda</a></li>
+          {{-- to section --}}
+          @if (request()->segment(1)== null)
+            <li><a href="#features-cards" class="">Kalkulasi Retribusi</a></li>              
+          @endif
           @if (Auth::check())
-            <li><a href="{{route('retribusi.pemohon')}}" class="{{request()->segment(1)== 'retribusi-pemohon' ? 'active' : ''}}">Retribusi</a></li> 
+            <li><a href="{{route('retribusi.pemohon')}}" class="{{request()->segment(1)== 'retribusi-pemohon' ? 'active' : ''}}">Pembayaran</a></li> 
           @else
 
           @endif

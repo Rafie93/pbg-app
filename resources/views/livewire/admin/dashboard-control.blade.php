@@ -1,12 +1,7 @@
 <div>
     <div class="container-fluid px-4">
         <h1 class="mt-4">Dashboard</h1>
-        <ol class="breadcrumb mb-4">
-            <li class="breadcrumb-item active">Dashboard
-                @if ($role ==1 || $role ==2)
-                    Penerbitan PBG
-                @endif
-            </li>
+      
         </ol>
         <div class="row">
             <div class="col-xl-4 col-md-6">
@@ -118,7 +113,8 @@
                                     <td>{{Carbon\Carbon::parse($row->tanggal_permohonan)->format('d M Y')}}</td>
                                     <td>{{$row->pemohon->nama}}</td>
                                     <td>{{$row->pemilik_bangunan}}</td>
-                                    <td>{{$row->fungsibangunan->nama.', '.$row->jenisbangunan->nama}}</td>
+                                    <td>
+                                        {{$row->fungsibangunan ? $row->fungsibangunan->nama : '-'}}, {{$row->jenisbangunan ? $row->jenisbangunan->nama : ''}}</td>
                                     <td>{{$row->alamat}}</td>
                                     <td>{{$row->status_permohonan}}</td>
 
@@ -132,6 +128,51 @@
                     {{-- paginate --}}
                     <div class="d-flex justify-content-center">
                         {!! $permohonanimb->links() !!}
+                    </div>
+                
+                </div>
+            </div>
+            <br>
+            <div class="card mb-4">
+                <div class="card-header">
+                    <i class="fas fa-table me-1"></i>
+                    Permohonan Reklame Belum Verifikasi
+                </div>
+                <div class="card-body">
+                    <table class="table">
+                        <thead>
+                            <th>NO</th>
+                            <th>NO. REGISTRASI</th>
+                            <th>TANGGAL</th>
+                            <th>NAMA PEMOHON</th>
+                            <th>JENIS REKLAME</th>
+                            <th>UKURAN</th>
+                            <th>LOKASI</th>
+                            <th>STATUS PERMOHONAN</th>
+                            <th>AKSI</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($permohonanreklame as $key=> $row)
+                                <tr>
+                                    <td align="center">{{$loop->iteration}}</td>
+                                    <td>{{$row->nomor}}</td>
+                                    <td>{{Carbon\Carbon::parse($row->tanggal_permohonan)->format('d M Y')}}</td>
+                                    <td>{{$row->pemohon->nama}}</td>
+                                    <td>{{$row->jenis_reklame}}</td>
+                                    <td>{{$row->ukuran}}</td>
+                                    <td>{{$row->alamat}}</td>
+                                    <td>{{$row->status_permohonan}}</td>
+                                    <td>
+                                        <a href="{{route('admin.permohonan.detail',$row->id)}}" class="btn btn-primary">VIEW</a>
+                                    </td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                    {{-- paginate --}}
+                    <div class="d-flex justify-content-center">
+                        {!! $permohonanreklame->links() !!}
                     </div>
                 
                 </div>

@@ -3,6 +3,7 @@
 namespace App\Livewire;
 
 use App\Models\Permohonanimb;
+use App\Models\Reklame;
 use App\Models\Retribusi;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\Component;
@@ -11,15 +12,24 @@ use Livewire\WithFileUploads;
 class RetribusiPemohonBayar extends Component
 {
     use WithFileUploads,LivewireAlert;
-    public $retribusis,$tanggal_bayar,$bukti_pembayaran;
+    public $retribusis,$tanggal_bayar,$bukti_pembayaran,$jenis_permohonan;
 
-    public function mount($id){
-        $permohonan = Permohonanimb::where('nomor',$id)->first();
+    public function mount($id,$jenis='pbg'){
         $this->tanggal_bayar = date('Y-m-d');
-        if(!$permohonan){
-            return redirect()->route('retribusi.pemohon');
+        $this->jenis_permohonan = $jenis;
+        if ($jenis=='reklame') {
+            $permohonan = Reklame::where('nomor',$id)->first();
+            $this->retribusis = Retribusi::where('permohonan_id',$permohonan->id)
+                                    ->where('jenis','Reklame')
+                                    ->first();
+        }else{
+            $permohonan = Permohonanimb::where('nomor',$id)->first();
+            // if(!$permohonan){
+            //     return redirect()->route('retribusi.pemohon');
+            // }
+            $this->retribusis = Retribusi::where('permohonan_id',$permohonan->id)->where('jenis','PBG')->first();
         }
-        $this->retribusis = Retribusi::where('permohonanimb_id',$permohonan->id)->first();
+       
     }
     public function render()
     {
@@ -36,7 +46,10 @@ class RetribusiPemohonBayar extends Component
             'bukti_pembayaran' => $this->bukti_pembayaran->store('bukti_pembayaran','public'),
             'status_pembayaran' => 'Dibayar'
         ]);
-        // save foto to storage
+        // update permohonan
+        Permohonanimb::where('id',$this->retribusis->permohonanimb_id)->update([
+            'status_permohonan' => 'Diproses'
+        ]);
 
         $this->alert('success', 'Berhasil membayar retribusi');
         sleep(2);

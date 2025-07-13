@@ -1,6 +1,6 @@
 <div>
     <div class="container-fluid px-4">
-        <h1 class="mt-4">Permohonan PBG</h1>
+        <h1 class="mt-4">Permohonan Reklame</h1>
         <ol class="breadcrumb mb-4">
             <li class="breadcrumb-item active">Daftar Permohonan</li>
             <li class="breadcrumb-item active">Detail Permohonan</li>
@@ -11,7 +11,6 @@
                     <div class="detail-ekraf-head">
                     <div class="top">
                         <div class="logos media">
-                        {{-- <img src="{{asset('storage/komunitas/'.$data->logo)}}"  width="200px" > --}}
                         <div class="media-body">
                             <div class="title">{{$data->nama}}</div>
                         </div>
@@ -29,8 +28,8 @@
                                     <td>: {{$data->tanggal_permohonan}}</td>
                                 </tr>
                                 <tr>
-                                    <td>Kepemilikan</td>
-                                    <td>: {{$data->pemilik_bangunan}}</td>
+                                    <td>Jenis Reklame</td>
+                                    <td>: {{$data->jenis_reklame}}</td>
                                     <td>Alamat</td>
                                     <td>: {{$data->village()}}, {{$data->district()}}</td>
                                 </tr>
@@ -69,14 +68,14 @@
                         <li class="nav-item" role="presentation">
                             <a class="nav-link {{$tab_selected=='deskripsi' ?'active' : ''}}" 
                             id="deskripsitab-tab" data-toggle="tab" wire:click="selecttab('deskripsi')"
-                            role="tab" aria-controls="deskripsitab" aria-selected="false">Bangunan </a>
+                            role="tab" aria-controls="deskripsitab" aria-selected="false">Deskripsi </a>
                         </li>
 
                         <li class="nav-item" role="presentation">
                             <a class="nav-link {{$tab_selected=='lokasi' ?'active' : ''}}" 
                             id="home-tab" data-toggle="tab" 
                                 role="tab" wire:click="selecttab('lokasi')"
-                            aria-controls="lokasitab" aria-selected="true">Lokasi </a>
+                            aria-controls="lokasitab" aria-selected="true">Alamat </a>
                         </li>
 
                         <li class="nav-item" role="presentation">
@@ -93,31 +92,25 @@
                         @if ($tab_selected=="deskripsi")
                             <table class="table table-striped">
                                 <tr>
-                                    <td>Nama Bangunan</td>
-                                    <td>: {{$data->nama_bangunan}}</td>
+                                    <td>Jenis Reklame</td>
+                                    <td>: {{$data->jenis_reklame}}</td>
                                 </tr>
                                 <tr>
-                                    <td>Fungsi Bangunan</td>
-                                    <td>: {{$data->fungsiBangunan->nama}}</td>
+                                    <td>Teks Reklame</td>
+                                    <td>: {{$data->teks_reklame}}</td>
+                                </tr>
+                              
+                                <tr>
+                                    <td>Ukuran</td>
+                                    <td>: {{$data->ukuran}} m</td>
+                                </tr>
+                               
+                                <tr>
+                                    <td>Jumlah Reklame</td>
+                                    <td>: {{$data->jumlah_reklame}}</td>
                                 </tr>
                                 <tr>
-                                    <td>Jenis Bangunan</td>
-                                    <td>: {{$data->jenisBangunan->nama}}</td>
-                                </tr>
-                                <tr>
-                                    <td>Luas Bangunan</td>
-                                    <td>: {{$data->luas_bangunan}} m2</td>
-                                </tr>
-                                <tr>
-                                    <td>Tinggi Bangunan</td>
-                                    <td>: {{$data->tinggi_bangunan}} m</td>
-                                </tr>
-                                <tr>
-                                    <td>Jumlah Lantai</td>
-                                    <td>: {{$data->jumlah_lantai}}</td>
-                                </tr>
-                                <tr>
-                                    <td>Kondisi Bangunan</td>
+                                    <td>Kondisi </td>
                                     <td>: {{$data->kondisi_bangunan}}</td>
                                 </tr>
                                 <tr>
@@ -146,13 +139,13 @@
                                     <td>Kota</td>
                                     <td>: Banjarmasin</td>
                                 </tr>
-                               
+                              
                                 
                             </table>
                         @elseif($tab_selected=="foto")
                             <div class="container">
                                 <div class="row">
-                                   <img src="{{asset('storage/'.$data->foto_bangunan)}}" width="100%" alt="">    
+                                   <img src="{{asset('storage/'.$data->foto_bangunan)}}" width="100%"  alt="">    
                                 </div>
                             </div>                        
                         
@@ -205,3 +198,4 @@
         }
     </script>
 @endpush
+

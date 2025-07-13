@@ -10,7 +10,8 @@ class Retribusi extends Model
     use HasFactory;
     protected $table = 'retribusi';
     protected $fillable = [
-        'permohonanimb_id',
+        'permohonan_id',
+        'jenis',
         'tanggal_tagihan',
         'tanggal_bayar',
         'jumlah_tagihan',
@@ -22,6 +23,10 @@ class Retribusi extends Model
 
     public function permohonan()
     {
-        return $this->belongsTo(PermohonanImb::class, 'permohonanimb_id');
+        return $this->belongsTo(PermohonanImb::class, 'permohonan_id');
+    }
+    public function permohonanreklame()
+    {
+        return $this->belongsTo(Reklame::class, 'permohonan_id');
     }
 }

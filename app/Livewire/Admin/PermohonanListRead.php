@@ -4,6 +4,7 @@ namespace App\Livewire\Admin;
 
 use App\Models\Komunitas;
 use App\Models\Permohonanimb;
+use App\Models\Reklame;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\Component;
 use Livewire\Attributes\Layout;
@@ -19,9 +20,11 @@ class PermohonanListRead extends Component
     #[Layout('components.layouts.admin-app')]
     public function render()
     {
-        $permohonanimb = Permohonanimb::all();
+        $permohonanimb = Permohonanimb::latest()->get();
+        $permohonanreklame = Reklame::orderBy('id','desc')->get();
         return view('livewire.admin.permohonan-list-read',[
-            'permohonanimb' => $permohonanimb
+            'permohonanimb' => $permohonanimb,
+            'permohonanreklame' => $permohonanreklame
         ]);
     }
 }

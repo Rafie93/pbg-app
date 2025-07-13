@@ -24,7 +24,7 @@
                                             @csrf
                                             <div class="form-floating mb-3">
                                                 <input class="form-control" id="inputEmail" type="email" 
-                                                placeholder="name@example.com" name="email" />
+                                                placeholder="name@example.com" name="email" value="{{old('email')}}" />
                                                 <label for="inputEmail">Email address</label>
                                                   @error('email')
                                                     <span class="text-danger"><i>{{$message}}</i></span>
@@ -46,14 +46,12 @@
                                                 <label class="form-check-label" for="inputRememberPassword">Remember Password</label>
                                             </div>
                                             <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
-                                                <a class="small" href="#">Forgot Password?</a>
+                                                {{-- <a class="small" href="#">Forgot Password?</a> --}}
                                                 <button class="btn btn-primary" type="submit">Login</a>
                                             </div>
                                         </form>
                                     </div>
-                                    <div class="card-footer text-center py-3">
-                                        <div class="small"><a href="register.html">Need an account? Sign up!</a></div>
-                                    </div>
+                                 
                                 </div>
                             </div>
                         </div>

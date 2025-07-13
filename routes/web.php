@@ -14,19 +14,27 @@ use App\Livewire\Admin\Master\JenisBangunanCreate;
 use App\Livewire\Admin\Master\JenisBangunanRead;
 use App\Livewire\Admin\Master\PetugasCreate;
 use App\Livewire\Admin\Master\PetugasRead;
+use App\Livewire\Admin\Master\TarifCreate;
+use App\Livewire\Admin\Master\TarifEdit;
+use App\Livewire\Admin\Master\TarifRead;
 use App\Livewire\Admin\PenerbitanImbCreate;
 use App\Livewire\Admin\PenerbitanImbListRead;
 use App\Livewire\Admin\PermohonanListDetail;
 use App\Livewire\Admin\PermohonanListRead;
+use App\Livewire\Admin\PermohonanReklameDetail;
 use App\Livewire\Admin\RetribusiCreate;
 use App\Livewire\Admin\RetribusiListDetail;
 use App\Livewire\Admin\RetribusiListRead;
 use App\Livewire\Admin\SurvieListCreate;
 use App\Livewire\Admin\SurvieListRead;
 use App\Livewire\AjukanPermohonanIMB;
+use App\Livewire\AjukanReklameControl;
 use App\Livewire\HomeControl;
 use App\Livewire\HubungiKamiControl;
 use App\Livewire\LoginControl;
+use App\Livewire\Admin\Master\TarifReklameCreate;
+use App\Livewire\Admin\Master\TarifReklameRead;
+use App\Livewire\Admin\PetaSebaranControl;
 use App\Livewire\MyProfileControl;
 use App\Livewire\RegisterControl;
 use App\Livewire\RetribusiPemohon;
@@ -64,9 +72,11 @@ Route::group(['middleware' => ['auth:sanctum','verified']], function () {
     // Route::post('/import/store', [ImportController::class,'store'])->name('import.store');
 
     Route::get('/profile', MyProfileControl::class)->name('profile');
+    Route::get('/ajukan-permohonan-reklame', AjukanReklameControl::class)->name('ajukan.permohonan.reklame');
+
     Route::get('/ajukan-permohonan', AjukanPermohonanIMB::class)->name('ajukan.permohonan');
     Route::get('/retribusi-pemohon', RetribusiPemohon::class)->name('retribusi.pemohon');
-    Route::get('/retribusi-pemohon/bayar/{id}', RetribusiPemohonBayar::class)->name('retribusi.pemohon.bayar');
+    Route::get('/retribusi-pemohon/bayar/{id}/{jenis}', RetribusiPemohonBayar::class)->name('retribusi.pemohon.bayar');
 
 
     
@@ -74,6 +84,7 @@ Route::group(['middleware' => ['auth:sanctum','verified']], function () {
     Route::get('/dashboard', DashboardControl::class)->name('dashboard');
     Route::get('/permohonan/list', PermohonanListRead::class)->name('permohonan.list');
     Route::get('/permohonan/detail/{id}', PermohonanListDetail::class)->name('admin.permohonan.detail');
+    Route::get('/permohonan/detail/reklame/{id}', PermohonanReklameDetail::class)->name('admin.permohonan.reklame.detail');
 
     Route::get('/retribusi/create', RetribusiCreate::class)->name('retribusi.create');
     Route::get('/retribusi/list', RetribusiListRead::class)->name('retribusi.list');
@@ -82,6 +93,8 @@ Route::group(['middleware' => ['auth:sanctum','verified']], function () {
     Route::get('/penerbitan-imb/list', PenerbitanImbListRead::class)->name('penerbitan.list');
     Route::get('/penerbitan-imb/create', PenerbitanImbCreate::class)->name('penerbitan.create');
     Route::get('/penerbitan-imb/edit/{id}', PenerbitanImbCreate::class)->name('penerbitan.edit');
+
+    Route::get('/sebaran/peta', PetaSebaranControl::class)->name('peta');
 
 
     Route::get('/survie/list', SurvieListRead::class)->name('survie.list');
@@ -107,6 +120,15 @@ Route::group(['middleware' => ['auth:sanctum','verified']], function () {
     Route::get('/laporan/rekap-survie', RekapSurvie::class)->name('rekap.survie');
     Route::get('/laporan/rekap-survie/pdf', [RekapSurvie::class,'pdf'])->name('rekap.survie.pdf');
     
+    Route::get('/master/tarif', TarifRead::class)->name('master.tarif');
+    Route::get('/master/tarif/create', TarifCreate::class)->name('master.tarif.create');
+    Route::get('/master/tarif/edit/{id}', TarifEdit::class)->name('master.tarif.edit');
+
+      
+    Route::get('/master/tarif-reklame', TarifReklameRead::class)->name('master.tarif-reklame');
+    Route::get('/master/tarif-reklame/create', TarifReklameCreate::class)->name('master.tarif-reklame.create');
+    Route::get('/master/tarif-reklame/edit/{id}', TarifReklameCreate::class)->name('master.tarif-reklame.edit');
+
 
     Route::get('/master/fungsi', FungsiRead::class)->name('master.fungsi');
     Route::get('/master/fungsi/form', FungsiCreate::class)->name('master.fungsi.form');

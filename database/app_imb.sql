@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Feb 16, 2025 at 04:24 AM
+-- Generation Time: Feb 18, 2025 at 07:41 AM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.10
 
@@ -7766,7 +7766,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (9, '2025_02_15_030008_create_jenis_bangunan_table', 3),
 (10, '2025_02_15_085544_create_retribusi_table', 4),
 (11, '2025_02_15_090350_create_survie_table', 5),
-(12, '2025_02_15_141331_create_penerbitan_imb_table', 6);
+(12, '2025_02_15_141331_create_penerbitan_imb_table', 6),
+(14, '2025_02_18_050921_create_tarif_table', 7);
 
 -- --------------------------------------------------------
 
@@ -7995,7 +7996,8 @@ INSERT INTO `permohonanimb` (`id`, `nomor`, `tanggal_permohonan`, `pemohon_id`, 
 (58, '240216-331', '2025-01-29', 92, 'PBG', 'Perseorangan', 6371020, '6371020004', 'Ki. HOS. Cjokroaminoto (Pasirkaliki) No. 787', -11.290805, 162.298537, 'UD Wijayanti Rahimah', 2, '672', 2, 4, '3', 'Sudah Berdiri', '< 5 Tahun', 'Diproses', NULL, NULL, '2025-02-15 15:15:24', '2025-02-15 19:36:03'),
 (59, '240216-800', '2025-02-04', 99, 'PBG', 'Perseorangan', 6371040, '6371040007', 'Dk. Gardujati No. 353', -76.56956, 58.821724, 'UD Iswahyudi Handayani Tbk', 1, '709', 2, 5, '2', 'Sedang Dibangun', '< 5 Tahun', 'PBG Diterbitkan', NULL, NULL, '2025-02-15 15:15:24', '2025-02-15 20:00:34'),
 (60, '240216-083', '2025-02-03', 70, 'PBG', 'Perseorangan', 6371020, '6371020004', 'Psr. Suharso No. 722', -37.750695, -71.82305, 'CV Riyanti', 5, '412', 1, 10, '2', 'Sudah Berdiri', '< 5 Tahun', 'Diproses', NULL, NULL, '2025-02-15 15:15:24', '2025-02-15 19:36:03'),
-(61, '240216-831', '2025-01-20', 74, 'PBG', 'Perusahaan', 6371040, '6371040009', 'Jr. Sukajadi No. 661', -46.692383, -28.453442, 'Perum Yulianti', 3, '666', 2, 10, '2', 'Belum Berdiri', '< 5 Tahun', 'Diproses', NULL, NULL, '2025-02-15 15:15:24', '2025-02-15 19:36:03');
+(61, '240216-831', '2025-01-20', 74, 'PBG', 'Perusahaan', 6371040, '6371040009', 'Jr. Sukajadi No. 661', -46.692383, -28.453442, 'Perum Yulianti', 3, '666', 2, 10, '2', 'Belum Berdiri', '< 5 Tahun', 'Diproses', NULL, NULL, '2025-02-15 15:15:24', '2025-02-15 19:36:03'),
+(62, '250218-620', '2025-02-18', 1, 'IMB', 'Perseorangan', 6371010, '6371010001', 'Jl ...', NULL, NULL, 'Usaha Baju', 2, '150', 2, 10, '1', 'Sudah Berdiri', '> 5 Tahun', 'Diproses', 'foto_bangunan/WDc4JRJBUbdB0nykPHcVp8pw4QUO2OQs2z13zvtW.jpg', NULL, '2025-02-17 23:12:19', '2025-02-17 23:17:45');
 
 -- --------------------------------------------------------
 
@@ -8099,7 +8101,8 @@ INSERT INTO `retribusi` (`id`, `permohonanimb_id`, `tanggal_tagihan`, `tanggal_b
 (98, 28, '2025-01-17', NULL, 404003, 0, 'Pembayaran Untuk Penerbitan dan Survie', NULL, 'Pembayaran Ditolak', '2025-02-15 19:36:03', '2025-02-15 19:36:03'),
 (99, 21, '2025-01-29', '2025-02-05', 406523, 406523, 'Pembayaran Untuk Penerbitan dan Survie', 'bukti_pembayaran/FRrjaE82Mc1oPcX28iNcXlsj8nKRTB7BVEE4GTZI.png', 'Dibayar', '2025-02-15 19:36:03', '2025-02-15 19:36:03'),
 (100, 13, '2025-02-11', NULL, 399035, 0, 'Pembayaran Untuk Penerbitan dan Survie', NULL, 'Belum Dibayar', '2025-02-15 19:36:03', '2025-02-15 19:36:03'),
-(101, 42, '2025-02-13', '2025-02-07', 932891, 932891, 'Pembayaran Untuk Penerbitan dan Survie', 'bukti_pembayaran/FRrjaE82Mc1oPcX28iNcXlsj8nKRTB7BVEE4GTZI.png', 'Dibayar', '2025-02-15 19:36:03', '2025-02-15 19:36:03');
+(101, 42, '2025-02-13', '2025-02-07', 932891, 932891, 'Pembayaran Untuk Penerbitan dan Survie', 'bukti_pembayaran/FRrjaE82Mc1oPcX28iNcXlsj8nKRTB7BVEE4GTZI.png', 'Dibayar', '2025-02-15 19:36:03', '2025-02-15 19:36:03'),
+(102, 62, '2025-02-18', '2025-02-18', 100000, 100000, 'Estimasi Perkiraan Retribusi', 'bukti_pembayaran/HLbjgk9nbY52FStdjfXg7n2y08IT3QhXXdDq0JnQ.png', 'Pembayaran Diterima', '2025-02-17 23:12:19', '2025-02-17 23:23:58');
 
 -- --------------------------------------------------------
 
@@ -8168,6 +8171,49 @@ INSERT INTO `survie` (`id`, `permohonanimb_id`, `petugas_id`, `tanggal_berangkat
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `tarif`
+--
+
+CREATE TABLE `tarif` (
+  `id` bigint UNSIGNED NOT NULL,
+  `jenis_permohonan` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `kepemilikan` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `fungsi_bangunan_id` bigint UNSIGNED NOT NULL,
+  `durasi_pemanfaatan` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `min_luas_bangunan` int NOT NULL,
+  `max_luas_bangunan` int NOT NULL,
+  `min_jumlah_lantai` int NOT NULL,
+  `max_jumlah_lantai` int NOT NULL,
+  `tarif` int NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `tarif`
+--
+
+INSERT INTO `tarif` (`id`, `jenis_permohonan`, `kepemilikan`, `fungsi_bangunan_id`, `durasi_pemanfaatan`, `min_luas_bangunan`, `max_luas_bangunan`, `min_jumlah_lantai`, `max_jumlah_lantai`, `tarif`, `created_at`, `updated_at`) VALUES
+(2, 'PBG', 'Perseorangan', 1, '> 5 Tahun', 100, 500, 1, 4, 100000, '2025-02-17 22:24:18', '2025-02-17 22:24:18'),
+(3, 'PBG', 'Perseorangan', 2, '> 5 Tahun', 100, 500, 1, 4, 100000, '2025-02-17 22:24:18', '2025-02-17 22:24:18'),
+(4, 'PBG', 'Perseorangan', 3, '> 5 Tahun', 100, 500, 1, 4, 100000, '2025-02-17 22:24:18', '2025-02-17 22:24:18'),
+(5, 'PBG', 'Perseorangan', 4, '> 5 Tahun', 100, 500, 1, 4, 100000, '2025-02-17 22:24:18', '2025-02-17 22:24:18'),
+(6, 'PBG', 'Perusahaan', 1, '> 5 Tahun', 100, 500, 1, 4, 100000, '2025-02-17 22:24:18', '2025-02-17 22:24:18'),
+(7, 'PBG', 'Perusahaan', 2, '> 5 Tahun', 100, 500, 1, 4, 100000, '2025-02-17 22:24:18', '2025-02-17 22:24:18'),
+(8, 'PBG', 'Perusahaan', 3, '> 5 Tahun', 100, 500, 1, 4, 100000, '2025-02-17 22:24:18', '2025-02-17 22:24:18'),
+(9, 'PBG', 'Perusahaan', 4, '> 5 Tahun', 100, 500, 1, 4, 100000, '2025-02-17 22:24:18', '2025-02-17 22:24:18'),
+(10, 'PBG', 'Pemerintah', 1, '> 5 Tahun', 100, 500, 1, 4, 100000, '2025-02-17 22:24:18', '2025-02-17 22:24:18'),
+(11, 'PBG', 'Pemerintah', 2, '> 5 Tahun', 100, 500, 1, 4, 100000, '2025-02-17 22:24:18', '2025-02-17 22:24:18'),
+(12, 'PBG', 'Pemerintah', 3, '> 5 Tahun', 100, 500, 1, 4, 100000, '2025-02-17 22:24:18', '2025-02-17 22:24:18'),
+(13, 'PBG', 'Pemerintah', 4, '> 5 Tahun', 100, 500, 1, 4, 100000, '2025-02-17 22:24:18', '2025-02-17 22:24:18'),
+(14, 'PBG', 'Badan Hukum', 1, '> 5 Tahun', 100, 500, 1, 4, 100000, '2025-02-17 22:24:18', '2025-02-17 22:24:18'),
+(15, 'PBG', 'Badan Hukum', 2, '> 5 Tahun', 100, 500, 1, 4, 100000, '2025-02-17 22:24:18', '2025-02-17 22:24:18'),
+(16, 'PBG', 'Badan Hukum', 3, '> 5 Tahun', 100, 500, 1, 4, 100000, '2025-02-17 22:24:18', '2025-02-17 22:24:18'),
+(17, 'PBG', 'Badan Hukum', 4, '> 5 Tahun', 100, 500, 1, 4, 100000, '2025-02-17 22:24:18', '2025-02-17 22:24:18');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `users`
 --
 
@@ -8188,7 +8234,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `role`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Super Admin', 'super@gmail.com', '2025-02-14 17:37:32', '$2y$12$HbW7f0cTdnoeSVEAqXoLQuTdTNSBrBdvRtGPyplDSVQgs9rn4xl/O', 1, 'MwxCzBoWz9S1VWUHcQcljWORG32bZqUWJhV0MY5MauT7Wv2CTr6ljjhPOMdu', '2025-02-14 17:37:32', '2025-02-14 17:37:32'),
+(1, 'Super Admin', 'super@gmail.com', '2025-02-14 17:37:32', '$2y$12$HbW7f0cTdnoeSVEAqXoLQuTdTNSBrBdvRtGPyplDSVQgs9rn4xl/O', 1, 'bt3k92B7EgerwaDktlEpQHWiTk4ozTMseaxnMNTaOWLma8OtcqE7ktfp9rjz', '2025-02-14 17:37:32', '2025-02-14 17:37:32'),
 (6, 'rifky ', 'rifky@gmail.com', NULL, '$2y$12$ffy5weEFJ4Yx6Cl6vGVRIOyX2kmPB5eFfJUMKz/SHJ6hFwnQ7AptG', 3, NULL, '2025-02-14 18:04:02', '2025-02-14 18:04:02'),
 (7, 'Andi', 'andi@gmail.com', NULL, '$2y$12$U56gyLH/IGgvVBHypjT7G.3d/xFMccxxSnC3v7vjQe.L/n.6vJ2qW', 4, NULL, '2025-02-15 05:31:49', '2025-02-15 05:31:49'),
 (59, 'Usyi Rina Pertiwi', 'buyainah@susanti.asia', NULL, '$2y$12$1oZZK0REseEwimQ.p2m/zu7VIru4hk1HAUnqVAtuyRE93Kf.Co1I6', 3, NULL, '2025-02-15 15:03:35', '2025-02-15 15:03:35'),
@@ -83424,6 +83470,13 @@ ALTER TABLE `survie`
   ADD KEY `survie_permohonanimb_id_foreign` (`permohonanimb_id`);
 
 --
+-- Indexes for table `tarif`
+--
+ALTER TABLE `tarif`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `tarif_fungsi_bangunan_id_foreign` (`fungsi_bangunan_id`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -83463,7 +83516,7 @@ ALTER TABLE `jenis_bangunan`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `pemohon`
@@ -83481,7 +83534,7 @@ ALTER TABLE `penerbitan_imb`
 -- AUTO_INCREMENT for table `permohonanimb`
 --
 ALTER TABLE `permohonanimb`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=62;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=63;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
@@ -83493,13 +83546,19 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT for table `retribusi`
 --
 ALTER TABLE `retribusi`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=102;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=103;
 
 --
 -- AUTO_INCREMENT for table `survie`
 --
 ALTER TABLE `survie`
   MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+
+--
+-- AUTO_INCREMENT for table `tarif`
+--
+ALTER TABLE `tarif`
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `users`
@@ -83528,6 +83587,12 @@ ALTER TABLE `retribusi`
 --
 ALTER TABLE `survie`
   ADD CONSTRAINT `survie_permohonanimb_id_foreign` FOREIGN KEY (`permohonanimb_id`) REFERENCES `permohonanimb` (`id`);
+
+--
+-- Constraints for table `tarif`
+--
+ALTER TABLE `tarif`
+  ADD CONSTRAINT `tarif_fungsi_bangunan_id_foreign` FOREIGN KEY (`fungsi_bangunan_id`) REFERENCES `fungsi_bangunan` (`id`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -15,21 +15,29 @@
                           <thead>
                               <tr>
                                   <td>Nomor Registrasi</td>
-                                  <td>: {{$data->permohonan->nomor}}</td>
+                                  <td>: {{$data->jenis == 'Reklame' ? $data->permohonanreklame->nomor : $data->permohonan->nomor}}</td>
                                   <td>Tanggal Registrasi</td>
-                                  <td>: {{$data->permohonan->tanggal_permohonan}}</td>
+                                  <td>: {{$data->jenis == 'Reklame' ? $data->permohonanreklame->tanggal_permohonan : $data->permohonan->tanggal_permohonan}}</td>
                               </tr>
                               <tr>
+                                @if ($data->jenis == 'Reklame')
+                                  <td>Jenis Reklame</td>
+                                  <td>: {{$data->permohonanreklame->jenis_reklame}}</td>
+                                  <td>Ukuran</td>
+                                  <td>: {{$data->permohonanreklame->ukuran}} m</td>
+                                @else
                                   <td>Kepemilikan</td>
                                   <td>: {{$data->permohonan->pemilik_bangunan}}</td>
                                   <td>Alamat</td>
-                                  <td>: {{$data->permohonan->village()}}, {{$data->permohonan->district()}}</td>
+                                  <td>: {{$data->permohonan->village()}}, {{$data->permohonan->district()}}
+                                @endif
+                                </td>
                               </tr>
                               <tr>
                                   <td>Nama Pemohon</td>
-                                  <td>: {{$data->permohonan->pemohon->nama}}</td>
+                                  <td>: {{$data->jenis == 'Reklame' ? $data->permohonanreklame->pemohon->nama : $data->permohonanreklame->pemohon->nama}}</td>
                                   <td>No HP</td>
-                                  <td>: {{$data->permohonan->pemohon->no_hp}}</td>
+                                  <td>: {{$data->jenis == 'Reklame' ? $data->permohonanreklame->pemohon->no_hp : $data->permohonanreklame->pemohon->no_hp}}</td>
                               </tr>
                              
                           </thead>

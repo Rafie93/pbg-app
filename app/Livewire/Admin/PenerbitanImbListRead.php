@@ -2,7 +2,6 @@
 
 namespace App\Livewire\Admin;
 
-use App\Models\Hexahelic;
 use App\Models\PenerbitanImb;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\Component;
@@ -17,7 +16,7 @@ class PenerbitanImbListRead extends Component
     #[Layout('components.layouts.admin-app')]
     public function render()
     {
-        $penerbitan = PenerbitanImb::all();
+        $penerbitan = PenerbitanImb::latest()->get();
         return view('livewire.admin.penerbitan-list-read',compact('penerbitan'));
     }
 }

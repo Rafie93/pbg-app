@@ -32,15 +32,28 @@
                                 <div class="form-row">
                                     <div class="form-group col-md-6">
                                         <label for="inputEmail4">Nomor Registrasi</label>
-                                        <input readonly value="{{$retribusis->permohonan->nomor}}" class="form-control" type="text">  
+                                        @if ($jenis_permohonan=='reklame')
+                                            <input readonly value="{{$retribusis->permohonanreklame->nomor}}" class="form-control" type="text">  
+                                        @else
+                                             <input readonly value="{{$retribusis->permohonan->nomor}}" class="form-control" type="text">  
+                                        @endif
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label for="inputEmail4">Pemohon</label>
+                                        @if ($jenis_permohonan=='reklame')
+                                        <input readonly value="{{$retribusis->permohonanreklame->pemohon->nama}}" class="form-control" type="text">  
+                                        @else
                                         <input readonly value="{{$retribusis->permohonan->pemohon->nama}}" class="form-control" type="text">  
+                                        @endif
                                     </div>
                                     <div class="form-group col-md-6">
+                                        @if ($jenis_permohonan=='reklame')
+                                        <label for="inputEmail4">Jenis Reklame</label>
+                                        <input readonly value="{{$retribusis->permohonanreklame->jenis_reklame.',('.$retribusis->permohonanreklame->ukuran}} m)" class="form-control" type="text"> 
+                                        @else
                                         <label for="inputEmail4">Bangunan</label>
-                                        <input readonly value="{{$retribusis->permohonan->fungsibangunan->nama.','.$retribusis->permohonan->jenisbangunan->nama}}" class="form-control" type="text">  
+                                        <input readonly value="{{$retribusis->permohonan->fungsibangunan->nama.','.$retribusis->permohonan->jenisbangunan->nama}}" class="form-control" type="text"> 
+                                        @endif 
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label for="inputEmail4">Alamat</label>

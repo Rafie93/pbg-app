@@ -18,9 +18,9 @@
                             <div class=" ">
                                 <div class="card-body">
                                     <img src="http://www.ansonika.com/mavia/img/registration_bg.svg" style="width:30%">
-                                    <h2 class="py-3">Permohonan PBG</h2>
+                                    <h2 class="py-3">Permohonan Reklame</h2>
                                     <p>
-                                      lengakapi data diri anda untuk melakukan permohonan PBG
+                                      lengakapi data diri anda untuk melakukan permohonan Reklame
                                     </p>
                                     <div class="container">
                                         
@@ -66,84 +66,56 @@
                                    
                                 </div>
                                 <hr/>
-                                <h5 class="pb-2">Data Bangunan</h5>
+                                <h5 class="pb-2">Data Reklame</h5>
                                 <div class="form-row">
-                                    <div class="form-group col-md-6"> 
+                                    <div class="form-group col-md-12"> 
                                         <select id="inputState" class="form-control"
-                                            wire:change="hitungPerkiraan()"
-                                             wire:model="pemilik_bangunan">
-                                            <option selected>Pilih Jenis Kepemilikan  ...</option>
-                                            <option value="Perseorangan">Perseorangan</option>
-                                            <option value="Perusahaan">Perusahaan</option>
-                                            <option value="Pemerintah">Pemerintah</option>
-                                            <option value="Badan Hukum">Badan Hukum</option>
+                                             wire:model="jenis_reklame" wire:change="hitungPerkiraan()">
+                                            <option selected>... Pilih Jenis Reklame  ...</option>
+                                            <option value="Papan/Billboard">Papan/Billboard</option>
+                                            <option value="Videotron/Megatron">Videotron/Megatron</option>
+                                            <option value="Spanduk">Spanduk</option>
+                                            <option value="Baliho">Baliho</option>
+                                            <option value="Poster">Poster</option>
                                         </select>
-                                        @error('pemilik_bangunan')
+                                        @error('jenis_reklame')
+                                            <span class="text-danger"><i> {{ $message }}</i></span>
+                                        @enderror
+                                    </div>
+                                    
+                                    
+                                    <div class="form-group col-md-12"> 
+                                        <input type="text" wire:model="teks_reklame"  class="form-control" 
+                                        placeholder="teks reklame"/>
+                                        @error('teks_reklame')
                                             <span class="text-danger"><i> {{ $message }}</i></span>
                                         @enderror
                                     </div>
                                     <div class="form-group col-md-6"> 
-                                        <select id="inputState" class="form-control" wire:change="hitungPerkiraan()" wire:model="fungsi_bangunan">
-                                            <option selected>Pilih Fungsi Bangunan ...</option>
-                                            @foreach ($option_fungsi_bangunan as $item)
-                                                <option value="{{$item->id}}">Bangunan {{$item->nama}}</option>
-                                            @endforeach
-                                        </select>
-                                        @error('fungsi_bangunan')
-                                            <span class="text-danger"><i> {{ $message }}</i></span>
-                                        @enderror
-                                    </div>
-                                    <div class="form-group col-md-6"> 
-                                        <select id="inputState" class="form-control" wire:model="jenis_bangunan">
-                                            <option selected>Pilih jenis Bangunan ...</option>
-                                            @foreach ($option_jenis_bangunan as $item)
-                                                <option value="{{$item->id}}">{{$item->nama}}</option>
-                                            @endforeach
-                                        </select>
-                                        @error('jenis_bangunan')
-                                            <span class="text-danger"><i> {{ $message }}</i></span>
-                                        @enderror
-                                    </div>
-                                    <div class="form-group col-md-6"> 
-                                        <input type="text" wire:model="nama_bangunan"  class="form-control" 
-                                        placeholder="Nama Bangunan"/>
-                                        @error('nama_bangunan')
-                                            <span class="text-danger"><i> {{ $message }}</i></span>
-                                        @enderror
-                                    </div>
-                                    <div class="form-group col-md-4"> 
 
-                                        <input type="text" wire:model="luas_bangunan"  class="form-control" 
+                                        <input type="number" wire:model="jumlah_reklame"  class="form-control" 
                                         wire:change="hitungPerkiraan()"
-                                        placeholder="Luas Bangunan (m2)"/>
-                                        @error('luas_bangunan')
+                                        placeholder="Jumlah reklame"/>
+                                        @error('jumlah_reklame')
                                             <span class="text-danger"><i> {{ $message }}</i></span>
                                         @enderror
                                     </div>
                                     <div class="form-group
-                                    col-md-4"> 
-                                        <input type="text" wire:model="tinggi_bangunan"  class="form-control" 
-                                        placeholder="Tinggi Bangunan (m)"/>
-                                        @error('tinggi_bangunan')
+                                    col-md-6"> 
+                                        <input type="number" wire:model="ukuran"  class="form-control"  wire:change="hitungPerkiraan()"
+                                        placeholder="Ukuran (meter persegi), contoh 12"/>
+                                        @error('ukuran')
                                             <span class="text-danger"><i> {{ $message }}</i></span>
                                         @enderror
                                     </div>
-                                    <div class="form-group
-                                    col-md-4"> 
-                                        <input type="text" wire:model="jumlah_lantai" wire:change="hitungPerkiraan()"  class="form-control" 
-                                        placeholder="Jumlah Lantai"/>
-                                        @error('jumlah_lantai')
-                                            <span class="text-danger"><i> {{ $message }}</i></span>
-                                        @enderror
-                                    </div>
+                                   
 
                                     <div class="form-group col-md-6"> 
                                         <select id="inputState" class="form-control" wire:model="kondisi_bangunan">
-                                            <option selected>Pilih Kondisi Bangunan  ...</option>
+                                            <option selected>Pilih Kondisi   ...</option>
                                             <option value="Sudah Berdiri">Sudah Berdiri</option>
                                             <option value="Belum Berdiri">Belum Berdiri</option>
                                             <option value="Sedang Dibangun">Sedang Dibangun</option>
-                                            <option value="Renovasi">Renovasi</option>
                                             
                                         </select>
                                         @error('kondisi_bangunan')
@@ -151,18 +123,17 @@
                                         @enderror
                                     </div>
                                     <div class="form-group col-md-6"> 
-                                        <select id="inputState" class="form-control" wire:change="hitungPerkiraan()" wire:model="durasi_pemanfaatan">
-                                            <option selected>Pilih Durasi Pemanfaatan Bangunan ...</option>
-                                            <option value="> 5 Tahun">Lebih 5 Tahun</option>
-                                            <option value="< 5 Tahun">Kurang 5 Tahun</option>
-                                            {{-- <option value="Sementara">Sementara</option> --}}
-                                        </select>
+                                        <input type="number" wire:model="durasi_pemanfaatan"  class="form-control" 
+                                        placeholder="durasi lama (bulan) contoh 2 " wire:change="hitungPerkiraan()" />
+                                        @error('durasi_pemanfaatan')
+                                            <span class="text-danger"><i> {{ $message }}</i></span>
+                                        @enderror
                                         @error('durasi_pemanfaatan')
                                             <span class="text-danger"><i> {{ $message }}</i></span>
                                         @enderror
                                     </div>
                                 </div>
-                                <h5 class="pb-2">Data Lokasi Bangunan</h5>
+                                <h5 class="pb-2">Data Lokasi Reklame</h5>
                                 <div class="form-row">
                                     <div class="form-group col-md-4"> 
                                         
@@ -212,7 +183,7 @@
                                          @enderror
                                     </div>
                                 </div>
-                                <h5 class="pb-2">Gambar Lokasi Bangunan*</h5>
+                                <h5 class="pb-2">Gambar Lokasi*</h5>
                                 <div class="form-row">
                                     <div class="form-group
                                     col-md-12"> 
@@ -252,7 +223,7 @@
                             </form>
                             <hr>
                             <div class="form-group col-md-12"> 
-                                <h4>Estimasi Retribusi PBG Bangunan Baru</h4>
+                                <h4>Estimasi Retribusi Reklame</h4>
                                 <p>Perkiraan Retribusi : </p> <h2><strong>Rp. {{number_format($estimasi_retribusi,0,',','.')}}</strong></h2>
                             </div>
                         </div>

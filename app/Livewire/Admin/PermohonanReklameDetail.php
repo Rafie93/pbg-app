@@ -2,13 +2,12 @@
 
 namespace App\Livewire\Admin;
 
-use App\Models\Komunitas;
-use App\Models\Permohonanimb;
+use App\Models\Reklame;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\Attributes\Layout;
 use Livewire\Component;
 
-class PermohonanListDetail extends Component
+class PermohonanReklameDetail extends Component
 {
     use LivewireAlert;
 
@@ -19,23 +18,22 @@ class PermohonanListDetail extends Component
 
     #[Layout('components.layouts.admin-app')]
     public function render()
-    {      
-        $data = Permohonanimb::find($this->permohonan_id);
+    {
+        $data = Reklame::find($this->permohonan_id);
 
-        return view('livewire.admin.permohonan-list-detail',compact('data'));
+        return view('livewire.admin.permohonan-reklame-detail',compact('data'));
     }
 
-    
     public function selecttab($id){
         $this->tab_selected = $id;
     }
 
     public function terima(){
-        Permohonanimb::find($this->permohonan_id)->update(['status_permohonan'=>'Diproses']);
+        Reklame::find($this->permohonan_id)->update(['status_permohonan'=>'Diproses']);
         $this->alert('success', 'Permohonan Reklame berhasil diprores');
     }
     public function tolak(){
-        Permohonanimb::find($this->permohonan_id)->update(['status_permohonan'=>'Ditolak']);
+        Reklame::find($this->permohonan_id)->update(['status_permohonan'=>'Ditolak']);
         $this->alert('success', 'Permohonan Reklame berhasil ditolak');
     }
 }

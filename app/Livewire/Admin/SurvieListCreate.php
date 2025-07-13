@@ -4,6 +4,7 @@ namespace App\Livewire\Admin;
 
 use App\Models\News;
 use App\Models\Permohonanimb;
+use App\Models\Reklame;
 use App\Models\Retribusi;
 use App\Models\Survie;
 use App\Models\User;
@@ -15,7 +16,7 @@ use Livewire\WithFileUploads;
 class SurvieListCreate extends Component
 {
     use WithFileUploads, LivewireAlert;
-    public $option_permohonan = [],$permohonans,$option_petugas = [],$role,$label ;
+    public $option_permohonan = [],$option_permohonan_reklame = [],$jenis,$permohonans,$option_petugas = [],$role,$label ;
     public $survie_id,$permohonanimb_id,$petugas_id,$tanggal_berangkat,$kecamatan_id,$kelurahan_id,
     $alamat,$latitude,$longitude,$fungsi_bangunan,$jenis_bangunan,$keterangan,$is_mangkrak,
     $is_kosong,$is_miring,$foto_survie;
@@ -31,12 +32,19 @@ class SurvieListCreate extends Component
         $this->option_petugas = User::where('role',4)->get();
         
         if($id){
-            $this->option_permohonan = Permohonanimb::whereIn('id',Retribusi::where('status_pembayaran','Pembayaran Diterima')
-                                        ->pluck('permohonanimb_id'))
+            $this->option_permohonan = Permohonanimb::whereIn('id',
+            Retribusi::where('status_pembayaran','Pembayaran Diterima')->where('jenis','PBG')
+                                        ->pluck('permohonan_id'))
                                         ->get();
+
+            $this->option_permohonan_reklame = Reklame::whereIn('id',
+                                        Retribusi::where('status_pembayaran','Pembayaran Diterima')->where('jenis','reklame')
+                                                                    ->pluck('permohonan_id'))
+                                                                    ->get();
             $this->survie_id=$id;
             $e = Survie::find($id);
-            $this->permohonanimb_id = $e->permohonanimb_id;
+            $this->jenis = $e->jenis;
+            $this->permohonanimb_id = $e->permohonan_id;
             $this->petugas_id = $e->petugas_id;
             $this->tanggal_berangkat = $e->tanggal_berangkat;
             $this->kecamatan_id = $e->kecamatan_id;
@@ -55,8 +63,15 @@ class SurvieListCreate extends Component
         }else{
             $this->option_permohonan = Permohonanimb::whereIn('status_permohonan',
                                 ['Diproses'])
+                                ->whereIn('id',Retribusi::where('status_pembayaran','Pembayaran Diterima')->where('jenis','PBG')
+                                ->pluck('permohonan_id'))
+                                ->get();
+
+            $this->option_permohonan_reklame = Reklame::whereIn('status_permohonan',
+                                ['Diproses'])
                                 ->whereIn('id',Retribusi::where('status_pembayaran','Pembayaran Diterima')
-                                ->pluck('permohonanimb_id'))
+                                    ->where('jenis','Reklame')
+                                    ->pluck('permohonan_id'))
                                 ->get();
         }
     }
@@ -65,16 +80,41 @@ class SurvieListCreate extends Component
     {
         return view('livewire.admin.survie-list-create');
     }
+    public function changeValue(){
+        $this->option_permohonan = Permohonanimb::whereIn('status_permohonan',
+        ['Diproses'])
+                ->whereIn('id',Retribusi::where('status_pembayaran','Pembayaran Diterima')->where('jenis','PBG')
+                ->pluck('permohonan_id'))
+                ->get();
+
+        $this->option_permohonan_reklame = Reklame::whereIn('status_permohonan',
+                ['Diproses'])
+                ->whereIn('id',Retribusi::where('status_pembayaran','Pembayaran Diterima')
+                    ->where('jenis','Reklame')
+                    ->pluck('permohonan_id'))
+                ->get();
+    }
 
     public function getPermohonan(){
-        $this->permohonans = Permohonanimb::where('id',$this->permohonanimb_id)->first();
-        $this->alamat = $this->permohonans->alamat;
-        $this->latitude = $this->permohonans->latitude;
-        $this->longitude = $this->permohonans->longitude;
-        $this->fungsi_bangunan = $this->permohonans->fungsi_bangunan;
-        $this->jenis_bangunan = $this->permohonans->jenis_bangunan;
-        $this->kecamatan_id = $this->permohonans->kecamatan_id;
-        $this->kelurahan_id = $this->permohonans->kelurahan_id;
+        if ($this->jenis=="PBG") {
+            $this->permohonans = Permohonanimb::where('id',$this->permohonanimb_id)->first();
+            $this->alamat = $this->permohonans->alamat;
+            $this->latitude = $this->permohonans->latitude;
+            $this->longitude = $this->permohonans->longitude;
+            $this->fungsi_bangunan = $this->permohonans->fungsi_bangunan;
+            $this->jenis_bangunan = $this->permohonans->jenis_bangunan;
+            $this->kecamatan_id = $this->permohonans->kecamatan_id;
+            $this->kelurahan_id = $this->permohonans->kelurahan_id;
+        }else{
+            $this->permohonans = Reklame::where('id',$this->permohonanimb_id)->first();
+            $this->jenis_bangunan = $this->permohonans->jenis_reklame;
+            $this->alamat = $this->permohonans->alamat;
+            $this->latitude = $this->permohonans->latitude;
+            $this->longitude = $this->permohonans->longitude;
+            $this->kecamatan_id = $this->permohonans->kecamatan_id;
+            $this->kelurahan_id = $this->permohonans->kelurahan_id;
+        }
+       
         
     }
     
@@ -94,7 +134,8 @@ class SurvieListCreate extends Component
         $save = Survie::updateOrCreate([
             'id' => $this->survie_id
         ],[
-            'permohonanimb_id' => $this->permohonanimb_id,
+            'jenis' => $this->jenis,
+            'permohonan_id' => $this->permohonanimb_id,
             'petugas_id' => $this->petugas_id,
             'tanggal_berangkat' => $this->tanggal_berangkat,
             'kecamatan_id' => $this->kecamatan_id,
