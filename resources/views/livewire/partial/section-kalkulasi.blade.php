@@ -94,7 +94,7 @@
         </div>
         {{-- hasil group Estimasi Retribusi PBG Bangunan Baru --}}
         <div class="form-group col-md-12"> 
-            <h4>Estimasi Retribusi PBG Bangunan Baru</h4>
+            <h4>Estimasi Tarif Retribusi </h4>
             <p>Perkiraan Retribusi : </p> <h2><strong>Rp. {{number_format($estimasi_retribusi,0,',','.')}}</strong></h2>
         </div>
       

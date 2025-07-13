@@ -1,10 +1,10 @@
 <div>
     <div class="container-fluid">
-        <h1 class="mt-4">Laporan Pengajuan PBG</h1>
+        <h1 class="mt-4">Laporan Pengajuan Reklame</h1>
         <ol class="breadcrumb
         mb-4">
             <li class="breadcrumb-item"><a href="{{route('dashboard')}}">Dashboard</a></li>
-            <li class="breadcrumb-item active">Laporan Pengajuan PBG</li>
+            <li class="breadcrumb-item active">Laporan Pengajuan Reklame</li>
         </ol>
         {{-- nuatkan input periode tanggal mulai dan akhir --}}
         <div class="row">
@@ -14,7 +14,7 @@
                         Filter Laporan
                     </div>
                     <div class="card-body">
-                        <form action="{{route('laporan.pengajuan.pdf')}}" method="get"
+                        <form action="{{route('laporan.reklame.pdf')}}" method="get"
                             target="_blank">
                             <div class="row">
                                 <div class="col-md-3">
@@ -49,7 +49,7 @@
                                             <option value="">Semua Status</option>
                                             <option value="Diajukan">Diajukan</option>
                                             <option value="Diproses">Diproses</option>
-
+                                            <option value="Reklame Diterbitkan">Reklame Diterbitkan</option>
                                         </select>
                                         @error('status')
                                         <div class="text-danger mt-2">

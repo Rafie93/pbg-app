@@ -126,9 +126,16 @@ class PenerbitanImbCreate extends Component
         ]);
         if($save){
             // update permoohonan
-            $permohonan = Permohonanimb::find($this->permohonanimb_id);
-            $permohonan->status_permohonan = 'PBG Diterbitkan';
-            $permohonan->save();
+            if ($save->jenis=="PBG") {
+                $permohonan = Permohonanimb::find($this->permohonanimb_id);
+                $permohonan->status_permohonan = 'PBG Diterbitkan';
+                $permohonan->save();
+            }else{
+                $permohonan = Reklame::find($this->permohonanimb_id);
+                $permohonan->status_permohonan = 'Reklame Diterbitkan';
+                $permohonan->save();
+            }
+        
 
             $this->alert('success','Data berhasil disimpan');
             return redirect()->route('penerbitan.list');

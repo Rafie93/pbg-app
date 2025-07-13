@@ -6,9 +6,7 @@
         </ol>
       
         <div class="card mb-4">
-            <div class="card-header">
-                Peta Sebaran 
-            </div>
+           
             <div class="card-body">
                 <div id="map" wire:ignore></div>
 
@@ -25,7 +23,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol@0.74.4/dist/L.Control.Locate.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css" integrity="sha512-cUoWMYmv4H9TGP4hbm1mIjYo90WzIQFo/5jj+P5tQcDTf+iVR59RyIj/a9fRsBxzxt5Dnv/Ex7MzRIxcDwaOLw==" crossorigin="anonymous" referrerpolicy="no-referrer" />   <!-- Font Awesome untuk ikon -->
    <style>
-        #map { height: 400px; }
+        #map { height: 500px; }
     </style>
 @endpush
 @push('scripts')

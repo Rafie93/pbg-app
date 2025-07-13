@@ -71,8 +71,9 @@
             <thead>
                 <tr>
                     <th>NO</th>
+                    <th>JENIS</th>
                     <th>TGL TERBIT</th>
-                    <th>NO. PBG</th>
+                    <th>NOMOR TERBIT</th>
                     <th>NAMA PEMOHON</th>
                     <th>BANGUNAN</th>
                     <th>LETAK BANGUNAN</th>
@@ -87,17 +88,25 @@
                 @foreach ($data as $row)
                     <tr>
                         <td align="center">{{ $no++ }}</td>
+                        <td align="center">{{ $row->jenis  }}</td>
                         <td align="center">
                             @if ($row->tanggal_penerbitan)
                             {{ Carbon\Carbon::parse($row->tanggal_penerbitan)->format('d-m-y')}}
                             @endif
                         </td>
 
-                        <td align="center">{{ $row->nomor_imb  }}</td>
-                        <td align="center">{{ $row->permohonan->pemohon->nama }}</td>                      
-                        <td>{{ $row->permohonan->fungsibangunan->nama.','.$row->permohonan->jenisbangunan->nama }}</td>
-                        <td>{{ $row->permohonan->alamat.','.$row->permohonan->village() }}</td>
-                        <td align="center">{{ $row->penanda_tangan }}</td>
+                        <td align="center">{{ $row->nomor  }}</td>
+                        @if ($row->jenis=="Reklame")
+                            <td align="center">{{ $row->permohonanreklame->pemohon->nama }}</td>                      
+                            <td>{{ $row->permohonanreklame->jenis_reklame.','.$row->permohonanreklame->ukuran }} m</td>
+                            <td>{{ $row->permohonanreklame->alamat.','.$row->permohonanreklame->village() }}</td>
+                        @else
+                            <td align="center">{{ $row->permohonan->pemohon->nama }}</td>                      
+                            <td>{{ $row->permohonan->fungsibangunan->nama.','.$row->permohonan->jenisbangunan->nama }}</td>
+                            <td>{{ $row->permohonan->alamat.','.$row->permohonan->village() }}</td>
+                        @endif
+                       
+                        <td align="left">{{ $row->penanda_tangan }}</td>
                     </tr>
                 @endforeach
             </tbody>

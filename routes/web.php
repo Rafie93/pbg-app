@@ -4,9 +4,12 @@ use App\Http\Controllers\AuthController;
 use App\Livewire\Admin\DashboardControl;
 use App\Livewire\Admin\Laporan\LaporanPenerbitanImb;
 use App\Livewire\Admin\Laporan\LaporanPengajuan;
+use App\Livewire\Admin\Laporan\LaporanPerizinan;
+use App\Livewire\Admin\Laporan\LaporanReklame;
 use App\Livewire\Admin\Laporan\LaporanRetribusi;
 use App\Livewire\Admin\Laporan\LaporanSurvie;
 use App\Livewire\Admin\Laporan\RekapPembayaran;
+use App\Livewire\Admin\Laporan\RekapReklame;
 use App\Livewire\Admin\Laporan\RekapSurvie;
 use App\Livewire\Admin\Master\FungsiCreate;
 use App\Livewire\Admin\Master\FungsiRead;
@@ -105,6 +108,9 @@ Route::group(['middleware' => ['auth:sanctum','verified']], function () {
     Route::get('/laporan/laporan-pengajuan', LaporanPengajuan::class)->name('laporan.pengajuan');
     Route::get('/laporan/laporan-pengajuan/pdf', [LaporanPengajuan::class,'pdf'])->name('laporan.pengajuan.pdf');
 
+    Route::get('/laporan/laporan-reklame', LaporanReklame::class)->name('laporan.reklame');
+    Route::get('/laporan/laporan-reklame/pdf', [LaporanReklame::class,'pdf'])->name('laporan.reklame.pdf');
+
     Route::get('/laporan/laporan-retribusi', LaporanRetribusi::class)->name('laporan.retribusi');
     Route::get('/laporan/laporan-retribusi/pdf', [LaporanRetribusi::class,'pdf'])->name('laporan.retribusi.pdf');
     
@@ -119,7 +125,14 @@ Route::group(['middleware' => ['auth:sanctum','verified']], function () {
     
     Route::get('/laporan/rekap-survie', RekapSurvie::class)->name('rekap.survie');
     Route::get('/laporan/rekap-survie/pdf', [RekapSurvie::class,'pdf'])->name('rekap.survie.pdf');
-    
+
+    Route::get('/laporan/rekap-reklame', RekapReklame::class)->name('rekap.reklame');
+    Route::get('/laporan/rekap-reklame/pdf', [RekapReklame::class,'pdf'])->name('rekap.reklame.pdf');
+
+    Route::get('/laporan/perizinan', LaporanPerizinan::class)->name('laporan.perizinan');
+    Route::get('/laporan/perizinan/pdf', [LaporanPerizinan::class,'pdf'])->name('laporan.perizinan.pdf');
+
+
     Route::get('/master/tarif', TarifRead::class)->name('master.tarif');
     Route::get('/master/tarif/create', TarifCreate::class)->name('master.tarif.create');
     Route::get('/master/tarif/edit/{id}', TarifEdit::class)->name('master.tarif.edit');

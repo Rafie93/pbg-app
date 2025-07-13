@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Laporan Retribusi</title>
+    <title>Laporan Pengajuan Reklame</title>
     <link rel="stylesheet" href="{{ asset('css/pdf.css') }}" />
     <style type="text/css">
         @page {
@@ -42,7 +42,7 @@
         @include('livewire.admin.laporan.partial.kop')
         <hr>
         <h2>
-            <center>LAPORAN RETRIBUSI</center>
+            <center>LAPORAN PENGAJUAN REKLAME</center>
         </h2>
         <br>
         <div class="row">
@@ -71,13 +71,16 @@
             <thead>
                 <tr>
                     <th>NO</th>
-                    <th>TGL BAYAR</th>
-                    <th>NO. REGISTRASI</th>
+                    <th>NOMOR</th>
                     <th>NAMA PEMOHON</th>
-                    <th>BANGUNAN / REKLAME</th>
-                    <th>LOKASI</th>
+                    <th>TANGGAL</th>
+                    <th>JENIS REKLAME</th>
+                    <th>TEKS REKLAME</th>
+                    <th>DURASI </th>
+                    <th>UKURAN (m)</th>
+                    <th>JUMLAH</th>
+                    <th>ALAMAT</th>
                     <th>STATUS</th>
-                    <th>RETRIBUSI</th>
 
                 </tr>
 
@@ -89,27 +92,17 @@
                 @foreach ($data as $row)
                     <tr>
                         <td>{{ $no++ }}</td>
-                        <td align="center">
-                            @if ($row->tanggal_bayar)
-                            {{ Carbon\Carbon::parse($row->tanggal_bayar)->format('d-m-y')}}
-                            @endif
-                        </td>
-                        @if ($row->jenis=="Reklame")
-                            <td>{{ $row->permohonanreklame->nomor }}</td>
-                            <td>{{ $row->permohonanreklame->pemohon->nama }}</td>                      
-                            <td>{{ $row->permohonanreklame->jenis_reklame.','.$row->permohonanreklame->ukuran }} m</td>
-                            <td>{{ $row->permohonanreklame->alamat.','.$row->permohonanreklame->village() }}</td>
-                        @else
-                            <td>{{ $row->permohonan->nomor }}</td>
-                            <td>{{ $row->permohonan->pemohon->nama }}</td>                      
-                            <td>{{ $row->permohonan->fungsibangunan->nama.','.$row->permohonan->jenisbangunan->nama }}</td>
-                        
-                            <td>{{ $row->permohonan->alamat.','.$row->permohonan->village() }}</td>
-                        @endif
-                    
-                        <td align="center">{{ $row->status_pembayaran }}</td>
-                        <td align="right">Rp. {{ number_format($row->jumlah_tagihan,0,',','.') }}</td>
-
+                        <td>{{ $row->nomor }}</td>
+                        <td>{{ $row->pemohon->nama }}</td>
+                      
+                        <td align="center">{{ Carbon\Carbon::parse($row->tanggal_permohonan)->format('d-m-y')}}</td>
+                        <td>{{ $row->jenis_reklame }}</td>
+                        <td>{{ $row->teks_reklame }}</td>
+                        <td align="center">{{ $row->durasi_pemanfaatan }}</td>
+                        <td align="center">{{ $row->ukuran }}</td>
+                        <td align="center">{{ $row->jumlah_reklame }}</td>
+                        <td>{{ $row->alamat.','.$row->village() }}</td>
+                        <td align="center">{{ $row->status_permohonan }}</td>
 
                     </tr>
                 @endforeach

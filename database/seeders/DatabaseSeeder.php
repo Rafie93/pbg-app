@@ -21,10 +21,10 @@ class DatabaseSeeder extends Seeder
         //     'role'=>1
         // ]);
         // $this->call(PemohonSeeder::class);
-        // $this->call(PermohonanSeeder::class);
+        $this->call(PermohonanSeeder::class);
         // $this->call(RetribusiSeeder::class);
         // $this->call(SurvieSeeder::class);
-        $this->call(PenerbitanSeeder::class);
+        // $this->call(PenerbitanSeeder::class);
         
     }
 }

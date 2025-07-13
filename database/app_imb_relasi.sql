@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Feb 18, 2025 at 07:41 AM
--- Server version: 8.0.30
--- PHP Version: 8.1.10
+-- Waktu pembuatan: 13 Jul 2025 pada 06.32
+-- Versi server: 8.0.30
+-- Versi PHP: 7.4.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `app_imb`
+-- Database: `app_imb_relasi`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `citys`
+-- Struktur dari tabel `citys`
 --
 
 CREATE TABLE `citys` (
@@ -35,7 +35,7 @@ CREATE TABLE `citys` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `citys`
+-- Dumping data untuk tabel `citys`
 --
 
 INSERT INTO `citys` (`id`, `state_id`, `name`, `urut`) VALUES
@@ -560,7 +560,7 @@ INSERT INTO `citys` (`id`, `state_id`, `name`, `urut`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `districts`
+-- Struktur dari tabel `districts`
 --
 
 CREATE TABLE `districts` (
@@ -570,7 +570,7 @@ CREATE TABLE `districts` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `districts`
+-- Dumping data untuk tabel `districts`
 --
 
 INSERT INTO `districts` (`id`, `city_id`, `name`) VALUES
@@ -7677,35 +7677,35 @@ INSERT INTO `districts` (`id`, `city_id`, `name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `failed_jobs`
+-- Struktur dari tabel `failed_jobs`
 --
 
 CREATE TABLE `failed_jobs` (
   `id` bigint UNSIGNED NOT NULL,
-  `uuid` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `connection` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `queue` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `payload` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
-  `exception` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `uuid` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `connection` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `queue` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `payload` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `exception` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `failed_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `fungsi_bangunan`
+-- Struktur dari tabel `fungsi_bangunan`
 --
 
 CREATE TABLE `fungsi_bangunan` (
   `id` bigint UNSIGNED NOT NULL,
-  `nama` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `status` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'Aktif' COMMENT 'Aktif, Tidak Aktif',
+  `nama` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `status` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'Aktif' COMMENT 'Aktif, Tidak Aktif',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `fungsi_bangunan`
+-- Dumping data untuk tabel `fungsi_bangunan`
 --
 
 INSERT INTO `fungsi_bangunan` (`id`, `nama`, `status`, `created_at`, `updated_at`) VALUES
@@ -7718,19 +7718,19 @@ INSERT INTO `fungsi_bangunan` (`id`, `nama`, `status`, `created_at`, `updated_at
 -- --------------------------------------------------------
 
 --
--- Table structure for table `jenis_bangunan`
+-- Struktur dari tabel `jenis_bangunan`
 --
 
 CREATE TABLE `jenis_bangunan` (
   `id` bigint UNSIGNED NOT NULL,
-  `nama` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `status` enum('Aktif','Tidak Aktif') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'Aktif',
+  `nama` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `status` enum('Aktif','Tidak Aktif') CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'Aktif',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `jenis_bangunan`
+-- Dumping data untuk tabel `jenis_bangunan`
 --
 
 INSERT INTO `jenis_bangunan` (`id`, `nama`, `status`, `created_at`, `updated_at`) VALUES
@@ -7741,17 +7741,17 @@ INSERT INTO `jenis_bangunan` (`id`, `nama`, `status`, `created_at`, `updated_at`
 -- --------------------------------------------------------
 
 --
--- Table structure for table `migrations`
+-- Struktur dari tabel `migrations`
 --
 
 CREATE TABLE `migrations` (
   `id` int UNSIGNED NOT NULL,
-  `migration` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `migration` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `batch` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `migrations`
+-- Dumping data untuk tabel `migrations`
 --
 
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
@@ -7767,43 +7767,43 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (10, '2025_02_15_085544_create_retribusi_table', 4),
 (11, '2025_02_15_090350_create_survie_table', 5),
 (12, '2025_02_15_141331_create_penerbitan_imb_table', 6),
-(14, '2025_02_18_050921_create_tarif_table', 7);
+(13, '2025_07_13_015213_create_penanda_tangan_table', 7);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `password_reset_tokens`
+-- Struktur dari tabel `password_reset_tokens`
 --
 
 CREATE TABLE `password_reset_tokens` (
-  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `token` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `token` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pemohon`
+-- Struktur dari tabel `pemohon`
 --
 
 CREATE TABLE `pemohon` (
   `id` bigint UNSIGNED NOT NULL,
-  `nama` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `no_hp` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `jenis_identitas` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `no_identitas` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `pekerjaan` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `nama` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `no_hp` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `jenis_identitas` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `no_identitas` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `pekerjaan` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `kecamatan_id` int DEFAULT NULL,
   `kelurahan_id` varchar(12) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `alamat` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `user_id` bigint DEFAULT NULL,
+  `alamat` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `user_id` bigint UNSIGNED NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `pemohon`
+-- Dumping data untuk tabel `pemohon`
 --
 
 INSERT INTO `pemohon` (`id`, `nama`, `no_hp`, `jenis_identitas`, `no_identitas`, `pekerjaan`, `kecamatan_id`, `kelurahan_id`, `alamat`, `user_id`, `created_at`, `updated_at`) VALUES
@@ -7862,156 +7862,180 @@ INSERT INTO `pemohon` (`id`, `nama`, `no_hp`, `jenis_identitas`, `no_identitas`,
 -- --------------------------------------------------------
 
 --
--- Table structure for table `penerbitan_imb`
+-- Struktur dari tabel `penanda_tangan`
 --
 
-CREATE TABLE `penerbitan_imb` (
+CREATE TABLE `penanda_tangan` (
   `id` bigint UNSIGNED NOT NULL,
-  `nomor_imb` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `permohonanimb_id` bigint UNSIGNED NOT NULL,
-  `tanggal_penerbitan` date NOT NULL,
-  `penanda_tangan` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `jabatan_penanda_tangan` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `nip_penanda_tangan` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `nama` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `nip` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `jabatan` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `penerbitan_imb`
+-- Dumping data untuk tabel `penanda_tangan`
 --
 
-INSERT INTO `penerbitan_imb` (`id`, `nomor_imb`, `permohonanimb_id`, `tanggal_penerbitan`, `penanda_tangan`, `jabatan_penanda_tangan`, `nip_penanda_tangan`, `created_at`, `updated_at`) VALUES
-(1, '0001/PBG/2025', 1, '2025-02-15', 'Ir. Suri Sudarmadiyah, M.T', 'Ketua', '-', '2025-02-15 07:14:34', '2025-02-15 07:14:34'),
-(3, '6180/PBG/2025', 52, '2025-02-16', 'Ir. Suri Sudarmadiyah, M.T', 'Ketua', '-', '2025-02-15 20:00:34', '2025-02-15 20:00:34'),
-(4, '8216/PBG/2025', 12, '2025-02-16', 'Ir. Suri Sudarmadiyah, M.T', 'Ketua', '-', '2025-02-15 20:00:34', '2025-02-15 20:00:34'),
-(5, '4677/PBG/2025', 10, '2025-02-16', 'Ir. Suri Sudarmadiyah, M.T', 'Ketua', '-', '2025-02-15 20:00:34', '2025-02-15 20:00:34'),
-(6, '6891/PBG/2025', 59, '2025-02-16', 'Ir. Suri Sudarmadiyah, M.T', 'Ketua', '-', '2025-02-15 20:00:34', '2025-02-15 20:00:34'),
-(7, '3220/PBG/2025', 34, '2025-02-16', 'Ir. Suri Sudarmadiyah, M.T', 'Ketua', '-', '2025-02-15 20:00:34', '2025-02-15 20:00:34'),
-(8, '5338/PBG/2025', 19, '2025-02-16', 'Ir. Suri Sudarmadiyah, M.T', 'Ketua', '-', '2025-02-15 20:00:34', '2025-02-15 20:00:34'),
-(9, '7783/PBG/2025', 49, '2025-02-16', 'Ir. Suri Sudarmadiyah, M.T', 'Ketua', '-', '2025-02-15 20:00:34', '2025-02-15 20:00:34'),
-(10, '9181/PBG/2025', 22, '2025-02-16', 'Ir. Suri Sudarmadiyah, M.T', 'Ketua', '-', '2025-02-15 20:00:34', '2025-02-15 20:00:34'),
-(11, '4112/PBG/2025', 29, '2025-02-16', 'Ir. Suri Sudarmadiyah, M.T', 'Ketua', '-', '2025-02-15 20:00:34', '2025-02-15 20:00:34'),
-(12, '9318/PBG/2025', 20, '2025-02-16', 'Ir. Suri Sudarmadiyah, M.T', 'Ketua', '-', '2025-02-15 20:00:34', '2025-02-15 20:00:34'),
-(13, '7626/PBG/2025', 26, '2025-02-16', 'Ir. Suri Sudarmadiyah, M.T', 'Ketua', '-', '2025-02-15 20:00:34', '2025-02-15 20:00:34'),
-(14, '1110/PBG/2025', 8, '2025-02-16', 'Ir. Suri Sudarmadiyah, M.T', 'Ketua', '-', '2025-02-15 20:00:34', '2025-02-15 20:00:34'),
-(15, '9599/PBG/2025', 31, '2025-02-16', 'Ir. Suri Sudarmadiyah, M.T', 'Ketua', '-', '2025-02-15 20:00:34', '2025-02-15 20:00:34'),
-(16, '3480/PBG/2025', 5, '2025-02-16', 'Ir. Suri Sudarmadiyah, M.T', 'Ketua', '-', '2025-02-15 20:00:34', '2025-02-15 20:00:34');
+INSERT INTO `penanda_tangan` (`id`, `nama`, `nip`, `jabatan`, `created_at`, `updated_at`) VALUES
+(1, 'Ir. Suri Sudarmadiyah, M.T', '9670702 199403 2 004', 'Kepala Dinas', NULL, NULL);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `permohonanimb`
+-- Struktur dari tabel `penerbitan`
 --
 
-CREATE TABLE `permohonanimb` (
+CREATE TABLE `penerbitan` (
   `id` bigint UNSIGNED NOT NULL,
-  `nomor` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `nomor` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `jenis` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'PBG',
+  `permohonan_id` bigint UNSIGNED NOT NULL,
+  `tanggal_penerbitan` date NOT NULL,
+  `tanggal_kadaluarsa` date DEFAULT NULL,
+  `penanda_tangan` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `jabatan_penanda_tangan` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `nip_penanda_tangan` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data untuk tabel `penerbitan`
+--
+
+INSERT INTO `penerbitan` (`id`, `nomor`, `jenis`, `permohonan_id`, `tanggal_penerbitan`, `tanggal_kadaluarsa`, `penanda_tangan`, `jabatan_penanda_tangan`, `nip_penanda_tangan`, `created_at`, `updated_at`) VALUES
+(1, '0001/PBG/2025', 'PBG', 2, '2025-02-15', NULL, 'Ir. Suri Sudarmadiyah, M.T', 'Ketua', '9670702 199403 2 004', '2025-02-15 07:14:34', '2025-07-12 18:53:55'),
+(3, '6180/PBG/2025', 'PBG', 52, '2025-02-16', NULL, 'Ir. Suri Sudarmadiyah, M.T', 'Ketua', '-', '2025-02-15 20:00:34', '2025-02-15 20:00:34'),
+(4, '8216/PBG/2025', 'PBG', 12, '2025-02-16', NULL, 'Ir. Suri Sudarmadiyah, M.T', 'Ketua', '-', '2025-02-15 20:00:34', '2025-02-15 20:00:34'),
+(5, '4677/PBG/2025', 'PBG', 10, '2025-02-16', NULL, 'Ir. Suri Sudarmadiyah, M.T', 'Ketua', '-', '2025-02-15 20:00:34', '2025-02-15 20:00:34'),
+(6, '6891/PBG/2025', 'PBG', 59, '2025-02-16', NULL, 'Ir. Suri Sudarmadiyah, M.T', 'Ketua', '-', '2025-02-15 20:00:34', '2025-02-15 20:00:34'),
+(7, '3220/PBG/2025', 'PBG', 34, '2025-02-16', NULL, 'Ir. Suri Sudarmadiyah, M.T', 'Ketua', '-', '2025-02-15 20:00:34', '2025-02-15 20:00:34'),
+(8, '5338/PBG/2025', 'PBG', 19, '2025-02-16', NULL, 'Ir. Suri Sudarmadiyah, M.T', 'Ketua', '-', '2025-02-15 20:00:34', '2025-02-15 20:00:34'),
+(9, '7783/PBG/2025', 'PBG', 49, '2025-02-16', NULL, 'Ir. Suri Sudarmadiyah, M.T', 'Ketua', '-', '2025-02-15 20:00:34', '2025-02-15 20:00:34'),
+(10, '9181/PBG/2025', 'PBG', 22, '2025-02-16', NULL, 'Ir. Suri Sudarmadiyah, M.T', 'Ketua', '-', '2025-02-15 20:00:34', '2025-02-15 20:00:34'),
+(11, '4112/PBG/2025', 'PBG', 29, '2025-02-16', NULL, 'Ir. Suri Sudarmadiyah, M.T', 'Ketua', '-', '2025-02-15 20:00:34', '2025-02-15 20:00:34'),
+(12, '9318/PBG/2025', 'PBG', 20, '2025-02-16', NULL, 'Ir. Suri Sudarmadiyah, M.T', 'Ketua', '-', '2025-02-15 20:00:34', '2025-02-15 20:00:34'),
+(13, '7626/PBG/2025', 'PBG', 26, '2025-02-16', NULL, 'Ir. Suri Sudarmadiyah, M.T', 'Ketua', '-', '2025-02-15 20:00:34', '2025-02-15 20:00:34'),
+(14, '1110/PBG/2025', 'PBG', 8, '2025-02-16', NULL, 'Ir. Suri Sudarmadiyah, M.T', 'Ketua', '-', '2025-02-15 20:00:34', '2025-02-15 20:00:34'),
+(15, '9599/PBG/2025', 'PBG', 31, '2025-02-16', NULL, 'Ir. Suri Sudarmadiyah, M.T', 'Ketua', '-', '2025-02-15 20:00:34', '2025-02-15 20:00:34'),
+(16, '3480/PBG/2025', 'PBG', 5, '2025-02-16', NULL, 'Ir. Suri Sudarmadiyah, M.T', 'Ketua', '-', '2025-02-15 20:00:34', '2025-02-15 20:00:34'),
+(18, '3481/Reklame/2025', 'Reklame', 2, '2025-07-13', '2025-07-31', 'Ir. Suri Sudarmadiyah, M.T', 'Ketua', '9670702 199403 2 004', '2025-07-12 18:56:44', '2025-07-12 18:58:29');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `permohonan`
+--
+
+CREATE TABLE `permohonan` (
+  `id` bigint UNSIGNED NOT NULL,
+  `nomor` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `tanggal_permohonan` date NOT NULL,
   `pemohon_id` bigint NOT NULL,
   `jenis_permohonan` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `pemilik_bangunan` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `pemilik_bangunan` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `kecamatan_id` int NOT NULL,
   `kelurahan_id` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `alamat` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `alamat` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `latitude` double DEFAULT NULL,
   `longitude` double DEFAULT NULL,
-  `nama_bangunan` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `fungsi_bangunan` int DEFAULT NULL,
-  `luas_bangunan` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `nama_bangunan` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `fungsi_bangunan_id` bigint UNSIGNED NOT NULL,
+  `luas_bangunan` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `jumlah_lantai` int NOT NULL,
   `tinggi_bangunan` int DEFAULT NULL,
-  `jenis_bangunan` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `kondisi_bangunan` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'Sudah Berdiri' COMMENT 'Sudah Berdiri, Belum Berdiri, Sedang Dibangun, Renovasi',
-  `durasi_pemanfaatan` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '> 5 Tahun' COMMENT '< 5 Tahun, > 5 Tahun',
-  `status_permohonan` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'Diajukan' COMMENT 'Diajukan,Diproses, Diterima, Ditolak',
-  `foto_bangunan` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `keterangan` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `jenis_bangunan_id` bigint UNSIGNED NOT NULL,
+  `kondisi_bangunan` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'Sudah Berdiri' COMMENT 'Sudah Berdiri, Belum Berdiri, Sedang Dibangun, Renovasi',
+  `durasi_pemanfaatan` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '> 5 Tahun' COMMENT '< 5 Tahun, > 5 Tahun',
+  `status_permohonan` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'Diajukan' COMMENT 'Diajukan,Diproses, Diterima, Ditolak',
+  `foto_bangunan` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `keterangan` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `permohonanimb`
+-- Dumping data untuk tabel `permohonan`
 --
 
-INSERT INTO `permohonanimb` (`id`, `nomor`, `tanggal_permohonan`, `pemohon_id`, `jenis_permohonan`, `pemilik_bangunan`, `kecamatan_id`, `kelurahan_id`, `alamat`, `latitude`, `longitude`, `nama_bangunan`, `fungsi_bangunan`, `luas_bangunan`, `jumlah_lantai`, `tinggi_bangunan`, `jenis_bangunan`, `kondisi_bangunan`, `durasi_pemanfaatan`, `status_permohonan`, `foto_bangunan`, `keterangan`, `created_at`, `updated_at`) VALUES
-(1, '250215-323', '2025-02-15', 1, 'PBG', 'Perseorangan', 6371010, '6371010001', 'jl', NULL, NULL, 'Rumah 1', 1, '100', 1, 10, '3', 'Sudah Berdiri', '> 5 Tahun', 'PBG Diterbitkan', 'foto_bangunan/aEjRSgVqSzaVIZircbtTlVjmb9xIXVmpughaowiZ.png', NULL, '2025-02-14 21:20:39', '2025-02-15 19:36:03'),
-(2, '240216-491', '2025-01-29', 77, 'PBG', 'Perseorangan', 6371010, '6371010013', 'Jr. Sudiarto No. 540', 48.449928, -163.854221, 'Yayasan Widodo Kuswoyo (Persero) Tbk', 2, '496', 2, 2, '2', 'Sedang Dibangun', '< 5 Tahun', 'Diajukan', NULL, NULL, '2025-02-15 15:15:24', '2025-02-15 19:36:03'),
-(3, '240216-074', '2025-02-07', 90, 'PBG', 'Pemerintah', 6371010, '6371010006', 'Ki. Umalas No. 948', 28.045451, -148.89204, 'PJ Widiastuti', 3, '646', 1, 2, '2', 'Sedang Dibangun', '> 5 Tahun', 'Diproses', NULL, NULL, '2025-02-15 15:15:24', '2025-02-15 19:36:03'),
-(4, '240216-929', '2025-01-17', 78, 'PBG', 'Perseorangan', 6371040, '6371040005', 'Kpg. Baranangsiang No. 133', 85.492092, 40.778492, 'PJ Farida Tbk', 5, '333', 1, 9, '3', 'Sedang Dibangun', '> 5 Tahun', 'Diproses', NULL, NULL, '2025-02-15 15:15:24', '2025-02-15 19:36:03'),
-(5, '240216-932', '2025-02-02', 99, 'PBG', 'Pemerintah', 6371040, '6371040007', 'Dk. Gardujati No. 353', 75.888758, -87.404947, 'UD Setiawan Tbk', 5, '516', 2, 2, '1', 'Belum Berdiri', '> 5 Tahun', 'PBG Diterbitkan', NULL, NULL, '2025-02-15 15:15:24', '2025-02-15 20:00:34'),
-(6, '240216-833', '2025-01-29', 72, 'PBG', 'Pemerintah', 6371010, '6371010012', 'Jr. Panjaitan No. 425', 83.727088, 167.462513, 'Perum Hastuti Suwarno (Persero) Tbk', 4, '917', 2, 2, '3', 'Sedang Dibangun', '> 5 Tahun', 'Diproses', NULL, NULL, '2025-02-15 15:15:24', '2025-02-15 19:36:03'),
-(7, '240216-880', '2025-02-11', 101, 'PBG', 'Perseorangan', 6371010, '6371010011', 'Jln. Suharso No. 86', -27.069575, 26.39413, 'Fa Latupono Saefullah', 5, '931', 3, 9, '2', 'Sudah Berdiri', '> 5 Tahun', 'Diproses', NULL, NULL, '2025-02-15 15:15:24', '2025-02-15 19:36:03'),
-(8, '240216-082', '2025-01-28', 62, 'PBG', 'Badan Hukum', 6371030, '6371030008', 'Kpg. Rajawali No. 14', -16.977279, -72.778953, 'Yayasan Samosir Handayani', 4, '920', 2, 1, '3', 'Sedang Dibangun', '> 5 Tahun', 'PBG Diterbitkan', NULL, NULL, '2025-02-15 15:15:24', '2025-02-15 20:00:34'),
-(9, '240216-907', '2025-02-03', 62, 'PBG', 'Perusahaan', 6371030, '6371030008', 'Kpg. Rajawali No. 14', 53.344437, 21.86339, 'PT Winarsih Andriani (Persero) Tbk', 2, '273', 2, 6, '1', 'Sudah Berdiri', '> 5 Tahun', 'Diproses', NULL, NULL, '2025-02-15 15:15:24', '2025-02-15 19:36:03'),
-(10, '240216-059', '2025-02-10', 56, 'PBG', 'Badan Hukum', 6371030, '6371030002', 'Kpg. Bank Dagang Negara No. 544', 12.865719, 97.443456, 'CV Irawan', 1, '115', 1, 9, '3', 'Belum Berdiri', '> 5 Tahun', 'PBG Diterbitkan', NULL, NULL, '2025-02-15 15:15:24', '2025-02-15 20:00:34'),
-(11, '240216-754', '2025-01-26', 91, 'PBG', 'Perusahaan', 6371020, '6371020004', 'Gg. Banda No. 750', -23.843629, 78.705681, 'PD Maryati Tbk', 2, '749', 2, 2, '1', 'Sudah Berdiri', '< 5 Tahun', 'Diproses', NULL, NULL, '2025-02-15 15:15:24', '2025-02-15 19:36:03'),
-(12, '240216-263', '2025-02-01', 84, 'PBG', 'Perseorangan', 6371020, '6371020002', 'Jln. Tambak No. 144', 65.213027, -59.484462, 'Yayasan Hastuti Tbk', 4, '313', 2, 9, '3', 'Sudah Berdiri', '> 5 Tahun', 'PBG Diterbitkan', NULL, NULL, '2025-02-15 15:15:24', '2025-02-15 20:00:34'),
-(13, '240216-834', '2025-01-30', 94, 'PBG', 'Perseorangan', 6371020, '6371020014', 'Jr. Kebonjati No. 553', 71.276011, -126.521243, 'Perum Suwarno', 5, '709', 2, 2, '2', 'Belum Berdiri', '> 5 Tahun', 'Diproses', NULL, NULL, '2025-02-15 15:15:24', '2025-02-15 19:36:03'),
-(14, '240216-559', '2025-01-18', 87, 'PBG', 'Badan Hukum', 6371031, '6371031009', 'Jr. Gotong Royong No. 779', -55.979029, -137.027263, 'PJ Narpati Tbk', 2, '268', 3, 5, '1', 'Sedang Dibangun', '> 5 Tahun', 'Diproses', NULL, NULL, '2025-02-15 15:15:24', '2025-02-15 19:36:03'),
-(15, '240216-461', '2025-01-24', 54, 'PBG', 'Perusahaan', 6371040, '6371040006', 'Jln. Jamika No. 223', -68.207464, -150.831393, 'PD Utama (Persero) Tbk', 1, '513', 2, 3, '3', 'Sedang Dibangun', '< 5 Tahun', 'Diproses', NULL, NULL, '2025-02-15 15:15:24', '2025-02-15 19:36:03'),
-(16, '240216-422', '2025-01-18', 84, 'PBG', 'Badan Hukum', 6371020, '6371020002', 'Jln. Tambak No. 144', -40.252822, 55.838675, 'Yayasan Mandasari', 2, '794', 2, 9, '2', 'Sudah Berdiri', '< 5 Tahun', 'Diproses', NULL, NULL, '2025-02-15 15:15:24', '2025-02-15 19:36:03'),
-(17, '240216-819', '2025-01-31', 53, 'PBG', 'Perseorangan', 6371020, '6371020002', 'Ds. Bank Dagang Negara No. 761', 29.786819, -119.252208, 'CV Manullang Tbk', 4, '229', 3, 10, '2', 'Sudah Berdiri', '< 5 Tahun', 'Diproses', NULL, NULL, '2025-02-15 15:15:24', '2025-02-15 19:36:03'),
-(18, '240216-470', '2025-02-10', 78, 'PBG', 'Badan Hukum', 6371040, '6371040005', 'Kpg. Baranangsiang No. 133', 4.700459, -44.777681, 'PD Wulandari Ardianto Tbk', 2, '964', 1, 9, '3', 'Sudah Berdiri', '> 5 Tahun', 'Diproses', NULL, NULL, '2025-02-15 15:15:24', '2025-02-15 19:36:03'),
-(19, '240216-924', '2025-01-24', 77, 'PBG', 'Perusahaan', 6371010, '6371010013', 'Jr. Sudiarto No. 540', -68.985771, 157.072528, 'PT Prayoga Lailasari (Persero) Tbk', 2, '247', 1, 6, '1', 'Sudah Berdiri', '< 5 Tahun', 'PBG Diterbitkan', NULL, NULL, '2025-02-15 15:15:24', '2025-02-15 20:00:34'),
-(20, '240216-045', '2025-02-05', 57, 'PBG', 'Badan Hukum', 6371020, '6371020001', 'Jln. Labu No. 134', -27.98376, 33.615146, 'Fa Wasita Laksmiwati (Persero) Tbk', 5, '922', 2, 7, '3', 'Belum Berdiri', '< 5 Tahun', 'PBG Diterbitkan', NULL, NULL, '2025-02-15 15:15:24', '2025-02-15 20:00:34'),
-(21, '240216-538', '2025-02-01', 101, 'PBG', 'Perusahaan', 6371010, '6371010011', 'Jln. Suharso No. 86', 50.621664, -1.341814, 'Fa Nababan', 2, '979', 1, 8, '1', 'Sedang Dibangun', '> 5 Tahun', 'Diproses', NULL, NULL, '2025-02-15 15:15:24', '2025-02-15 19:36:03'),
-(22, '240216-388', '2025-02-01', 67, 'PBG', 'Pemerintah', 6371031, '6371031003', 'Jln. Pattimura No. 346', -72.930739, 60.227094, 'CV Hassanah', 5, '792', 1, 5, '2', 'Belum Berdiri', '< 5 Tahun', 'PBG Diterbitkan', NULL, NULL, '2025-02-15 15:15:24', '2025-02-15 20:00:34'),
-(23, '240216-138', '2025-02-14', 83, 'PBG', 'Badan Hukum', 6371030, '6371030011', 'Jr. Jaksa No. 973', 54.349561, -105.823467, 'PD Januar (Persero) Tbk', 3, '940', 2, 9, '2', 'Sedang Dibangun', '> 5 Tahun', 'Diproses', NULL, NULL, '2025-02-15 15:15:24', '2025-02-15 19:36:03'),
-(24, '240216-582', '2025-02-11', 52, 'PBG', 'Perseorangan', 6371031, '6371031012', 'Kpg. Banda No. 894', 39.47827, 108.149574, 'Yayasan Santoso', 5, '996', 1, 7, '1', 'Sedang Dibangun', '< 5 Tahun', 'Diproses', NULL, NULL, '2025-02-15 15:15:24', '2025-02-15 19:36:03'),
-(25, '240216-987', '2025-02-03', 93, 'PBG', 'Perseorangan', 6371040, '6371040012', 'Dk. Jambu No. 579', 66.496149, 161.239081, 'PJ Novitasari', 1, '285', 1, 7, '3', 'Sudah Berdiri', '< 5 Tahun', 'Diproses', NULL, NULL, '2025-02-15 15:15:24', '2025-02-15 19:36:03'),
-(26, '240216-971', '2025-01-18', 78, 'PBG', 'Pemerintah', 6371040, '6371040005', 'Kpg. Baranangsiang No. 133', -88.551882, -55.093929, 'Yayasan Pradipta Yuniar', 5, '951', 1, 5, '3', 'Sudah Berdiri', '< 5 Tahun', 'PBG Diterbitkan', NULL, NULL, '2025-02-15 15:15:24', '2025-02-15 20:00:34'),
-(27, '240216-615', '2025-01-29', 72, 'PBG', 'Perseorangan', 6371010, '6371010012', 'Jr. Panjaitan No. 425', 31.922902, -121.741217, 'Fa Suryatmi', 3, '380', 1, 7, '1', 'Sedang Dibangun', '> 5 Tahun', 'Diproses', NULL, NULL, '2025-02-15 15:15:24', '2025-02-15 19:36:03'),
-(28, '240216-706', '2025-01-16', 90, 'PBG', 'Perseorangan', 6371010, '6371010006', 'Ki. Umalas No. 948', 52.454954, 133.87937, 'PD Halimah Pertiwi Tbk', 5, '584', 1, 7, '2', 'Sedang Dibangun', '> 5 Tahun', 'Diproses', NULL, NULL, '2025-02-15 15:15:24', '2025-02-15 19:36:03'),
-(29, '240216-472', '2025-02-02', 90, 'PBG', 'Pemerintah', 6371010, '6371010006', 'Ki. Umalas No. 948', -49.110502, 143.792987, 'Yayasan Wahyuni Fujiati Tbk', 4, '200', 2, 9, '1', 'Belum Berdiri', '< 5 Tahun', 'PBG Diterbitkan', NULL, NULL, '2025-02-15 15:15:24', '2025-02-15 20:00:34'),
-(30, '240216-998', '2025-01-20', 73, 'PBG', 'Perusahaan', 6371020, '6371020014', 'Psr. Aceh No. 379', -89.566753, 27.586888, 'Perum Halimah Marpaung Tbk', 3, '677', 1, 6, '3', 'Belum Berdiri', '< 5 Tahun', 'Diproses', NULL, NULL, '2025-02-15 15:15:24', '2025-02-15 19:36:03'),
-(31, '240216-477', '2025-02-10', 53, 'PBG', 'Badan Hukum', 6371020, '6371020002', 'Ds. Bank Dagang Negara No. 761', 33.663028, -61.743758, 'Yayasan Wijayanti Astuti', 3, '559', 2, 9, '2', 'Sudah Berdiri', '> 5 Tahun', 'PBG Diterbitkan', NULL, NULL, '2025-02-15 15:15:24', '2025-02-15 20:00:34'),
-(32, '240216-053', '2025-01-20', 53, 'PBG', 'Badan Hukum', 6371020, '6371020002', 'Ds. Bank Dagang Negara No. 761', -84.585247, -68.700285, 'Perum Safitri', 5, '687', 1, 7, '1', 'Sedang Dibangun', '> 5 Tahun', 'Diproses', NULL, NULL, '2025-02-15 15:15:24', '2025-02-15 19:36:03'),
-(33, '240216-832', '2025-02-07', 53, 'PBG', 'Pemerintah', 6371020, '6371020002', 'Ds. Bank Dagang Negara No. 761', 8.602024, 135.330966, 'PD Sitorus Tbk', 2, '150', 2, 1, '1', 'Sedang Dibangun', '> 5 Tahun', 'Diproses', NULL, NULL, '2025-02-15 15:15:24', '2025-02-15 19:36:03'),
-(34, '240216-081', '2025-02-09', 54, 'PBG', 'Pemerintah', 6371040, '6371040006', 'Jln. Jamika No. 223', 45.564744, -46.48867, 'Yayasan Dabukke Tbk', 5, '698', 2, 1, '1', 'Sudah Berdiri', '> 5 Tahun', 'PBG Diterbitkan', NULL, NULL, '2025-02-15 15:15:24', '2025-02-15 20:00:34'),
-(35, '240216-729', '2025-02-08', 69, 'PBG', 'Perseorangan', 6371020, '6371020003', 'Kpg. Dago No. 668', -86.927433, 76.022798, 'Perum Widiastuti Usada', 1, '451', 2, 10, '3', 'Sudah Berdiri', '< 5 Tahun', 'Diproses', NULL, NULL, '2025-02-15 15:15:24', '2025-02-15 19:36:03'),
-(36, '240216-159', '2025-01-24', 67, 'PBG', 'Badan Hukum', 6371031, '6371031003', 'Jln. Pattimura No. 346', 81.081896, -159.163881, 'Fa Najmudin (Persero) Tbk', 1, '486', 3, 7, '2', 'Sudah Berdiri', '> 5 Tahun', 'Diproses', NULL, NULL, '2025-02-15 15:15:24', '2025-02-15 19:36:03'),
-(37, '240216-290', '2025-02-07', 90, 'PBG', 'Perseorangan', 6371010, '6371010006', 'Ki. Umalas No. 948', 26.845066, 146.82914, 'Yayasan Wijaya', 3, '982', 2, 2, '1', 'Belum Berdiri', '< 5 Tahun', 'Diproses', NULL, NULL, '2025-02-15 15:15:24', '2025-02-15 19:36:03'),
-(38, '240216-035', '2025-01-22', 64, 'PBG', 'Perseorangan', 6371010, '6371010003', 'Jr. Sam Ratulangi No. 334', -40.853202, -172.549325, 'UD Winarsih Winarno Tbk', 4, '273', 1, 4, '3', 'Sedang Dibangun', '> 5 Tahun', 'Diproses', NULL, NULL, '2025-02-15 15:15:24', '2025-02-15 19:36:03'),
-(39, '240216-269', '2025-01-25', 91, 'PBG', 'Perusahaan', 6371020, '6371020004', 'Gg. Banda No. 750', -14.808632, 48.150036, 'Perum Permata', 2, '589', 1, 3, '2', 'Sedang Dibangun', '> 5 Tahun', 'Diproses', NULL, NULL, '2025-02-15 15:15:24', '2025-02-15 19:36:03'),
-(40, '240216-391', '2025-02-03', 70, 'PBG', 'Perusahaan', 6371020, '6371020004', 'Psr. Suharso No. 722', 63.825916, 1.300611, 'PJ Hastuti Marbun (Persero) Tbk', 2, '329', 3, 4, '1', 'Sedang Dibangun', '> 5 Tahun', 'Diproses', NULL, NULL, '2025-02-15 15:15:24', '2025-02-15 19:36:03'),
-(41, '240216-919', '2025-02-11', 91, 'PBG', 'Badan Hukum', 6371020, '6371020004', 'Gg. Banda No. 750', -79.958196, 88.434128, 'Fa Manullang', 1, '913', 1, 4, '2', 'Belum Berdiri', '< 5 Tahun', 'Diproses', NULL, NULL, '2025-02-15 15:15:24', '2025-02-15 19:36:03'),
-(42, '240216-979', '2025-02-07', 93, 'PBG', 'Badan Hukum', 6371040, '6371040012', 'Dk. Jambu No. 579', 54.289606, 19.251842, 'Perum Rajata Tbk', 4, '630', 1, 9, '2', 'Belum Berdiri', '< 5 Tahun', 'Diproses', NULL, NULL, '2025-02-15 15:15:24', '2025-02-15 19:36:03'),
-(43, '240216-699', '2025-02-03', 54, 'PBG', 'Perseorangan', 6371040, '6371040006', 'Jln. Jamika No. 223', 51.925109, -79.562299, 'PJ Maryati Simanjuntak (Persero) Tbk', 2, '234', 2, 5, '2', 'Sudah Berdiri', '> 5 Tahun', 'Diproses', NULL, NULL, '2025-02-15 15:15:24', '2025-02-15 19:36:03'),
-(44, '240216-752', '2025-01-20', 69, 'PBG', 'Perseorangan', 6371020, '6371020003', 'Kpg. Dago No. 668', -85.572188, -156.892666, 'Perum Wijayanti', 5, '274', 3, 2, '1', 'Sedang Dibangun', '> 5 Tahun', 'Diproses', NULL, NULL, '2025-02-15 15:15:24', '2025-02-15 19:36:03'),
-(45, '240216-485', '2025-02-10', 78, 'PBG', 'Perusahaan', 6371040, '6371040005', 'Kpg. Baranangsiang No. 133', -48.666287, -10.302375, 'PJ Natsir Anggraini', 1, '718', 3, 3, '3', 'Sedang Dibangun', '< 5 Tahun', 'Diproses', NULL, NULL, '2025-02-15 15:15:24', '2025-02-15 19:36:03'),
-(46, '240216-341', '2025-01-17', 57, 'PBG', 'Pemerintah', 6371020, '6371020001', 'Jln. Labu No. 134', -73.479608, 156.329561, 'PT Puspasari', 3, '473', 3, 4, '2', 'Sudah Berdiri', '< 5 Tahun', 'Diproses', NULL, NULL, '2025-02-15 15:15:24', '2025-02-15 19:36:03'),
-(47, '240216-006', '2025-02-13', 61, 'PBG', 'Badan Hukum', 6371010, '6371010011', 'Gg. Basuki No. 552', 41.95946, 51.578916, 'Yayasan Utama Tbk', 2, '301', 1, 5, '3', 'Belum Berdiri', '> 5 Tahun', 'Diajukan', NULL, NULL, '2025-02-15 15:15:24', '2025-02-15 15:15:24'),
-(48, '240216-685', '2025-02-04', 78, 'PBG', 'Badan Hukum', 6371040, '6371040005', 'Kpg. Baranangsiang No. 133', -53.539492, -17.525619, 'CV Fujiati Purwanti', 4, '334', 3, 4, '3', 'Sedang Dibangun', '> 5 Tahun', 'Diproses', NULL, NULL, '2025-02-15 15:15:24', '2025-02-15 19:36:03'),
-(49, '240216-283', '2025-02-12', 64, 'PBG', 'Badan Hukum', 6371010, '6371010003', 'Jr. Sam Ratulangi No. 334', 68.726724, -156.337643, 'Perum Suwarno Namaga (Persero) Tbk', 5, '867', 2, 4, '1', 'Belum Berdiri', '> 5 Tahun', 'PBG Diterbitkan', NULL, NULL, '2025-02-15 15:15:24', '2025-02-15 20:00:34'),
-(50, '240216-067', '2025-01-30', 91, 'PBG', 'Badan Hukum', 6371020, '6371020004', 'Gg. Banda No. 750', 62.314137, -40.487669, 'CV Rahayu Sihotang', 3, '891', 2, 6, '1', 'Belum Berdiri', '< 5 Tahun', 'Diproses', NULL, NULL, '2025-02-15 15:15:24', '2025-02-15 19:36:03'),
-(51, '240216-057', '2025-02-02', 57, 'PBG', 'Perusahaan', 6371020, '6371020001', 'Jln. Labu No. 134', -52.536388, -4.373593, 'Yayasan Kuswandari', 2, '570', 2, 4, '3', 'Sudah Berdiri', '> 5 Tahun', 'Diproses', NULL, NULL, '2025-02-15 15:15:24', '2025-02-15 19:36:03'),
-(52, '240216-333', '2025-02-03', 73, 'PBG', 'Perusahaan', 6371020, '6371020014', 'Psr. Aceh No. 379', -45.952448, 27.40544, 'Yayasan Maryati Mulyani (Persero) Tbk', 3, '862', 1, 4, '3', 'Sedang Dibangun', '< 5 Tahun', 'PBG Diterbitkan', NULL, NULL, '2025-02-15 15:15:24', '2025-02-15 20:00:34'),
-(53, '240216-917', '2025-01-31', 55, 'PBG', 'Perusahaan', 6371040, '6371040010', 'Psr. Banceng Pondok No. 188', -7.388819, 119.836796, 'PJ Mustofa (Persero) Tbk', 5, '732', 2, 7, '2', 'Sudah Berdiri', '< 5 Tahun', 'Diproses', NULL, NULL, '2025-02-15 15:15:24', '2025-02-15 19:36:03'),
-(54, '240216-478', '2025-02-10', 52, 'PBG', 'Perseorangan', 6371031, '6371031012', 'Kpg. Banda No. 894', -75.70419, -154.198791, 'UD Hartati Kurniawan', 3, '773', 2, 3, '2', 'Sedang Dibangun', '< 5 Tahun', 'Diproses', NULL, NULL, '2025-02-15 15:15:24', '2025-02-15 19:36:03'),
-(55, '240216-047', '2025-02-15', 1, 'PBG', 'Perusahaan', 6371010, '6371010001', 'Jl..', -74.03608, 151.363595, 'Perum Budiyanto Sihotang Tbk', 4, '707', 2, 8, '1', 'Belum Berdiri', '> 5 Tahun', 'Diproses', NULL, NULL, '2025-02-15 15:15:24', '2025-02-15 19:36:03'),
-(56, '240216-507', '2025-02-01', 53, 'PBG', 'Perusahaan', 6371020, '6371020002', 'Ds. Bank Dagang Negara No. 761', -75.160659, -81.599349, 'PJ Palastri Permata Tbk', 5, '786', 1, 8, '1', 'Sudah Berdiri', '< 5 Tahun', 'Diproses', NULL, NULL, '2025-02-15 15:15:24', '2025-02-15 19:36:03'),
-(57, '240216-054', '2025-02-08', 96, 'PBG', 'Pemerintah', 6371010, '6371010012', 'Psr. Pasteur No. 310', 0.994875, 145.165777, 'UD Pertiwi', 3, '199', 1, 5, '3', 'Sudah Berdiri', '< 5 Tahun', 'Diproses', NULL, NULL, '2025-02-15 15:15:24', '2025-02-15 19:36:03'),
-(58, '240216-331', '2025-01-29', 92, 'PBG', 'Perseorangan', 6371020, '6371020004', 'Ki. HOS. Cjokroaminoto (Pasirkaliki) No. 787', -11.290805, 162.298537, 'UD Wijayanti Rahimah', 2, '672', 2, 4, '3', 'Sudah Berdiri', '< 5 Tahun', 'Diproses', NULL, NULL, '2025-02-15 15:15:24', '2025-02-15 19:36:03'),
-(59, '240216-800', '2025-02-04', 99, 'PBG', 'Perseorangan', 6371040, '6371040007', 'Dk. Gardujati No. 353', -76.56956, 58.821724, 'UD Iswahyudi Handayani Tbk', 1, '709', 2, 5, '2', 'Sedang Dibangun', '< 5 Tahun', 'PBG Diterbitkan', NULL, NULL, '2025-02-15 15:15:24', '2025-02-15 20:00:34'),
-(60, '240216-083', '2025-02-03', 70, 'PBG', 'Perseorangan', 6371020, '6371020004', 'Psr. Suharso No. 722', -37.750695, -71.82305, 'CV Riyanti', 5, '412', 1, 10, '2', 'Sudah Berdiri', '< 5 Tahun', 'Diproses', NULL, NULL, '2025-02-15 15:15:24', '2025-02-15 19:36:03'),
-(61, '240216-831', '2025-01-20', 74, 'PBG', 'Perusahaan', 6371040, '6371040009', 'Jr. Sukajadi No. 661', -46.692383, -28.453442, 'Perum Yulianti', 3, '666', 2, 10, '2', 'Belum Berdiri', '< 5 Tahun', 'Diproses', NULL, NULL, '2025-02-15 15:15:24', '2025-02-15 19:36:03'),
-(62, '250218-620', '2025-02-18', 1, 'IMB', 'Perseorangan', 6371010, '6371010001', 'Jl ...', NULL, NULL, 'Usaha Baju', 2, '150', 2, 10, '1', 'Sudah Berdiri', '> 5 Tahun', 'Diproses', 'foto_bangunan/WDc4JRJBUbdB0nykPHcVp8pw4QUO2OQs2z13zvtW.jpg', NULL, '2025-02-17 23:12:19', '2025-02-17 23:17:45');
+INSERT INTO `permohonan` (`id`, `nomor`, `tanggal_permohonan`, `pemohon_id`, `jenis_permohonan`, `pemilik_bangunan`, `kecamatan_id`, `kelurahan_id`, `alamat`, `latitude`, `longitude`, `nama_bangunan`, `fungsi_bangunan_id`, `luas_bangunan`, `jumlah_lantai`, `tinggi_bangunan`, `jenis_bangunan_id`, `kondisi_bangunan`, `durasi_pemanfaatan`, `status_permohonan`, `foto_bangunan`, `keterangan`, `created_at`, `updated_at`) VALUES
+(1, '250215-323', '2025-02-15', 1, 'PBG', 'Perseorangan', 6371010, '6371010001', 'jl', -3.241553, 114.538072, 'Rumah 1', 1, '100', 1, 10, 3, 'Sudah Berdiri', '> 5 Tahun', 'PBG Diterbitkan', 'foto_bangunan/aEjRSgVqSzaVIZircbtTlVjmb9xIXVmpughaowiZ.png', NULL, '2025-02-14 21:20:39', '2025-07-12 22:31:12'),
+(2, '240216-491', '2025-01-29', 77, 'PBG', 'Perseorangan', 6371010, '6371010013', 'Jr. Sudiarto No. 540', -3.237888, 114.551175, 'Yayasan Widodo Kuswoyo (Persero) Tbk', 2, '496', 2, 2, 2, 'Sedang Dibangun', '< 5 Tahun', 'PBG Diterbitkan', NULL, NULL, '2025-02-15 15:15:24', '2025-07-12 22:31:12'),
+(3, '240216-074', '2025-02-07', 90, 'PBG', 'Pemerintah', 6371010, '6371010006', 'Ki. Umalas No. 948', -3.330775, 114.576939, 'PJ Widiastuti', 3, '646', 1, 2, 2, 'Sedang Dibangun', '> 5 Tahun', 'Diproses', NULL, NULL, '2025-02-15 15:15:24', '2025-07-12 22:31:12'),
+(4, '240216-929', '2025-01-17', 78, 'PBG', 'Perseorangan', 6371040, '6371040005', 'Kpg. Baranangsiang No. 133', -3.346779, 114.556673, 'PJ Farida Tbk', 5, '333', 1, 9, 3, 'Sedang Dibangun', '> 5 Tahun', 'Diproses', NULL, NULL, '2025-02-15 15:15:24', '2025-07-12 22:31:12'),
+(5, '240216-932', '2025-02-02', 99, 'PBG', 'Pemerintah', 6371040, '6371040007', 'Dk. Gardujati No. 353', -3.324594, 114.568032, 'UD Setiawan Tbk', 5, '516', 2, 2, 1, 'Belum Berdiri', '> 5 Tahun', 'PBG Diterbitkan', NULL, NULL, '2025-02-15 15:15:24', '2025-07-12 22:31:12'),
+(6, '240216-833', '2025-01-29', 72, 'PBG', 'Pemerintah', 6371010, '6371010012', 'Jr. Panjaitan No. 425', -3.269076, 114.594056, 'Perum Hastuti Suwarno (Persero) Tbk', 4, '917', 2, 2, 3, 'Sedang Dibangun', '> 5 Tahun', 'Diproses', NULL, NULL, '2025-02-15 15:15:24', '2025-07-12 22:31:12'),
+(7, '240216-880', '2025-02-11', 101, 'PBG', 'Perseorangan', 6371010, '6371010011', 'Jln. Suharso No. 86', -3.2343, 114.526421, 'Fa Latupono Saefullah', 5, '931', 3, 9, 2, 'Sudah Berdiri', '> 5 Tahun', 'Diproses', NULL, NULL, '2025-02-15 15:15:24', '2025-07-12 22:31:12'),
+(8, '240216-082', '2025-01-28', 62, 'PBG', 'Badan Hukum', 6371030, '6371030008', 'Kpg. Rajawali No. 14', -3.251713, 114.571626, 'Yayasan Samosir Handayani', 4, '920', 2, 1, 3, 'Sedang Dibangun', '> 5 Tahun', 'PBG Diterbitkan', NULL, NULL, '2025-02-15 15:15:24', '2025-07-12 22:31:12'),
+(9, '240216-907', '2025-02-03', 62, 'PBG', 'Perusahaan', 6371030, '6371030008', 'Kpg. Rajawali No. 14', -3.265512, 114.64948, 'PT Winarsih Andriani (Persero) Tbk', 2, '273', 2, 6, 1, 'Sudah Berdiri', '> 5 Tahun', 'Diproses', NULL, NULL, '2025-02-15 15:15:24', '2025-07-12 22:31:12'),
+(10, '240216-059', '2025-02-10', 56, 'PBG', 'Badan Hukum', 6371030, '6371030002', 'Kpg. Bank Dagang Negara No. 544', -3.351584, 114.582532, 'CV Irawan', 1, '115', 1, 9, 3, 'Belum Berdiri', '> 5 Tahun', 'PBG Diterbitkan', NULL, NULL, '2025-02-15 15:15:24', '2025-07-12 22:31:12'),
+(11, '240216-754', '2025-01-26', 91, 'PBG', 'Perusahaan', 6371020, '6371020004', 'Gg. Banda No. 750', -3.286706, 114.535749, 'PD Maryati Tbk', 2, '749', 2, 2, 1, 'Sudah Berdiri', '< 5 Tahun', 'Diproses', NULL, NULL, '2025-02-15 15:15:24', '2025-07-12 22:31:12'),
+(12, '240216-263', '2025-02-01', 84, 'PBG', 'Perseorangan', 6371020, '6371020002', 'Jln. Tambak No. 144', -3.277386, 114.666043, 'Yayasan Hastuti Tbk', 4, '313', 2, 9, 3, 'Sudah Berdiri', '> 5 Tahun', 'PBG Diterbitkan', NULL, NULL, '2025-02-15 15:15:24', '2025-07-12 22:31:12'),
+(13, '240216-834', '2025-01-30', 94, 'PBG', 'Perseorangan', 6371020, '6371020014', 'Jr. Kebonjati No. 553', -3.291459, 114.623905, 'Perum Suwarno', 5, '709', 2, 2, 2, 'Belum Berdiri', '> 5 Tahun', 'Diproses', NULL, NULL, '2025-02-15 15:15:24', '2025-07-12 22:31:12'),
+(14, '240216-559', '2025-01-18', 87, 'PBG', 'Badan Hukum', 6371031, '6371031009', 'Jr. Gotong Royong No. 779', -3.318638, 114.513833, 'PJ Narpati Tbk', 2, '268', 3, 5, 1, 'Sedang Dibangun', '> 5 Tahun', 'Diproses', NULL, NULL, '2025-02-15 15:15:24', '2025-07-12 22:31:12'),
+(15, '240216-461', '2025-01-24', 54, 'PBG', 'Perusahaan', 6371040, '6371040006', 'Jln. Jamika No. 223', -3.248333, 114.580063, 'PD Utama (Persero) Tbk', 1, '513', 2, 3, 3, 'Sedang Dibangun', '< 5 Tahun', 'Diproses', NULL, NULL, '2025-02-15 15:15:24', '2025-07-12 22:31:12'),
+(16, '240216-422', '2025-01-18', 84, 'PBG', 'Badan Hukum', 6371020, '6371020002', 'Jln. Tambak No. 144', -3.27327, 114.576229, 'Yayasan Mandasari', 2, '794', 2, 9, 2, 'Sudah Berdiri', '< 5 Tahun', 'Diproses', NULL, NULL, '2025-02-15 15:15:24', '2025-07-12 22:31:12'),
+(17, '240216-819', '2025-01-31', 53, 'PBG', 'Perseorangan', 6371020, '6371020002', 'Ds. Bank Dagang Negara No. 761', -3.253121, 114.511178, 'CV Manullang Tbk', 4, '229', 3, 10, 2, 'Sudah Berdiri', '< 5 Tahun', 'Diproses', NULL, NULL, '2025-02-15 15:15:24', '2025-07-12 22:31:12'),
+(18, '240216-470', '2025-02-10', 78, 'PBG', 'Badan Hukum', 6371040, '6371040005', 'Kpg. Baranangsiang No. 133', -3.280262, 114.588659, 'PD Wulandari Ardianto Tbk', 2, '964', 1, 9, 3, 'Sudah Berdiri', '> 5 Tahun', 'Diproses', NULL, NULL, '2025-02-15 15:15:24', '2025-07-12 22:31:12'),
+(19, '240216-924', '2025-01-24', 77, 'PBG', 'Perusahaan', 6371010, '6371010013', 'Jr. Sudiarto No. 540', -3.358857, 114.664962, 'PT Prayoga Lailasari (Persero) Tbk', 2, '247', 1, 6, 1, 'Sudah Berdiri', '< 5 Tahun', 'PBG Diterbitkan', NULL, NULL, '2025-02-15 15:15:24', '2025-07-12 22:31:12'),
+(20, '240216-045', '2025-02-05', 57, 'PBG', 'Badan Hukum', 6371020, '6371020001', 'Jln. Labu No. 134', -3.238092, 114.652521, 'Fa Wasita Laksmiwati (Persero) Tbk', 5, '922', 2, 7, 3, 'Belum Berdiri', '< 5 Tahun', 'PBG Diterbitkan', NULL, NULL, '2025-02-15 15:15:24', '2025-07-12 22:31:12'),
+(21, '240216-538', '2025-02-01', 101, 'PBG', 'Perusahaan', 6371010, '6371010011', 'Jln. Suharso No. 86', -3.381365, 114.623626, 'Fa Nababan', 2, '979', 1, 8, 1, 'Sedang Dibangun', '> 5 Tahun', 'Diproses', NULL, NULL, '2025-02-15 15:15:24', '2025-07-12 22:31:12'),
+(22, '240216-388', '2025-02-01', 67, 'PBG', 'Pemerintah', 6371031, '6371031003', 'Jln. Pattimura No. 346', -3.302539, 114.540606, 'CV Hassanah', 5, '792', 1, 5, 2, 'Belum Berdiri', '< 5 Tahun', 'PBG Diterbitkan', NULL, NULL, '2025-02-15 15:15:24', '2025-07-12 22:31:12'),
+(23, '240216-138', '2025-02-14', 83, 'PBG', 'Badan Hukum', 6371030, '6371030011', 'Jr. Jaksa No. 973', -3.260149, 114.53397, 'PD Januar (Persero) Tbk', 3, '940', 2, 9, 2, 'Sedang Dibangun', '> 5 Tahun', 'Diproses', NULL, NULL, '2025-02-15 15:15:24', '2025-07-12 22:31:12'),
+(24, '240216-582', '2025-02-11', 52, 'PBG', 'Perseorangan', 6371031, '6371031012', 'Kpg. Banda No. 894', -3.374036, 114.546576, 'Yayasan Santoso', 5, '996', 1, 7, 1, 'Sedang Dibangun', '< 5 Tahun', 'Diproses', NULL, NULL, '2025-02-15 15:15:24', '2025-07-12 22:31:12'),
+(25, '240216-987', '2025-02-03', 93, 'PBG', 'Perseorangan', 6371040, '6371040012', 'Dk. Jambu No. 579', -3.403771, 114.600865, 'PJ Novitasari', 1, '285', 1, 7, 3, 'Sudah Berdiri', '< 5 Tahun', 'Diproses', NULL, NULL, '2025-02-15 15:15:24', '2025-07-12 22:31:12'),
+(26, '240216-971', '2025-01-18', 78, 'PBG', 'Pemerintah', 6371040, '6371040005', 'Kpg. Baranangsiang No. 133', -3.284058, 114.523406, 'Yayasan Pradipta Yuniar', 5, '951', 1, 5, 3, 'Sudah Berdiri', '< 5 Tahun', 'PBG Diterbitkan', NULL, NULL, '2025-02-15 15:15:24', '2025-07-12 22:31:12'),
+(27, '240216-615', '2025-01-29', 72, 'PBG', 'Perseorangan', 6371010, '6371010012', 'Jr. Panjaitan No. 425', -3.34193, 114.57825, 'Fa Suryatmi', 3, '380', 1, 7, 1, 'Sedang Dibangun', '> 5 Tahun', 'Diproses', NULL, NULL, '2025-02-15 15:15:24', '2025-07-12 22:31:12'),
+(28, '240216-706', '2025-01-16', 90, 'PBG', 'Perseorangan', 6371010, '6371010006', 'Ki. Umalas No. 948', -3.309113, 114.613776, 'PD Halimah Pertiwi Tbk', 5, '584', 1, 7, 2, 'Sedang Dibangun', '> 5 Tahun', 'Diproses', NULL, NULL, '2025-02-15 15:15:24', '2025-07-12 22:31:12'),
+(29, '240216-472', '2025-02-02', 90, 'PBG', 'Pemerintah', 6371010, '6371010006', 'Ki. Umalas No. 948', -3.327972, 114.614535, 'Yayasan Wahyuni Fujiati Tbk', 4, '200', 2, 9, 1, 'Belum Berdiri', '< 5 Tahun', 'PBG Diterbitkan', NULL, NULL, '2025-02-15 15:15:24', '2025-07-12 22:31:12'),
+(30, '240216-998', '2025-01-20', 73, 'PBG', 'Perusahaan', 6371020, '6371020014', 'Psr. Aceh No. 379', -3.28395, 114.610097, 'Perum Halimah Marpaung Tbk', 3, '677', 1, 6, 3, 'Belum Berdiri', '< 5 Tahun', 'Diproses', NULL, NULL, '2025-02-15 15:15:24', '2025-07-12 22:31:12'),
+(31, '240216-477', '2025-02-10', 53, 'PBG', 'Badan Hukum', 6371020, '6371020002', 'Ds. Bank Dagang Negara No. 761', -3.320848, 114.505481, 'Yayasan Wijayanti Astuti', 3, '559', 2, 9, 2, 'Sudah Berdiri', '> 5 Tahun', 'PBG Diterbitkan', NULL, NULL, '2025-02-15 15:15:24', '2025-07-12 22:31:12'),
+(32, '240216-053', '2025-01-20', 53, 'PBG', 'Badan Hukum', 6371020, '6371020002', 'Ds. Bank Dagang Negara No. 761', -3.320853, 114.516941, 'Perum Safitri', 5, '687', 1, 7, 1, 'Sedang Dibangun', '> 5 Tahun', 'Diproses', NULL, NULL, '2025-02-15 15:15:24', '2025-07-12 22:31:12'),
+(33, '240216-832', '2025-02-07', 53, 'PBG', 'Pemerintah', 6371020, '6371020002', 'Ds. Bank Dagang Negara No. 761', -3.392552, 114.650675, 'PD Sitorus Tbk', 2, '150', 2, 1, 1, 'Sedang Dibangun', '> 5 Tahun', 'Diproses', NULL, NULL, '2025-02-15 15:15:24', '2025-07-12 22:31:12'),
+(34, '240216-081', '2025-02-09', 54, 'PBG', 'Pemerintah', 6371040, '6371040006', 'Jln. Jamika No. 223', -3.317326, 114.583798, 'Yayasan Dabukke Tbk', 5, '698', 2, 1, 1, 'Sudah Berdiri', '> 5 Tahun', 'PBG Diterbitkan', NULL, NULL, '2025-02-15 15:15:24', '2025-07-12 22:31:12'),
+(35, '240216-729', '2025-02-08', 69, 'PBG', 'Perseorangan', 6371020, '6371020003', 'Kpg. Dago No. 668', -3.325171, 114.513294, 'Perum Widiastuti Usada', 1, '451', 2, 10, 3, 'Sudah Berdiri', '< 5 Tahun', 'Diproses', NULL, NULL, '2025-02-15 15:15:24', '2025-07-12 22:31:12'),
+(36, '240216-159', '2025-01-24', 67, 'PBG', 'Badan Hukum', 6371031, '6371031003', 'Jln. Pattimura No. 346', -3.350304, 114.543943, 'Fa Najmudin (Persero) Tbk', 1, '486', 3, 7, 2, 'Sudah Berdiri', '> 5 Tahun', 'Diproses', NULL, NULL, '2025-02-15 15:15:24', '2025-07-12 22:31:12'),
+(37, '240216-290', '2025-02-07', 90, 'PBG', 'Perseorangan', 6371010, '6371010006', 'Ki. Umalas No. 948', -3.24101, 114.518984, 'Yayasan Wijaya', 3, '982', 2, 2, 1, 'Belum Berdiri', '< 5 Tahun', 'Diproses', NULL, NULL, '2025-02-15 15:15:24', '2025-07-12 22:31:12'),
+(38, '240216-035', '2025-01-22', 64, 'PBG', 'Perseorangan', 6371010, '6371010003', 'Jr. Sam Ratulangi No. 334', -3.397108, 114.591645, 'UD Winarsih Winarno Tbk', 4, '273', 1, 4, 3, 'Sedang Dibangun', '> 5 Tahun', 'Diproses', NULL, NULL, '2025-02-15 15:15:24', '2025-07-12 22:31:12'),
+(39, '240216-269', '2025-01-25', 91, 'PBG', 'Perusahaan', 6371020, '6371020004', 'Gg. Banda No. 750', -3.252843, 114.560964, 'Perum Permata', 2, '589', 1, 3, 2, 'Sedang Dibangun', '> 5 Tahun', 'Diproses', NULL, NULL, '2025-02-15 15:15:24', '2025-07-12 22:31:12'),
+(40, '240216-391', '2025-02-03', 70, 'PBG', 'Perusahaan', 6371020, '6371020004', 'Psr. Suharso No. 722', -3.366048, 114.673128, 'PJ Hastuti Marbun (Persero) Tbk', 2, '329', 3, 4, 1, 'Sedang Dibangun', '> 5 Tahun', 'Diproses', NULL, NULL, '2025-02-15 15:15:24', '2025-07-12 22:31:12'),
+(41, '240216-919', '2025-02-11', 91, 'PBG', 'Badan Hukum', 6371020, '6371020004', 'Gg. Banda No. 750', -3.317707, 114.613139, 'Fa Manullang', 1, '913', 1, 4, 2, 'Belum Berdiri', '< 5 Tahun', 'Diproses', NULL, NULL, '2025-02-15 15:15:24', '2025-07-12 22:31:12'),
+(42, '240216-979', '2025-02-07', 93, 'PBG', 'Badan Hukum', 6371040, '6371040012', 'Dk. Jambu No. 579', -3.2562, 114.562009, 'Perum Rajata Tbk', 4, '630', 1, 9, 2, 'Belum Berdiri', '< 5 Tahun', 'Diproses', NULL, NULL, '2025-02-15 15:15:24', '2025-07-12 22:31:12'),
+(43, '240216-699', '2025-02-03', 54, 'PBG', 'Perseorangan', 6371040, '6371040006', 'Jln. Jamika No. 223', -3.335788, 114.608566, 'PJ Maryati Simanjuntak (Persero) Tbk', 2, '234', 2, 5, 2, 'Sudah Berdiri', '> 5 Tahun', 'Diproses', NULL, NULL, '2025-02-15 15:15:24', '2025-07-12 22:31:12'),
+(44, '240216-752', '2025-01-20', 69, 'PBG', 'Perseorangan', 6371020, '6371020003', 'Kpg. Dago No. 668', -3.341752, 114.529766, 'Perum Wijayanti', 5, '274', 3, 2, 1, 'Sedang Dibangun', '> 5 Tahun', 'Diproses', NULL, NULL, '2025-02-15 15:15:24', '2025-07-12 22:31:12'),
+(45, '240216-485', '2025-02-10', 78, 'PBG', 'Perusahaan', 6371040, '6371040005', 'Kpg. Baranangsiang No. 133', -3.354087, 114.552988, 'PJ Natsir Anggraini', 1, '718', 3, 3, 3, 'Sedang Dibangun', '< 5 Tahun', 'Diproses', NULL, NULL, '2025-02-15 15:15:24', '2025-07-12 22:31:12'),
+(46, '240216-341', '2025-01-17', 57, 'PBG', 'Pemerintah', 6371020, '6371020001', 'Jln. Labu No. 134', -3.310271, 114.639719, 'PT Puspasari', 3, '473', 3, 4, 2, 'Sudah Berdiri', '< 5 Tahun', 'Diproses', NULL, NULL, '2025-02-15 15:15:24', '2025-07-12 22:31:12'),
+(47, '240216-006', '2025-02-13', 61, 'PBG', 'Badan Hukum', 6371010, '6371010011', 'Gg. Basuki No. 552', -3.313439, 114.508081, 'Yayasan Utama Tbk', 2, '301', 1, 5, 3, 'Belum Berdiri', '> 5 Tahun', 'Diajukan', NULL, NULL, '2025-02-15 15:15:24', '2025-07-12 22:31:12'),
+(48, '240216-685', '2025-02-04', 78, 'PBG', 'Badan Hukum', 6371040, '6371040005', 'Kpg. Baranangsiang No. 133', -3.327671, 114.527656, 'CV Fujiati Purwanti', 4, '334', 3, 4, 3, 'Sedang Dibangun', '> 5 Tahun', 'Diproses', NULL, NULL, '2025-02-15 15:15:24', '2025-07-12 22:31:12'),
+(49, '240216-283', '2025-02-12', 64, 'PBG', 'Badan Hukum', 6371010, '6371010003', 'Jr. Sam Ratulangi No. 334', -3.298103, 114.578906, 'Perum Suwarno Namaga (Persero) Tbk', 5, '867', 2, 4, 1, 'Belum Berdiri', '> 5 Tahun', 'PBG Diterbitkan', NULL, NULL, '2025-02-15 15:15:24', '2025-07-12 22:31:12'),
+(50, '240216-067', '2025-01-30', 91, 'PBG', 'Badan Hukum', 6371020, '6371020004', 'Gg. Banda No. 750', -3.295707, 114.603701, 'CV Rahayu Sihotang', 3, '891', 2, 6, 1, 'Belum Berdiri', '< 5 Tahun', 'Diproses', NULL, NULL, '2025-02-15 15:15:24', '2025-07-12 22:31:12'),
+(51, '240216-057', '2025-02-02', 57, 'PBG', 'Perusahaan', 6371020, '6371020001', 'Jln. Labu No. 134', -3.2553, 114.518809, 'Yayasan Kuswandari', 2, '570', 2, 4, 3, 'Sudah Berdiri', '> 5 Tahun', 'Diproses', NULL, NULL, '2025-02-15 15:15:24', '2025-07-12 22:31:12'),
+(52, '240216-333', '2025-02-03', 73, 'PBG', 'Perusahaan', 6371020, '6371020014', 'Psr. Aceh No. 379', -3.298137, 114.647379, 'Yayasan Maryati Mulyani (Persero) Tbk', 3, '862', 1, 4, 3, 'Sedang Dibangun', '< 5 Tahun', 'PBG Diterbitkan', NULL, NULL, '2025-02-15 15:15:24', '2025-07-12 22:31:12'),
+(53, '240216-917', '2025-01-31', 55, 'PBG', 'Perusahaan', 6371040, '6371040010', 'Psr. Banceng Pondok No. 188', -3.240354, 114.5846, 'PJ Mustofa (Persero) Tbk', 5, '732', 2, 7, 2, 'Sudah Berdiri', '< 5 Tahun', 'Diproses', NULL, NULL, '2025-02-15 15:15:24', '2025-07-12 22:31:12'),
+(54, '240216-478', '2025-02-10', 52, 'PBG', 'Perseorangan', 6371031, '6371031012', 'Kpg. Banda No. 894', -3.270874, 114.621326, 'UD Hartati Kurniawan', 3, '773', 2, 3, 2, 'Sedang Dibangun', '< 5 Tahun', 'Diproses', NULL, NULL, '2025-02-15 15:15:24', '2025-07-12 22:31:12'),
+(55, '240216-047', '2025-02-15', 1, 'PBG', 'Perusahaan', 6371010, '6371010001', 'Jl..', -3.268268, 114.618485, 'Perum Budiyanto Sihotang Tbk', 4, '707', 2, 8, 1, 'Belum Berdiri', '> 5 Tahun', 'Diproses', NULL, NULL, '2025-02-15 15:15:24', '2025-07-12 22:31:12'),
+(56, '240216-507', '2025-02-01', 53, 'PBG', 'Perusahaan', 6371020, '6371020002', 'Ds. Bank Dagang Negara No. 761', -3.290176, 114.599934, 'PJ Palastri Permata Tbk', 5, '786', 1, 8, 1, 'Sudah Berdiri', '< 5 Tahun', 'Diproses', NULL, NULL, '2025-02-15 15:15:24', '2025-07-12 22:31:12'),
+(57, '240216-054', '2025-02-08', 96, 'PBG', 'Pemerintah', 6371010, '6371010012', 'Psr. Pasteur No. 310', -3.380903, 114.570417, 'UD Pertiwi', 3, '199', 1, 5, 3, 'Sudah Berdiri', '< 5 Tahun', 'Diproses', NULL, NULL, '2025-02-15 15:15:24', '2025-07-12 22:31:12'),
+(58, '240216-331', '2025-01-29', 92, 'PBG', 'Perseorangan', 6371020, '6371020004', 'Ki. HOS. Cjokroaminoto (Pasirkaliki) No. 787', -3.397781, 114.536525, 'UD Wijayanti Rahimah', 2, '672', 2, 4, 3, 'Sudah Berdiri', '< 5 Tahun', 'Diproses', NULL, NULL, '2025-02-15 15:15:24', '2025-07-12 22:31:12'),
+(59, '240216-800', '2025-02-04', 99, 'PBG', 'Perseorangan', 6371040, '6371040007', 'Dk. Gardujati No. 353', -3.245548, 114.677112, 'UD Iswahyudi Handayani Tbk', 1, '709', 2, 5, 2, 'Sedang Dibangun', '< 5 Tahun', 'PBG Diterbitkan', NULL, NULL, '2025-02-15 15:15:24', '2025-07-12 22:31:12'),
+(60, '240216-083', '2025-02-03', 70, 'PBG', 'Perseorangan', 6371020, '6371020004', 'Psr. Suharso No. 722', -3.354448, 114.656655, 'CV Riyanti', 5, '412', 1, 10, 2, 'Sudah Berdiri', '< 5 Tahun', 'Diproses', NULL, NULL, '2025-02-15 15:15:24', '2025-07-12 22:31:12'),
+(61, '240216-831', '2025-01-20', 74, 'PBG', 'Perusahaan', 6371040, '6371040009', 'Jr. Sukajadi No. 661', -3.351457, 114.573879, 'Perum Yulianti', 3, '666', 2, 10, 2, 'Belum Berdiri', '< 5 Tahun', 'Diproses', NULL, NULL, '2025-02-15 15:15:24', '2025-07-12 22:31:12');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `personal_access_tokens`
+-- Struktur dari tabel `personal_access_tokens`
 --
 
 CREATE TABLE `personal_access_tokens` (
   `id` bigint UNSIGNED NOT NULL,
-  `tokenable_type` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `tokenable_type` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `tokenable_id` bigint UNSIGNED NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `token` varchar(64) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `abilities` text COLLATE utf8mb4_unicode_ci,
+  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `token` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `abilities` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
   `last_used_at` timestamp NULL DEFAULT NULL,
   `expires_at` timestamp NULL DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
@@ -8021,176 +8045,155 @@ CREATE TABLE `personal_access_tokens` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `retribusi`
+-- Struktur dari tabel `reklame`
+--
+
+CREATE TABLE `reklame` (
+  `id` bigint NOT NULL,
+  `pemohon_id` bigint UNSIGNED NOT NULL,
+  `nomor` varchar(50) NOT NULL,
+  `tanggal_permohonan` date NOT NULL,
+  `jenis_reklame` varchar(50) NOT NULL,
+  `teks_reklame` text NOT NULL,
+  `jumlah_reklame` int NOT NULL,
+  `ukuran` varchar(50) NOT NULL,
+  `kecamatan_id` int NOT NULL,
+  `kelurahan_id` varchar(12) DEFAULT NULL,
+  `alamat` text,
+  `latitude` double DEFAULT NULL,
+  `longitude` double DEFAULT NULL,
+  `kondisi_bangunan` varchar(255) DEFAULT NULL,
+  `durasi_pemanfaatan` varchar(255) DEFAULT NULL,
+  `foto_bangunan` text,
+  `keterangan` text,
+  `status_permohonan` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data untuk tabel `reklame`
+--
+
+INSERT INTO `reklame` (`id`, `pemohon_id`, `nomor`, `tanggal_permohonan`, `jenis_reklame`, `teks_reklame`, `jumlah_reklame`, `ukuran`, `kecamatan_id`, `kelurahan_id`, `alamat`, `latitude`, `longitude`, `kondisi_bangunan`, `durasi_pemanfaatan`, `foto_bangunan`, `keterangan`, `status_permohonan`) VALUES
+(2, 1, '250713-999', '2025-07-13', 'Baliho', '-', 1, '12', 6371010, '6371010001', 'jln ... ', -3.3226352550093, 114.59281444564, NULL, '1', 'foto_bangunan/g6TTHC7bmy2KlpoeDTAn6yBlzW8Cc3Qel3R2FTi8.png', NULL, 'Diproses');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `retribusi`
 --
 
 CREATE TABLE `retribusi` (
   `id` bigint UNSIGNED NOT NULL,
-  `permohonanimb_id` bigint UNSIGNED NOT NULL,
+  `permohonan_id` bigint UNSIGNED NOT NULL,
+  `jenis` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'PBG',
   `tanggal_tagihan` date NOT NULL,
   `tanggal_bayar` date DEFAULT NULL,
   `jumlah_tagihan` int NOT NULL,
   `jumlah_bayar` int DEFAULT NULL,
-  `keterangan` text COLLATE utf8mb4_unicode_ci,
-  `bukti_pembayaran` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `status_pembayaran` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'Belum Dibayar' COMMENT 'Belum Dibayar, Dibayar',
+  `keterangan` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
+  `bukti_pembayaran` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `status_pembayaran` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'Belum Dibayar' COMMENT 'Belum Dibayar, Dibayar',
+  `tarif_id` bigint(20) UNSIGNED ZEROFILL DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `retribusi`
+-- Dumping data untuk tabel `retribusi`
 --
 
-INSERT INTO `retribusi` (`id`, `permohonanimb_id`, `tanggal_tagihan`, `tanggal_bayar`, `jumlah_tagihan`, `jumlah_bayar`, `keterangan`, `bukti_pembayaran`, `status_pembayaran`, `created_at`, `updated_at`) VALUES
-(1, 1, '2025-02-15', '2025-02-15', 150000, 150000, 'Pembayaran Untuk Penerbitan dan Survie', 'bukti_pembayaran/FRrjaE82Mc1oPcX28iNcXlsj8nKRTB7BVEE4GTZI.png', 'Pembayaran Diterima', '2025-02-15 03:27:03', '2025-02-15 04:18:58'),
-(42, 23, '2025-02-02', NULL, 178353, 0, 'Pembayaran Untuk Penerbitan dan Survie', NULL, 'Belum Dibayar', '2025-02-15 19:36:03', '2025-02-15 19:36:03'),
-(43, 26, '2025-02-09', '2025-01-18', 765093, 765093, 'Pembayaran Untuk Penerbitan dan Survie', 'bukti_pembayaran/FRrjaE82Mc1oPcX28iNcXlsj8nKRTB7BVEE4GTZI.png', 'Pembayaran Diterima', '2025-02-15 19:36:03', '2025-02-15 19:36:03'),
-(44, 24, '2025-01-24', NULL, 285435, 0, 'Pembayaran Untuk Penerbitan dan Survie', NULL, 'Pembayaran Ditolak', '2025-02-15 19:36:03', '2025-02-15 19:36:03'),
-(45, 60, '2025-02-13', NULL, 518865, 0, 'Pembayaran Untuk Penerbitan dan Survie', NULL, 'Pembayaran Ditolak', '2025-02-15 19:36:03', '2025-02-15 19:36:03'),
-(46, 34, '2025-01-24', '2025-02-13', 704531, 704531, 'Pembayaran Untuk Penerbitan dan Survie', 'bukti_pembayaran/FRrjaE82Mc1oPcX28iNcXlsj8nKRTB7BVEE4GTZI.png', 'Pembayaran Diterima', '2025-02-15 19:36:03', '2025-02-15 19:36:03'),
-(47, 54, '2025-01-21', '2025-01-24', 242069, 242069, 'Pembayaran Untuk Penerbitan dan Survie', 'bukti_pembayaran/FRrjaE82Mc1oPcX28iNcXlsj8nKRTB7BVEE4GTZI.png', 'Dibayar', '2025-02-15 19:36:03', '2025-02-15 19:36:03'),
-(48, 29, '2025-01-30', '2025-01-20', 420488, 420488, 'Pembayaran Untuk Penerbitan dan Survie', 'bukti_pembayaran/FRrjaE82Mc1oPcX28iNcXlsj8nKRTB7BVEE4GTZI.png', 'Pembayaran Diterima', '2025-02-15 19:36:03', '2025-02-15 19:36:03'),
-(49, 30, '2025-01-17', '2025-01-25', 753775, 753775, 'Pembayaran Untuk Penerbitan dan Survie', 'bukti_pembayaran/FRrjaE82Mc1oPcX28iNcXlsj8nKRTB7BVEE4GTZI.png', 'Dibayar', '2025-02-15 19:36:03', '2025-02-15 19:36:03'),
-(50, 17, '2025-02-07', '2025-02-08', 676886, 676886, 'Pembayaran Untuk Penerbitan dan Survie', 'bukti_pembayaran/FRrjaE82Mc1oPcX28iNcXlsj8nKRTB7BVEE4GTZI.png', 'Dibayar', '2025-02-15 19:36:03', '2025-02-15 19:36:03'),
-(51, 27, '2025-01-19', NULL, 575984, 0, 'Pembayaran Untuk Penerbitan dan Survie', NULL, 'Pembayaran Ditolak', '2025-02-15 19:36:03', '2025-02-15 19:36:03'),
-(52, 22, '2025-02-07', '2025-02-13', 421262, 421262, 'Pembayaran Untuk Penerbitan dan Survie', 'bukti_pembayaran/FRrjaE82Mc1oPcX28iNcXlsj8nKRTB7BVEE4GTZI.png', 'Pembayaran Diterima', '2025-02-15 19:36:03', '2025-02-15 19:36:03'),
-(53, 12, '2025-01-28', '2025-01-17', 790974, 790974, 'Pembayaran Untuk Penerbitan dan Survie', 'bukti_pembayaran/FRrjaE82Mc1oPcX28iNcXlsj8nKRTB7BVEE4GTZI.png', 'Pembayaran Diterima', '2025-02-15 19:36:03', '2025-02-15 19:36:03'),
-(54, 36, '2025-02-06', '2025-02-09', 464066, 464066, 'Pembayaran Untuk Penerbitan dan Survie', 'bukti_pembayaran/FRrjaE82Mc1oPcX28iNcXlsj8nKRTB7BVEE4GTZI.png', 'Dibayar', '2025-02-15 19:36:03', '2025-02-15 19:36:03'),
-(55, 15, '2025-02-01', NULL, 734132, 0, 'Pembayaran Untuk Penerbitan dan Survie', NULL, 'Belum Dibayar', '2025-02-15 19:36:03', '2025-02-15 19:36:03'),
-(57, 14, '2025-01-18', NULL, 289452, 0, 'Pembayaran Untuk Penerbitan dan Survie', NULL, 'Pembayaran Ditolak', '2025-02-15 19:36:03', '2025-02-15 19:36:03'),
-(58, 43, '2025-01-16', '2025-01-30', 985008, 985008, 'Pembayaran Untuk Penerbitan dan Survie', 'bukti_pembayaran/FRrjaE82Mc1oPcX28iNcXlsj8nKRTB7BVEE4GTZI.png', 'Dibayar', '2025-02-15 19:36:03', '2025-02-15 19:36:03'),
-(59, 53, '2025-02-02', '2025-02-14', 574114, 574114, 'Pembayaran Untuk Penerbitan dan Survie', 'bukti_pembayaran/FRrjaE82Mc1oPcX28iNcXlsj8nKRTB7BVEE4GTZI.png', 'Dibayar', '2025-02-15 19:36:03', '2025-02-15 19:36:03'),
-(60, 39, '2025-02-05', NULL, 921355, 0, 'Pembayaran Untuk Penerbitan dan Survie', NULL, 'Pembayaran Ditolak', '2025-02-15 19:36:03', '2025-02-15 19:36:03'),
-(61, 52, '2025-02-12', '2025-01-20', 418490, 418490, 'Pembayaran Untuk Penerbitan dan Survie', 'bukti_pembayaran/FRrjaE82Mc1oPcX28iNcXlsj8nKRTB7BVEE4GTZI.png', 'Pembayaran Diterima', '2025-02-15 19:36:03', '2025-02-15 19:36:03'),
-(62, 8, '2025-01-16', '2025-01-30', 312373, 312373, 'Pembayaran Untuk Penerbitan dan Survie', 'bukti_pembayaran/FRrjaE82Mc1oPcX28iNcXlsj8nKRTB7BVEE4GTZI.png', 'Pembayaran Diterima', '2025-02-15 19:36:03', '2025-02-15 19:36:03'),
-(63, 44, '2025-02-04', NULL, 152042, 0, 'Pembayaran Untuk Penerbitan dan Survie', NULL, 'Pembayaran Ditolak', '2025-02-15 19:36:03', '2025-02-15 19:36:03'),
-(64, 51, '2025-02-14', NULL, 672455, 0, 'Pembayaran Untuk Penerbitan dan Survie', NULL, 'Pembayaran Ditolak', '2025-02-15 19:36:03', '2025-02-15 19:36:03'),
-(65, 4, '2025-02-01', NULL, 659336, 0, 'Pembayaran Untuk Penerbitan dan Survie', NULL, 'Belum Dibayar', '2025-02-15 19:36:03', '2025-02-15 19:36:03'),
-(66, 59, '2025-01-27', '2025-02-01', 144207, 144207, 'Pembayaran Untuk Penerbitan dan Survie', 'bukti_pembayaran/FRrjaE82Mc1oPcX28iNcXlsj8nKRTB7BVEE4GTZI.png', 'Pembayaran Diterima', '2025-02-15 19:36:03', '2025-02-15 19:36:03'),
-(67, 25, '2025-01-31', '2025-01-26', 485845, 485845, 'Pembayaran Untuk Penerbitan dan Survie', 'bukti_pembayaran/FRrjaE82Mc1oPcX28iNcXlsj8nKRTB7BVEE4GTZI.png', 'Dibayar', '2025-02-15 19:36:03', '2025-02-15 19:36:03'),
-(68, 32, '2025-01-27', '2025-02-11', 244679, 244679, 'Pembayaran Untuk Penerbitan dan Survie', 'bukti_pembayaran/FRrjaE82Mc1oPcX28iNcXlsj8nKRTB7BVEE4GTZI.png', 'Dibayar', '2025-02-15 19:36:03', '2025-02-15 19:36:03'),
-(69, 7, '2025-02-01', NULL, 651213, 0, 'Pembayaran Untuk Penerbitan dan Survie', NULL, 'Pembayaran Ditolak', '2025-02-15 19:36:03', '2025-02-15 19:36:03'),
-(70, 3, '2025-01-22', '2025-01-16', 431249, 431249, 'Pembayaran Untuk Penerbitan dan Survie', 'bukti_pembayaran/FRrjaE82Mc1oPcX28iNcXlsj8nKRTB7BVEE4GTZI.png', 'Dibayar', '2025-02-15 19:36:03', '2025-02-15 19:36:03'),
-(71, 10, '2025-01-25', '2025-01-23', 635979, 635979, 'Pembayaran Untuk Penerbitan dan Survie', 'bukti_pembayaran/FRrjaE82Mc1oPcX28iNcXlsj8nKRTB7BVEE4GTZI.png', 'Pembayaran Diterima', '2025-02-15 19:36:03', '2025-02-15 19:36:03'),
-(72, 40, '2025-02-15', '2025-01-31', 393367, 393367, 'Pembayaran Untuk Penerbitan dan Survie', 'bukti_pembayaran/FRrjaE82Mc1oPcX28iNcXlsj8nKRTB7BVEE4GTZI.png', 'Pembayaran Diterima', '2025-02-15 19:36:03', '2025-02-15 19:36:03'),
-(73, 11, '2025-02-12', NULL, 938674, 0, 'Pembayaran Untuk Penerbitan dan Survie', NULL, 'Belum Dibayar', '2025-02-15 19:36:03', '2025-02-15 19:36:03'),
-(74, 55, '2025-02-09', NULL, 334376, 0, 'Pembayaran Untuk Penerbitan dan Survie', NULL, 'Pembayaran Ditolak', '2025-02-15 19:36:03', '2025-02-15 19:36:03'),
-(75, 9, '2025-01-22', '2025-02-13', 556468, 556468, 'Pembayaran Untuk Penerbitan dan Survie', 'bukti_pembayaran/FRrjaE82Mc1oPcX28iNcXlsj8nKRTB7BVEE4GTZI.png', 'Dibayar', '2025-02-15 19:36:03', '2025-02-15 19:36:03'),
-(76, 5, '2025-01-16', '2025-01-28', 124159, 124159, 'Pembayaran Untuk Penerbitan dan Survie', 'bukti_pembayaran/FRrjaE82Mc1oPcX28iNcXlsj8nKRTB7BVEE4GTZI.png', 'Pembayaran Diterima', '2025-02-15 19:36:03', '2025-02-15 19:36:03'),
-(77, 35, '2025-02-03', NULL, 342005, 0, 'Pembayaran Untuk Penerbitan dan Survie', NULL, 'Pembayaran Ditolak', '2025-02-15 19:36:03', '2025-02-15 19:36:03'),
-(78, 19, '2025-01-21', '2025-01-22', 111351, 111351, 'Pembayaran Untuk Penerbitan dan Survie', 'bukti_pembayaran/FRrjaE82Mc1oPcX28iNcXlsj8nKRTB7BVEE4GTZI.png', 'Pembayaran Diterima', '2025-02-15 19:36:03', '2025-02-15 19:36:03'),
-(79, 45, '2025-01-22', '2025-01-25', 158354, 158354, 'Pembayaran Untuk Penerbitan dan Survie', 'bukti_pembayaran/FRrjaE82Mc1oPcX28iNcXlsj8nKRTB7BVEE4GTZI.png', 'Dibayar', '2025-02-15 19:36:03', '2025-02-15 19:36:03'),
-(80, 33, '2025-02-04', '2025-02-14', 604860, 604860, 'Pembayaran Untuk Penerbitan dan Survie', 'bukti_pembayaran/FRrjaE82Mc1oPcX28iNcXlsj8nKRTB7BVEE4GTZI.png', 'Dibayar', '2025-02-15 19:36:03', '2025-02-15 19:36:03'),
-(82, 37, '2025-01-26', NULL, 338925, 0, 'Pembayaran Untuk Penerbitan dan Survie', NULL, 'Belum Dibayar', '2025-02-15 19:36:03', '2025-02-15 19:36:03'),
-(83, 6, '2025-02-04', NULL, 611414, 0, 'Pembayaran Untuk Penerbitan dan Survie', NULL, 'Pembayaran Ditolak', '2025-02-15 19:36:03', '2025-02-15 19:36:03'),
-(84, 18, '2025-02-11', NULL, 690048, 0, 'Pembayaran Untuk Penerbitan dan Survie', NULL, 'Belum Dibayar', '2025-02-15 19:36:03', '2025-02-15 19:36:03'),
-(85, 20, '2025-02-01', '2025-01-19', 233715, 233715, 'Pembayaran Untuk Penerbitan dan Survie', 'bukti_pembayaran/FRrjaE82Mc1oPcX28iNcXlsj8nKRTB7BVEE4GTZI.png', 'Pembayaran Diterima', '2025-02-15 19:36:03', '2025-02-15 19:36:03'),
-(86, 57, '2025-01-21', NULL, 582822, 0, 'Pembayaran Untuk Penerbitan dan Survie', NULL, 'Belum Dibayar', '2025-02-15 19:36:03', '2025-02-15 19:36:03'),
-(87, 58, '2025-01-27', '2025-02-08', 198640, 198640, 'Pembayaran Untuk Penerbitan dan Survie', 'bukti_pembayaran/FRrjaE82Mc1oPcX28iNcXlsj8nKRTB7BVEE4GTZI.png', 'Dibayar', '2025-02-15 19:36:03', '2025-02-15 19:36:03'),
-(88, 38, '2025-02-12', '2025-02-06', 399623, 399623, 'Pembayaran Untuk Penerbitan dan Survie', 'bukti_pembayaran/FRrjaE82Mc1oPcX28iNcXlsj8nKRTB7BVEE4GTZI.png', 'Dibayar', '2025-02-15 19:36:03', '2025-02-15 19:36:03'),
-(89, 41, '2025-01-27', NULL, 759869, 0, 'Pembayaran Untuk Penerbitan dan Survie', NULL, 'Pembayaran Ditolak', '2025-02-15 19:36:03', '2025-02-15 19:36:03'),
-(90, 49, '2025-01-24', '2025-01-17', 456883, 456883, 'Pembayaran Untuk Penerbitan dan Survie', 'bukti_pembayaran/FRrjaE82Mc1oPcX28iNcXlsj8nKRTB7BVEE4GTZI.png', 'Pembayaran Diterima', '2025-02-15 19:36:03', '2025-02-15 19:36:03'),
-(91, 56, '2025-02-13', NULL, 137436, 0, 'Pembayaran Untuk Penerbitan dan Survie', NULL, 'Belum Dibayar', '2025-02-15 19:36:03', '2025-02-15 19:36:03'),
-(92, 16, '2025-01-28', NULL, 689158, 0, 'Pembayaran Untuk Penerbitan dan Survie', NULL, 'Pembayaran Ditolak', '2025-02-15 19:36:03', '2025-02-15 19:36:03'),
-(93, 61, '2025-01-20', NULL, 162178, 0, 'Pembayaran Untuk Penerbitan dan Survie', NULL, 'Belum Dibayar', '2025-02-15 19:36:03', '2025-02-15 19:36:03'),
-(94, 48, '2025-01-17', NULL, 543201, 0, 'Pembayaran Untuk Penerbitan dan Survie', NULL, 'Belum Dibayar', '2025-02-15 19:36:03', '2025-02-15 19:36:03'),
-(95, 50, '2025-01-17', '2025-02-13', 719383, 719383, 'Pembayaran Untuk Penerbitan dan Survie', 'bukti_pembayaran/FRrjaE82Mc1oPcX28iNcXlsj8nKRTB7BVEE4GTZI.png', 'Dibayar', '2025-02-15 19:36:03', '2025-02-15 19:36:03'),
-(96, 46, '2025-01-21', NULL, 932290, 0, 'Pembayaran Untuk Penerbitan dan Survie', NULL, 'Belum Dibayar', '2025-02-15 19:36:03', '2025-02-15 19:36:03'),
-(97, 31, '2025-02-09', '2025-01-21', 690712, 690712, 'Pembayaran Untuk Penerbitan dan Survie', 'bukti_pembayaran/FRrjaE82Mc1oPcX28iNcXlsj8nKRTB7BVEE4GTZI.png', 'Pembayaran Diterima', '2025-02-15 19:36:03', '2025-02-15 19:36:03'),
-(98, 28, '2025-01-17', NULL, 404003, 0, 'Pembayaran Untuk Penerbitan dan Survie', NULL, 'Pembayaran Ditolak', '2025-02-15 19:36:03', '2025-02-15 19:36:03'),
-(99, 21, '2025-01-29', '2025-02-05', 406523, 406523, 'Pembayaran Untuk Penerbitan dan Survie', 'bukti_pembayaran/FRrjaE82Mc1oPcX28iNcXlsj8nKRTB7BVEE4GTZI.png', 'Dibayar', '2025-02-15 19:36:03', '2025-02-15 19:36:03'),
-(100, 13, '2025-02-11', NULL, 399035, 0, 'Pembayaran Untuk Penerbitan dan Survie', NULL, 'Belum Dibayar', '2025-02-15 19:36:03', '2025-02-15 19:36:03'),
-(101, 42, '2025-02-13', '2025-02-07', 932891, 932891, 'Pembayaran Untuk Penerbitan dan Survie', 'bukti_pembayaran/FRrjaE82Mc1oPcX28iNcXlsj8nKRTB7BVEE4GTZI.png', 'Dibayar', '2025-02-15 19:36:03', '2025-02-15 19:36:03'),
-(102, 62, '2025-02-18', '2025-02-18', 100000, 100000, 'Estimasi Perkiraan Retribusi', 'bukti_pembayaran/HLbjgk9nbY52FStdjfXg7n2y08IT3QhXXdDq0JnQ.png', 'Pembayaran Diterima', '2025-02-17 23:12:19', '2025-02-17 23:23:58');
+INSERT INTO `retribusi` (`id`, `permohonan_id`, `jenis`, `tanggal_tagihan`, `tanggal_bayar`, `jumlah_tagihan`, `jumlah_bayar`, `keterangan`, `bukti_pembayaran`, `status_pembayaran`, `tarif_id`, `created_at`, `updated_at`) VALUES
+(1, 2, 'Reklame', '2025-07-13', '2025-07-13', 75000, 75000, 'Estimasi Perkiraan Retribusi', 'bukti_pembayaran/7ErrczkzA2kuNBsKUYDVgkbvncRfmQQXO0uSWv5M.png', 'Pembayaran Diterima', NULL, '2025-07-12 16:31:47', '2025-07-12 17:35:42');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `sessions`
+-- Struktur dari tabel `sessions`
 --
 
 CREATE TABLE `sessions` (
-  `id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `id` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `user_id` bigint UNSIGNED DEFAULT NULL,
-  `ip_address` varchar(45) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `user_agent` text COLLATE utf8mb4_unicode_ci,
-  `payload` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `ip_address` varchar(45) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `user_agent` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
+  `payload` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `last_activity` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `survie`
+-- Struktur dari tabel `survie`
 --
 
 CREATE TABLE `survie` (
   `id` bigint UNSIGNED NOT NULL,
-  `permohonanimb_id` bigint UNSIGNED NOT NULL,
-  `petugas_id` bigint DEFAULT NULL,
+  `permohonan_id` bigint UNSIGNED NOT NULL,
+  `jenis` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'PBG',
+  `petugas_id` bigint UNSIGNED DEFAULT NULL,
   `tanggal_berangkat` date NOT NULL,
   `kecamatan_id` bigint NOT NULL,
-  `kelurahan_id` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `alamat` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `kelurahan_id` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `alamat` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `latitude` double DEFAULT NULL,
   `longitude` double DEFAULT NULL,
   `fungsi_bangunan` int DEFAULT NULL,
-  `jenis_bangunan` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `keterangan` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `jenis_bangunan` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `keterangan` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `is_mangkrak` tinyint(1) DEFAULT '0',
   `is_kosong` tinyint(1) DEFAULT '0',
   `is_miring` tinyint(1) DEFAULT '0',
-  `foto_survie` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `foto_survie` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `survie`
+-- Dumping data untuk tabel `survie`
 --
 
-INSERT INTO `survie` (`id`, `permohonanimb_id`, `petugas_id`, `tanggal_berangkat`, `kecamatan_id`, `kelurahan_id`, `alamat`, `latitude`, `longitude`, `fungsi_bangunan`, `jenis_bangunan`, `keterangan`, `is_mangkrak`, `is_kosong`, `is_miring`, `foto_survie`, `created_at`, `updated_at`) VALUES
-(1, 1, 7, '2025-02-16', 6371010, '6371010001', 'jl', NULL, NULL, 1, '3', NULL, NULL, 1, 1, 'survie/1.jpg', '2025-02-15 05:34:32', '2025-02-15 06:05:48'),
-(2, 52, 105, '2025-02-16', 6371020, '6371020014', 'Psr. Aceh No. 379', -45.952448, 27.40544, 3, '3', NULL, 1, 0, 0, 'survie/1.jpg', '2025-02-15 19:54:16', '2025-02-15 19:54:16'),
-(3, 19, 93, '2025-02-16', 6371010, '6371010013', 'Jr. Sudiarto No. 540', -68.985771, 157.072528, 2, '1', NULL, 0, 1, 0, 'survie/1.jpg', '2025-02-15 19:54:16', '2025-02-15 19:54:16'),
-(4, 31, 84, '2025-02-16', 6371020, '6371020002', 'Ds. Bank Dagang Negara No. 761', 33.663028, -61.743758, 3, '2', NULL, 0, 0, 1, 'survie/1.jpg', '2025-02-15 19:54:16', '2025-02-15 19:54:16'),
-(5, 12, 100, '2025-02-16', 6371020, '6371020002', 'Jln. Tambak No. 144', 65.213027, -59.484462, 4, '3', NULL, 0, 1, 1, 'survie/1.jpg', '2025-02-15 19:54:16', '2025-02-15 19:54:16'),
-(6, 34, 79, '2025-02-16', 6371040, '6371040006', 'Jln. Jamika No. 223', 45.564744, -46.48867, 5, '1', NULL, 0, 0, 1, 'survie/1.jpg', '2025-02-15 19:54:16', '2025-02-15 19:54:16'),
-(7, 22, 70, '2025-02-16', 6371031, '6371031003', 'Jln. Pattimura No. 346', -72.930739, 60.227094, 5, '2', NULL, 1, 1, 1, 'survie/1.jpg', '2025-02-15 19:54:16', '2025-02-15 19:54:16'),
-(8, 10, 90, '2025-02-16', 6371030, '6371030002', 'Kpg. Bank Dagang Negara No. 544', 12.865719, 97.443456, 1, '3', NULL, 0, 0, 0, 'survie/1.jpg', '2025-02-15 19:54:16', '2025-02-15 19:54:16'),
-(9, 49, 90, '2025-02-16', 6371010, '6371010003', 'Jr. Sam Ratulangi No. 334', 68.726724, -156.337643, 5, '1', NULL, 1, 1, 1, 'survie/1.jpg', '2025-02-15 19:54:16', '2025-02-15 19:54:16'),
-(10, 29, 63, '2025-02-16', 6371010, '6371010006', 'Ki. Umalas No. 948', -49.110502, 143.792987, 4, '1', NULL, 0, 1, 1, 'survie/1.jpg', '2025-02-15 19:54:16', '2025-02-15 19:54:16'),
-(11, 8, 60, '2025-02-16', 6371030, '6371030008', 'Kpg. Rajawali No. 14', -16.977279, -72.778953, 4, '3', NULL, 1, 0, 1, 'survie/1.jpg', '2025-02-15 19:54:16', '2025-02-15 19:54:16'),
-(12, 26, 76, '2025-02-16', 6371040, '6371040005', 'Kpg. Baranangsiang No. 133', -88.551882, -55.093929, 5, '3', NULL, 0, 1, 0, 'survie/1.jpg', '2025-02-15 19:54:16', '2025-02-15 19:54:16'),
-(13, 59, 96, '2025-02-16', 6371040, '6371040007', 'Dk. Gardujati No. 353', -76.56956, 58.821724, 1, '2', NULL, 0, 0, 1, 'survie/1.jpg', '2025-02-15 19:54:16', '2025-02-15 19:54:16'),
-(14, 20, 101, '2025-02-16', 6371020, '6371020001', 'Jln. Labu No. 134', -27.98376, 33.615146, 5, '3', NULL, 0, 0, 1, 'survie/1.jpg', '2025-02-15 19:54:16', '2025-02-15 19:54:16'),
-(15, 1, 87, '2025-02-16', 6371010, '6371010001', 'jl', NULL, NULL, 1, '3', NULL, 0, 0, 1, 'survie/1.jpg', '2025-02-15 19:54:16', '2025-02-15 19:54:16'),
-(16, 5, 95, '2025-02-16', 6371040, '6371040007', 'Dk. Gardujati No. 353', 75.888758, -87.404947, 5, '1', NULL, 0, 1, 1, 'survie/1.jpg', '2025-02-15 19:54:16', '2025-02-15 19:54:16');
+INSERT INTO `survie` (`id`, `permohonan_id`, `jenis`, `petugas_id`, `tanggal_berangkat`, `kecamatan_id`, `kelurahan_id`, `alamat`, `latitude`, `longitude`, `fungsi_bangunan`, `jenis_bangunan`, `keterangan`, `is_mangkrak`, `is_kosong`, `is_miring`, `foto_survie`, `created_at`, `updated_at`) VALUES
+(1, 1, 'PBG', 7, '2025-02-16', 6371010, '6371010001', 'jl', NULL, NULL, 1, '3', NULL, NULL, 1, 1, 'survie/1.jpg', '2025-02-15 05:34:32', '2025-02-15 06:05:48'),
+(2, 52, 'PBG', 105, '2025-02-16', 6371020, '6371020014', 'Psr. Aceh No. 379', -45.952448, 27.40544, 3, '3', NULL, 1, 0, 0, 'survie/1.jpg', '2025-02-15 19:54:16', '2025-02-15 19:54:16'),
+(3, 19, 'PBG', 93, '2025-02-16', 6371010, '6371010013', 'Jr. Sudiarto No. 540', -68.985771, 157.072528, 2, '1', NULL, 0, 1, 0, 'survie/1.jpg', '2025-02-15 19:54:16', '2025-02-15 19:54:16'),
+(4, 31, 'PBG', 84, '2025-02-16', 6371020, '6371020002', 'Ds. Bank Dagang Negara No. 761', 33.663028, -61.743758, 3, '2', NULL, 0, 0, 1, 'survie/1.jpg', '2025-02-15 19:54:16', '2025-02-15 19:54:16'),
+(5, 12, 'PBG', 100, '2025-02-16', 6371020, '6371020002', 'Jln. Tambak No. 144', 65.213027, -59.484462, 4, '3', NULL, 0, 1, 1, 'survie/1.jpg', '2025-02-15 19:54:16', '2025-02-15 19:54:16'),
+(6, 34, 'PBG', 79, '2025-02-16', 6371040, '6371040006', 'Jln. Jamika No. 223', 45.564744, -46.48867, 5, '1', NULL, 0, 0, 1, 'survie/1.jpg', '2025-02-15 19:54:16', '2025-02-15 19:54:16'),
+(7, 22, 'PBG', 70, '2025-02-16', 6371031, '6371031003', 'Jln. Pattimura No. 346', -72.930739, 60.227094, 5, '2', NULL, 1, 1, 1, 'survie/1.jpg', '2025-02-15 19:54:16', '2025-02-15 19:54:16'),
+(8, 10, 'PBG', 90, '2025-02-16', 6371030, '6371030002', 'Kpg. Bank Dagang Negara No. 544', 12.865719, 97.443456, 1, '3', NULL, 0, 0, 0, 'survie/1.jpg', '2025-02-15 19:54:16', '2025-02-15 19:54:16'),
+(9, 49, 'PBG', 90, '2025-02-16', 6371010, '6371010003', 'Jr. Sam Ratulangi No. 334', 68.726724, -156.337643, 5, '1', NULL, 1, 1, 1, 'survie/1.jpg', '2025-02-15 19:54:16', '2025-02-15 19:54:16'),
+(10, 29, 'PBG', 63, '2025-02-16', 6371010, '6371010006', 'Ki. Umalas No. 948', -49.110502, 143.792987, 4, '1', NULL, 0, 1, 1, 'survie/1.jpg', '2025-02-15 19:54:16', '2025-02-15 19:54:16'),
+(11, 8, 'PBG', 60, '2025-02-16', 6371030, '6371030008', 'Kpg. Rajawali No. 14', -16.977279, -72.778953, 4, '3', NULL, 1, 0, 1, 'survie/1.jpg', '2025-02-15 19:54:16', '2025-02-15 19:54:16'),
+(12, 26, 'PBG', 76, '2025-02-16', 6371040, '6371040005', 'Kpg. Baranangsiang No. 133', -88.551882, -55.093929, 5, '3', NULL, 0, 1, 0, 'survie/1.jpg', '2025-02-15 19:54:16', '2025-02-15 19:54:16'),
+(13, 59, 'PBG', 96, '2025-02-16', 6371040, '6371040007', 'Dk. Gardujati No. 353', -76.56956, 58.821724, 1, '2', NULL, 0, 0, 1, 'survie/1.jpg', '2025-02-15 19:54:16', '2025-02-15 19:54:16'),
+(14, 20, 'PBG', 101, '2025-02-16', 6371020, '6371020001', 'Jln. Labu No. 134', -27.98376, 33.615146, 5, '3', NULL, 0, 0, 1, 'survie/1.jpg', '2025-02-15 19:54:16', '2025-02-15 19:54:16'),
+(15, 1, 'PBG', 87, '2025-02-16', 6371010, '6371010001', 'jl', NULL, NULL, 1, '3', NULL, 0, 0, 1, 'survie/1.jpg', '2025-02-15 19:54:16', '2025-02-15 19:54:16'),
+(16, 5, 'PBG', 95, '2025-02-16', 6371040, '6371040007', 'Dk. Gardujati No. 353', 75.888758, -87.404947, 5, '1', NULL, 0, 1, 1, 'survie/1.jpg', '2025-02-15 19:54:16', '2025-02-15 19:54:16'),
+(17, 2, 'Reklame', 112, '2025-07-13', 6371010, '6371010001', 'jln ... ', -3.3226352550093, 114.59281444564, NULL, 'Baliho', '-', NULL, 1, NULL, 'survie/17.jpg', '2025-07-12 18:20:20', '2025-07-12 18:29:16');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tarif`
+-- Struktur dari tabel `tarif`
 --
 
 CREATE TABLE `tarif` (
   `id` bigint UNSIGNED NOT NULL,
-  `jenis_permohonan` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `kepemilikan` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `fungsi_bangunan_id` bigint UNSIGNED NOT NULL,
-  `durasi_pemanfaatan` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `jenis_permohonan` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `kepemilikan` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `fungsi_bangunan_id` bigint UNSIGNED DEFAULT NULL,
+  `durasi_pemanfaatan` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `min_luas_bangunan` int NOT NULL,
   `max_luas_bangunan` int NOT NULL,
-  `min_jumlah_lantai` int NOT NULL,
-  `max_jumlah_lantai` int NOT NULL,
+  `min_jumlah_lantai` int DEFAULT NULL,
+  `max_jumlah_lantai` int DEFAULT NULL,
   `tarif` int NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `tarif`
+-- Dumping data untuk tabel `tarif`
 --
 
 INSERT INTO `tarif` (`id`, `jenis_permohonan`, `kepemilikan`, `fungsi_bangunan_id`, `durasi_pemanfaatan`, `min_luas_bangunan`, `max_luas_bangunan`, `min_jumlah_lantai`, `max_jumlah_lantai`, `tarif`, `created_at`, `updated_at`) VALUES
@@ -8209,32 +8212,37 @@ INSERT INTO `tarif` (`id`, `jenis_permohonan`, `kepemilikan`, `fungsi_bangunan_i
 (14, 'PBG', 'Badan Hukum', 1, '> 5 Tahun', 100, 500, 1, 4, 100000, '2025-02-17 22:24:18', '2025-02-17 22:24:18'),
 (15, 'PBG', 'Badan Hukum', 2, '> 5 Tahun', 100, 500, 1, 4, 100000, '2025-02-17 22:24:18', '2025-02-17 22:24:18'),
 (16, 'PBG', 'Badan Hukum', 3, '> 5 Tahun', 100, 500, 1, 4, 100000, '2025-02-17 22:24:18', '2025-02-17 22:24:18'),
-(17, 'PBG', 'Badan Hukum', 4, '> 5 Tahun', 100, 500, 1, 4, 100000, '2025-02-17 22:24:18', '2025-02-17 22:24:18');
+(17, 'PBG', 'Badan Hukum', 4, '> 5 Tahun', 100, 500, 1, 4, 100000, '2025-02-17 22:24:18', '2025-02-17 22:24:18'),
+(18, 'Reklame', 'Baliho', NULL, '1', 1, 12, NULL, NULL, 75000, '2025-07-12 16:19:22', '2025-07-12 16:19:22'),
+(19, 'Reklame', 'Papan/Billboard', NULL, '1', 1, 12, NULL, NULL, 100000, '2025-07-12 16:19:59', '2025-07-12 16:19:59'),
+(20, 'Reklame', 'Papan/Billboard', NULL, '1', 20, 48, NULL, NULL, 4000000, '2025-07-12 16:21:43', '2025-07-12 16:21:43'),
+(21, 'Reklame', 'Poster', NULL, '1', 1, 12, NULL, NULL, 10000, '2025-07-12 16:22:09', '2025-07-12 16:22:09'),
+(22, 'Reklame', 'Videotron/Megatron', NULL, '1', 10, 50, NULL, NULL, 1500000, '2025-07-12 16:23:24', '2025-07-12 16:23:24');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- Struktur dari tabel `users`
 --
 
 CREATE TABLE `users` (
   `id` bigint UNSIGNED NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `email_verified_at` timestamp NULL DEFAULT NULL,
-  `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `password` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `role` int NOT NULL DEFAULT '3',
-  `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `remember_token` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `users`
+-- Dumping data untuk tabel `users`
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `role`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Super Admin', 'super@gmail.com', '2025-02-14 17:37:32', '$2y$12$HbW7f0cTdnoeSVEAqXoLQuTdTNSBrBdvRtGPyplDSVQgs9rn4xl/O', 1, 'bt3k92B7EgerwaDktlEpQHWiTk4ozTMseaxnMNTaOWLma8OtcqE7ktfp9rjz', '2025-02-14 17:37:32', '2025-02-14 17:37:32'),
+(1, 'Super Admin', 'super@gmail.com', '2025-02-14 17:37:32', '$2y$12$HbW7f0cTdnoeSVEAqXoLQuTdTNSBrBdvRtGPyplDSVQgs9rn4xl/O', 1, 'cZCtMKPuSFBmX61xbMGFtNFWhWQp423uiDLjmx3s60WnH1bZiJc8F3cipdqG', '2025-02-14 17:37:32', '2025-02-14 17:37:32'),
 (6, 'rifky ', 'rifky@gmail.com', NULL, '$2y$12$ffy5weEFJ4Yx6Cl6vGVRIOyX2kmPB5eFfJUMKz/SHJ6hFwnQ7AptG', 3, NULL, '2025-02-14 18:04:02', '2025-02-14 18:04:02'),
 (7, 'Andi', 'andi@gmail.com', NULL, '$2y$12$U56gyLH/IGgvVBHypjT7G.3d/xFMccxxSnC3v7vjQe.L/n.6vJ2qW', 4, NULL, '2025-02-15 05:31:49', '2025-02-15 05:31:49'),
 (59, 'Usyi Rina Pertiwi', 'buyainah@susanti.asia', NULL, '$2y$12$1oZZK0REseEwimQ.p2m/zu7VIru4hk1HAUnqVAtuyRE93Kf.Co1I6', 3, NULL, '2025-02-15 15:03:35', '2025-02-15 15:03:35'),
@@ -8296,7 +8304,7 @@ INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `ro
 -- --------------------------------------------------------
 
 --
--- Table structure for table `villages`
+-- Struktur dari tabel `villages`
 --
 
 CREATE TABLE `villages` (
@@ -8306,7 +8314,7 @@ CREATE TABLE `villages` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
 
 --
--- Dumping data for table `villages`
+-- Dumping data untuk tabel `villages`
 --
 
 INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
@@ -83374,73 +83382,82 @@ INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
 --
 
 --
--- Indexes for table `citys`
+-- Indeks untuk tabel `citys`
 --
 ALTER TABLE `citys`
   ADD PRIMARY KEY (`id`),
   ADD KEY `citys_province_id_index` (`state_id`);
 
 --
--- Indexes for table `districts`
+-- Indeks untuk tabel `districts`
 --
 ALTER TABLE `districts`
   ADD PRIMARY KEY (`id`),
   ADD KEY `districts_city_id_index` (`city_id`);
 
 --
--- Indexes for table `failed_jobs`
+-- Indeks untuk tabel `failed_jobs`
 --
 ALTER TABLE `failed_jobs`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `failed_jobs_uuid_unique` (`uuid`);
 
 --
--- Indexes for table `fungsi_bangunan`
+-- Indeks untuk tabel `fungsi_bangunan`
 --
 ALTER TABLE `fungsi_bangunan`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `jenis_bangunan`
+-- Indeks untuk tabel `jenis_bangunan`
 --
 ALTER TABLE `jenis_bangunan`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `migrations`
+-- Indeks untuk tabel `migrations`
 --
 ALTER TABLE `migrations`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `password_reset_tokens`
+-- Indeks untuk tabel `password_reset_tokens`
 --
 ALTER TABLE `password_reset_tokens`
   ADD PRIMARY KEY (`email`);
 
 --
--- Indexes for table `pemohon`
+-- Indeks untuk tabel `pemohon`
 --
 ALTER TABLE `pemohon`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `user_id` (`user_id`);
+
+--
+-- Indeks untuk tabel `penanda_tangan`
+--
+ALTER TABLE `penanda_tangan`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `penerbitan_imb`
+-- Indeks untuk tabel `penerbitan`
 --
-ALTER TABLE `penerbitan_imb`
+ALTER TABLE `penerbitan`
   ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `penerbitan_imb_nomor_imb_unique` (`nomor_imb`),
-  ADD KEY `penerbitan_imb_permohonanimb_id_foreign` (`permohonanimb_id`);
+  ADD UNIQUE KEY `penerbitan_imb_nomor_imb_unique` (`nomor`),
+  ADD KEY `penerbitan_imb_permohonanimb_id_foreign` (`permohonan_id`);
 
 --
--- Indexes for table `permohonanimb`
+-- Indeks untuk tabel `permohonan`
 --
-ALTER TABLE `permohonanimb`
+ALTER TABLE `permohonan`
   ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `permohonanimb_nomor_unique` (`nomor`);
+  ADD UNIQUE KEY `permohonanimb_nomor_unique` (`nomor`),
+  ADD KEY `fungsi_bangunan_id` (`fungsi_bangunan_id`),
+  ADD KEY `jenis_bangunan_id` (`jenis_bangunan_id`);
 
 --
--- Indexes for table `personal_access_tokens`
+-- Indeks untuk tabel `personal_access_tokens`
 --
 ALTER TABLE `personal_access_tokens`
   ADD PRIMARY KEY (`id`),
@@ -83448,14 +83465,22 @@ ALTER TABLE `personal_access_tokens`
   ADD KEY `personal_access_tokens_tokenable_type_tokenable_id_index` (`tokenable_type`,`tokenable_id`);
 
 --
--- Indexes for table `retribusi`
+-- Indeks untuk tabel `reklame`
+--
+ALTER TABLE `reklame`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `pemohon_id` (`pemohon_id`);
+
+--
+-- Indeks untuk tabel `retribusi`
 --
 ALTER TABLE `retribusi`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `retribusi_permohonanimb_id_foreign` (`permohonanimb_id`);
+  ADD KEY `retribusi_permohonanimb_id_foreign` (`permohonan_id`),
+  ADD KEY `tarif_id` (`tarif_id`);
 
 --
--- Indexes for table `sessions`
+-- Indeks untuk tabel `sessions`
 --
 ALTER TABLE `sessions`
   ADD PRIMARY KEY (`id`),
@@ -83463,133 +83488,167 @@ ALTER TABLE `sessions`
   ADD KEY `sessions_last_activity_index` (`last_activity`);
 
 --
--- Indexes for table `survie`
+-- Indeks untuk tabel `survie`
 --
 ALTER TABLE `survie`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `survie_permohonanimb_id_foreign` (`permohonanimb_id`);
+  ADD KEY `survie_permohonanimb_id_foreign` (`permohonan_id`),
+  ADD KEY `petugas_id` (`petugas_id`);
 
 --
--- Indexes for table `tarif`
+-- Indeks untuk tabel `tarif`
 --
 ALTER TABLE `tarif`
   ADD PRIMARY KEY (`id`),
   ADD KEY `tarif_fungsi_bangunan_id_foreign` (`fungsi_bangunan_id`);
 
 --
--- Indexes for table `users`
+-- Indeks untuk tabel `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `users_email_unique` (`email`);
 
 --
--- Indexes for table `villages`
+-- Indeks untuk tabel `villages`
 --
 ALTER TABLE `villages`
   ADD PRIMARY KEY (`id`),
   ADD KEY `villages_district_id_index` (`district_id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `failed_jobs`
+-- AUTO_INCREMENT untuk tabel `failed_jobs`
 --
 ALTER TABLE `failed_jobs`
   MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `fungsi_bangunan`
+-- AUTO_INCREMENT untuk tabel `fungsi_bangunan`
 --
 ALTER TABLE `fungsi_bangunan`
   MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT for table `jenis_bangunan`
+-- AUTO_INCREMENT untuk tabel `jenis_bangunan`
 --
 ALTER TABLE `jenis_bangunan`
   MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `migrations`
+-- AUTO_INCREMENT untuk tabel `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
--- AUTO_INCREMENT for table `pemohon`
+-- AUTO_INCREMENT untuk tabel `pemohon`
 --
 ALTER TABLE `pemohon`
   MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=102;
 
 --
--- AUTO_INCREMENT for table `penerbitan_imb`
+-- AUTO_INCREMENT untuk tabel `penanda_tangan`
 --
-ALTER TABLE `penerbitan_imb`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+ALTER TABLE `penanda_tangan`
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `permohonanimb`
+-- AUTO_INCREMENT untuk tabel `penerbitan`
 --
-ALTER TABLE `permohonanimb`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=63;
+ALTER TABLE `penerbitan`
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
--- AUTO_INCREMENT for table `personal_access_tokens`
+-- AUTO_INCREMENT untuk tabel `permohonan`
+--
+ALTER TABLE `permohonan`
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=62;
+
+--
+-- AUTO_INCREMENT untuk tabel `personal_access_tokens`
 --
 ALTER TABLE `personal_access_tokens`
   MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `retribusi`
+-- AUTO_INCREMENT untuk tabel `reklame`
+--
+ALTER TABLE `reklame`
+  MODIFY `id` bigint NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT untuk tabel `retribusi`
 --
 ALTER TABLE `retribusi`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=103;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `survie`
+-- AUTO_INCREMENT untuk tabel `survie`
 --
 ALTER TABLE `survie`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
-
---
--- AUTO_INCREMENT for table `tarif`
---
-ALTER TABLE `tarif`
   MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
--- AUTO_INCREMENT for table `users`
+-- AUTO_INCREMENT untuk tabel `tarif`
+--
+ALTER TABLE `tarif`
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+
+--
+-- AUTO_INCREMENT untuk tabel `users`
 --
 ALTER TABLE `users`
   MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=114;
 
 --
--- Constraints for dumped tables
+-- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
 --
 
 --
--- Constraints for table `penerbitan_imb`
+-- Ketidakleluasaan untuk tabel `pemohon`
 --
-ALTER TABLE `penerbitan_imb`
-  ADD CONSTRAINT `penerbitan_imb_permohonanimb_id_foreign` FOREIGN KEY (`permohonanimb_id`) REFERENCES `permohonanimb` (`id`) ON DELETE CASCADE;
+ALTER TABLE `pemohon`
+  ADD CONSTRAINT `pemohon_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
 
 --
--- Constraints for table `retribusi`
+-- Ketidakleluasaan untuk tabel `penerbitan`
+--
+ALTER TABLE `penerbitan`
+  ADD CONSTRAINT `penerbitan_imb_permohonanimb_id_foreign` FOREIGN KEY (`permohonan_id`) REFERENCES `permohonan` (`id`) ON DELETE CASCADE;
+
+--
+-- Ketidakleluasaan untuk tabel `permohonan`
+--
+ALTER TABLE `permohonan`
+  ADD CONSTRAINT `permohonan_ibfk_1` FOREIGN KEY (`fungsi_bangunan_id`) REFERENCES `fungsi_bangunan` (`id`),
+  ADD CONSTRAINT `permohonan_ibfk_2` FOREIGN KEY (`jenis_bangunan_id`) REFERENCES `jenis_bangunan` (`id`);
+
+--
+-- Ketidakleluasaan untuk tabel `reklame`
+--
+ALTER TABLE `reklame`
+  ADD CONSTRAINT `reklame_ibfk_1` FOREIGN KEY (`pemohon_id`) REFERENCES `pemohon` (`id`);
+
+--
+-- Ketidakleluasaan untuk tabel `retribusi`
 --
 ALTER TABLE `retribusi`
-  ADD CONSTRAINT `retribusi_permohonanimb_id_foreign` FOREIGN KEY (`permohonanimb_id`) REFERENCES `permohonanimb` (`id`);
+  ADD CONSTRAINT `retribusi_ibfk_1` FOREIGN KEY (`tarif_id`) REFERENCES `tarif` (`id`),
+  ADD CONSTRAINT `retribusi_permohonanimb_id_foreign` FOREIGN KEY (`permohonan_id`) REFERENCES `permohonan` (`id`);
 
 --
--- Constraints for table `survie`
+-- Ketidakleluasaan untuk tabel `survie`
 --
 ALTER TABLE `survie`
-  ADD CONSTRAINT `survie_permohonanimb_id_foreign` FOREIGN KEY (`permohonanimb_id`) REFERENCES `permohonanimb` (`id`);
+  ADD CONSTRAINT `survie_ibfk_1` FOREIGN KEY (`petugas_id`) REFERENCES `users` (`id`),
+  ADD CONSTRAINT `survie_permohonanimb_id_foreign` FOREIGN KEY (`permohonan_id`) REFERENCES `permohonan` (`id`);
 
 --
--- Constraints for table `tarif`
+-- Ketidakleluasaan untuk tabel `tarif`
 --
 ALTER TABLE `tarif`
   ADD CONSTRAINT `tarif_fungsi_bangunan_id_foreign` FOREIGN KEY (`fungsi_bangunan_id`) REFERENCES `fungsi_bangunan` (`id`) ON DELETE CASCADE;

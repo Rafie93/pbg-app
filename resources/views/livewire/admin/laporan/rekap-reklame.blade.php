@@ -1,20 +1,20 @@
 <div>
     <div class="container-fluid">
-        <h1 class="mt-4">Laporan Pengajuan PBG</h1>
+        <h1 class="mt-4">Rekapitulasi Reklame</h1>
         <ol class="breadcrumb
         mb-4">
             <li class="breadcrumb-item"><a href="{{route('dashboard')}}">Dashboard</a></li>
-            <li class="breadcrumb-item active">Laporan Pengajuan PBG</li>
+            <li class="breadcrumb-item active">Rekapitulasi Reklame</li>
         </ol>
         {{-- nuatkan input periode tanggal mulai dan akhir --}}
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        Filter Laporan
+                        Filter Rekapitulasi
                     </div>
                     <div class="card-body">
-                        <form action="{{route('laporan.pengajuan.pdf')}}" method="get"
+                        <form action="{{route('rekap.reklame.pdf')}}" method="get"
                             target="_blank">
                             <div class="row">
                                 <div class="col-md-3">
@@ -41,30 +41,33 @@
                                         @enderror
                                     </div>
                                 </div>
+
                                 <div class="col-md-3">
                                     <div class="form-group
                                     mb-3">
-                                        <label for="">Status</label>
-                                        <select name="status" id="" class="form-control">
-                                            <option value="">Semua Status</option>
-                                            <option value="Diajukan">Diajukan</option>
-                                            <option value="Diproses">Diproses</option>
+                                        <label for="">Kecamatan</label>
+                                        <select name="kecamatan" id="kecamatan" class="form-control">
+                                            <option value="">Semua Kecamatan</option>
+                                            @foreach ($option_kecamatan as $item)
+                                                <option value="{{$item->id}}">{{$item->name}}</option>
+                                            @endforeach
 
                                         </select>
-                                        @error('status')
+                                        @error('kecamatan')
                                         <div class="text-danger mt-2">
                                             {{ $message }}
                                         </div>
                                         @enderror
                                     </div>
                                 </div>
+                                
                                 {{-- tombol cetak --}}
                                 <div class="col-md-3">
                                     <br/>
                                     <div class="form-group
                                     mb-3">
                                         <label for=""></label>
-                                        <button type="submit" class="btn btn-primary btn-block">Cetak Laporan</button>
+                                        <button type="submit" class="btn btn-primary btn-block">Cetak Rekap</button>
                                     </div>
                                 </div>
                             </div>

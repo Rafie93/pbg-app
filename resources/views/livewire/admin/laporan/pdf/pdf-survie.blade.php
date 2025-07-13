@@ -75,8 +75,9 @@
                     <th>NAMA PETUGAS</th>
                     <th>ALAMAT BANGUNAN</th>
                     <th>TITIK KOORDINAT</th>
-                    <th>BANGUNAN</th>
+                    <th>BANGUNAN/REKLAME</th>
                     <th>PEMOHON </th>
+                    <th>KETERANGAN</th>
                     <th>FOTO SURVIE</th>
                 </tr>
 
@@ -94,11 +95,21 @@
                             @endif
                         </td>
 
-                        <td align="center">{{ $row->petugas->name }}</td>
-                        <td>{{ $row->permohonan->alamat.','.$row->permohonan->village() }}</td>
-                        <td align="center">{{ $row->lattitude }} , {{ $row->longitude }}</td>
-                        <td>{{ $row->permohonan->fungsibangunan->nama.','.$row->permohonan->jenisbangunan->nama }}</td>
-                        <td align="center">{{ $row->permohonan->pemohon->nama }}</td>    
+                        <td align="left">{{ $row->petugas->name }}</td>
+                        @if ($row->jenis=="Reklame")
+                            <td>{{ $row->permohonanreklame->alamat.','.$row->permohonanreklame->village() }}</td>
+                            <td align="center">{{ $row->latitude }} , {{ $row->longitude }}</td>
+                            <td>{{ $row->permohonanreklame->jenis_reklame.','.$row->permohonanreklame->ukuran }}m</td>
+                            <td align="left">{{ $row->permohonanreklame->pemohon->nama }}</td>    
+         
+                        @else 
+                            <td>{{ $row->permohonan->alamat.','.$row->permohonan->village() }}</td>
+                            <td align="center">{{ $row->latitude }} , {{ $row->longitude }}</td>
+                            <td>{{ $row->permohonan->fungsibangunan->nama.','.$row->permohonan->jenisbangunan->nama }}</td>
+                            <td align="left">{{ $row->permohonan->pemohon->nama }}</td>    
+
+                        @endif
+                        <td align="left">{{ $row->keterangan }}</td>    
 
                         <td align="center">
                             @if ($row->foto_survie)

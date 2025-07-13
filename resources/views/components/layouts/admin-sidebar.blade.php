@@ -40,22 +40,23 @@
                 <nav class="sb-sidenav-menu-nested nav">
                     <a class="nav-link {{request()->segment(2)== 'laporan-pengajuan' ? 'active' : ''}}" 
                         href="{{route('laporan.pengajuan')}}">Laporan Pengajuan PBG</a>
-                    <a class="nav-link {{request()->segment(2)== 'laporan-pengajuan' ? 'active' : ''}}" 
-                            href="{{route('laporan.pengajuan')}}">Laporan Pengajuan Reklame</a>
+                    <a class="nav-link {{request()->segment(2)== 'laporan-reklame' ? 'active' : ''}}" 
+                            href="{{route('laporan.reklame')}}">Laporan Pengajuan Reklame</a>
                     <a class="nav-link {{request()->segment(2)== 'laporan-retribusi' ? 'active' : ''}}" 
                         href="{{route('laporan.retribusi')}}">Laporan Retribusi</a>
                     <a class="nav-link {{request()->segment(2)== 'laporan-survie' ? 'active' : ''}}" 
                         href="{{route('laporan.survie')}}">Laporan Survie</a>
                     <a class="nav-link {{request()->segment(2)== 'laporan-penerbitan-imb' ? 'active' : ''}}" 
                         href="{{route('laporan.penerbitan')}}">Laporan Penerbitan</a>
-                    <a class="nav-link {{request()->segment(2)== 'rekap-survie' ? 'active' : ''}}" 
-                        href="{{route('rekap.survie')}}">Laporan Perizinan</a>
+                   
                     <a class="nav-link {{request()->segment(2)== 'rekap-survie' ? 'active' : ''}}" 
                             href="{{route('rekap.survie')}}">Rekapitulasi Survie Bangunan</a>
                     <a class="nav-link {{request()->segment(2)== 'rekap-pembayaran' ? 'active' : ''}}" 
                         href="{{route('rekap.pembayaran')}}">Rekapitulasi Pembayaran</a>
-                        <a class="nav-link {{request()->segment(2)== 'rekap-survie' ? 'active' : ''}}" 
-                            href="{{route('rekap.survie')}}">Rekapitulasi Perizinan Reklame</a>    
+                    <a class="nav-link {{request()->segment(2)== 'rekap-reklame' ? 'active' : ''}}" 
+                        href="{{route('rekap.reklame')}}">Rekapitulasi Perizinan Reklame</a>  
+                    <a class="nav-link {{request()->segment(2)== 'perizinan' ? 'active' : ''}}" 
+                        href="{{route('laporan.perizinan')}}">Laporan Perizinan</a>  
                 </nav>
             
             </div>
