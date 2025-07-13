@@ -22,6 +22,7 @@ class PetugasCreate extends Component
             ['id' => 2, 'name' => 'Admin'],
             ['id' => 3, 'name' => 'Pemohon'],
             ['id' => 4, 'name' => 'Petugas'],
+            ['id' => 5, 'name' => 'Pimpinan'],
         ];
         if($id) {
             $this->petugas_id = $id;

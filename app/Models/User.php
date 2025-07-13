@@ -59,6 +59,8 @@ class User extends Authenticatable
                 return 'Pemohon';
             case 4:
                 return 'Petugas';   
+            case 5:
+                    return 'Pimpinan';   
             default:
                 return '-';
         }

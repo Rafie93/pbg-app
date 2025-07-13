@@ -1,17 +1,17 @@
 <div>
     <div class="container-fluid px-4">
-        <h1 class="mt-4">Petugas</h1>
+        <h1 class="mt-4">Pengguna</h1>
         <ol class="breadcrumb mb-4">
-            <li class="breadcrumb-item active">Petugas</li>
+            <li class="breadcrumb-item active">Pengguna</li>
         </ol>
       
         <div class="card mb-4">
             <div class="card-header">
                 <i class="fas fa-table me-1"></i>
-                Data Petugas
+                Data Pengguna
             </div>
             <div class="card-body">
-                <a href="{{route('master.petugas.form')}}" class="btn btn-primary">+ Tambah Petugas</a>
+                <a href="{{route('master.petugas.form')}}" class="btn btn-primary">+ Tambah Pengguna</a>
                 <br/>
                 <table id="datatablesSimple">
                     <thead>

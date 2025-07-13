@@ -17,7 +17,7 @@ class PetugasRead extends Component
     public function render()
     {
         $petugas = User::latest()
-                    ->whereIn('role',[1,2,4])
+                    ->whereIn('role',[1,2,4,5])
                     ->get();
         return view('livewire.admin.master.petugas-read',compact('petugas'));
     }

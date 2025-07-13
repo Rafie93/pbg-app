@@ -1,10 +1,10 @@
 
 <div>
     <div class="container-fluid px-4">
-        <h1 class="mt-4">Petugas</h1>
+        <h1 class="mt-4">Pengguna</h1>
         <ol class="breadcrumb mb-4">
-            <li class="breadcrumb-item"><a href="{{route('master.petugas')}}">Petugas</a></li>
-            <li class="breadcrumb-item active">Tambah petugas</li>
+            <li class="breadcrumb-item"><a href="{{route('master.petugas')}}">Pengguna</a></li>
+            <li class="breadcrumb-item active">Tambah Pengguna</li>
         </ol>
       
         <div class="card mb-4">
