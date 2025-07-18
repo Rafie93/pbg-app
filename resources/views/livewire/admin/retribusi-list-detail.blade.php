@@ -35,9 +35,9 @@
                               </tr>
                               <tr>
                                   <td>Nama Pemohon</td>
-                                  <td>: {{$data->jenis == 'Reklame' ? $data->permohonanreklame->pemohon->nama : $data->permohonanreklame->pemohon->nama}}</td>
+                                  <td>: {{$data->jenis == 'Reklame' ? $data->permohonanreklame->pemohon->nama : $data->permohonan->pemohon->nama}}</td>
                                   <td>No HP</td>
-                                  <td>: {{$data->jenis == 'Reklame' ? $data->permohonanreklame->pemohon->no_hp : $data->permohonanreklame->pemohon->no_hp}}</td>
+                                  <td>: {{$data->jenis == 'Reklame' ? $data->permohonanreklame->pemohon->no_hp : $data->permohonan->pemohon->no_hp}}</td>
                               </tr>
                              
                           </thead>
