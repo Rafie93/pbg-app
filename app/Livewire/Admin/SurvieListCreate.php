@@ -101,10 +101,12 @@ class SurvieListCreate extends Component
             $this->alamat = $this->permohonans->alamat;
             $this->latitude = $this->permohonans->latitude;
             $this->longitude = $this->permohonans->longitude;
-            $this->fungsi_bangunan = $this->permohonans->fungsi_bangunan;
-            $this->jenis_bangunan = $this->permohonans->jenis_bangunan;
+            $this->fungsi_bangunan = $this->permohonans->fungsi_bangunan_id;
+            $this->jenis_bangunan = $this->permohonans->jenis_bangunan_id;
             $this->kecamatan_id = $this->permohonans->kecamatan_id;
             $this->kelurahan_id = $this->permohonans->kelurahan_id;
+            // dd($this->permohonans->jenis_bangunan);
+// 
         }else{
             $this->permohonans = Reklame::where('id',$this->permohonanimb_id)->first();
             $this->jenis_bangunan = $this->permohonans->jenis_reklame;
@@ -131,6 +133,7 @@ class SurvieListCreate extends Component
                 'foto_survie' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             ]);
         }
+        // dd($this->jenis_bangunan);
         $save = Survie::updateOrCreate([
             'id' => $this->survie_id
         ],[
