@@ -212,7 +212,7 @@
                                          @enderror
                                     </div>
                                 </div>
-                                <h5 class="pb-2">Gambar Lokasi Bangunan*</h5>
+                                <h5 class="pb-2">Gambar Lokasi*</h5>
                                 <div class="form-row">
                                     <div class="form-group
                                     col-md-12"> 

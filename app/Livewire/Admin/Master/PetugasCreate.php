@@ -18,7 +18,6 @@ class PetugasCreate extends Component
     public function mount($id=null)
     {
         $this->option_role = [
-            ['id' => 1, 'name' => 'Super Admin'],
             ['id' => 2, 'name' => 'Admin'],
             ['id' => 3, 'name' => 'Pemohon'],
             ['id' => 4, 'name' => 'Petugas'],

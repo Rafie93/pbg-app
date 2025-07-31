@@ -52,7 +52,7 @@ class User extends Authenticatable
     public function roles(){
         switch ($this->role) {
             case 1:
-                return 'Super Admin';
+                return 'Admin';
             case 2:
                 return 'Admin';
             case 3:
@@ -65,5 +65,4 @@ class User extends Authenticatable
                 return '-';
         }
     }
-   
 }

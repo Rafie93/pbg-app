@@ -34,6 +34,10 @@ class Permohonanimb extends Model
         "keterangan"
     ];
 
+    public function status_survei(){
+        $sur = Survie::where('permohonan_id',$this->id)->where('jenis','PBG')->whereNotNull('foto_survie');
+        return $sur ? 'Sudah Survei' : 'Belum Survei';
+    }
     public function fungsiBangunan(){
         return $this->belongsTo(FungsiBangunan::class, "fungsi_bangunan_id");
     }

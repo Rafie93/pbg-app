@@ -36,6 +36,7 @@
                                     <th>BANGUNAN</th>
                                     <th>LOKASI BANGUNAN</th>
                                     <th>STATUS PERMOHONAN</th>
+                                    <th>STATUS SURVEI</th>
                                     <th>AKSI</th>
                                 </tr>
                             </thead>
@@ -50,7 +51,7 @@
                                         <td>{{$row->fungsibangunan->nama.', '.$row->jenisbangunan->nama}}</td>
                                         <td>{{$row->alamat}}</td>
                                         <td>{{$row->status_permohonan}}</td>
-        
+                                        <td>{{$row->status_survei()}}</td>
                                         <td>
                                             <a href="{{route('admin.permohonan.detail',$row->id)}}" class="btn btn-primary">VIEW</a>
                                         </td>
@@ -85,6 +86,7 @@
                                     <th>DURASI</th>
                                     <th>LOKASI</th>
                                     <th>STATUS</th>
+                                    <th>STATUS SURVEI</th>
                                     <th>AKSI</th>
                                 </tr>
                             </thead>
@@ -102,7 +104,7 @@
                                         <td>{{$row->durasi_pemanfaatan}}</td>
                                         <td>{{$row->alamat}}</td>
                                         <td>{{$row->status_permohonan}}</td>
-        
+                                        <td>{{$row->status_survei()}}</td>
                                         <td>
                                             <a href="{{route('admin.permohonan.reklame.detail',$row->id)}}" class="btn btn-primary">VIEW</a>
                                         </td>

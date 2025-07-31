@@ -31,6 +31,13 @@ class Reklame extends Model
     public $timestamps = false;
 
 
+    public function status_survei(){
+        $sur = Survie::where('permohonan_id',$this->id)
+                ->where('jenis','Reklame')
+                ->whereNotNull('foto_survie')
+                ->first();
+        return $sur ? 'Sudah Survei' : 'Belum Survei';
+    }
     public function pemohon(){
         return $this->belongsTo(Pemohon::class);
     }

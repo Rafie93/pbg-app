@@ -67,7 +67,13 @@
                                 </td>
                                 <td>
                                     @if ($label=="Pemeriksaan")
-                                        <a href="{{route('survie.edit', $row->id)}}" class="btn btn-warning btn-sm">ISI SURVIE</a>
+                                        <a href="{{route('survie.edit', $row->id)}}" class="btn btn-warning btn-sm">
+                                            @if ($row->is_miring || $row->is_kosong || $row->is_mangkrak)
+                                                EDIT SURVEI
+                                            @else
+                                                ISI SURVEI
+                                            @endif
+                                        </a>
 
                                     @elseif($label=="Penugasan")
                                         <a href="{{route('survie.edit', $row->id)}}"
