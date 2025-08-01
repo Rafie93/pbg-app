@@ -41,7 +41,7 @@
                                         @enderror
                                     </div>
                                 </div>
-                                <div class="col-md-3">
+                                <div class="col-md-2">
                                     <div class="form-group
                                     mb-3">
                                         <label for="">Status</label>
@@ -58,8 +58,25 @@
                                         @enderror
                                     </div>
                                 </div>
+                                <div class="col-md-2">
+                                    <div class="form-group
+                                    mb-3">
+                                        <label for="">Status Survei</label>
+                                        <select name="survei" id="" class="form-control">
+                                            <option value="">Semua Status</option>
+                                            <option value="1">Sudah Survei</option>
+                                            <option value="2">Belum Survei</option>
+
+                                        </select>
+                                        @error('survei')
+                                        <div class="text-danger mt-2">
+                                            {{ $message }}
+                                        </div>
+                                        @enderror
+                                    </div>
+                                </div>
                                 {{-- tombol cetak --}}
-                                <div class="col-md-3">
+                                <div class="col-md-2">
                                     <br/>
                                     <div class="form-group
                                     mb-3">
